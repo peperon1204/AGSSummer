@@ -12,12 +12,6 @@ public class blockCtrl : MonoBehaviour
 
     private float timeElapsed;
 
-    private float mouse_move_x;
-
-    private float mouse_sensitivity;
-
-    private bool sensitivity_switch;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,34 +25,11 @@ public class blockCtrl : MonoBehaviour
 
         //ブロック操作が効く状態
         ctrlWaiver = false;
-
-        sensitivity_switch = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (sensitivity_switch)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                sensitivity_switch = false;
-            }
-
-            mouse_sensitivity = 0.2f;
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                sensitivity_switch = true;
-            }
-
-            mouse_sensitivity = 0.4f;
-        }
-
-        mouse_move_x = Input.GetAxis("Mouse X") * mouse_sensitivity;
-
         if (!ctrlWaiver)
         {
             timeElapsed += Time.deltaTime;
@@ -76,11 +47,18 @@ public class blockCtrl : MonoBehaviour
             }
 
             //左右移動
-            
-            transform.Translate(mouse_move_x, 0.0f, 0.0f);
-            
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                transform.Translate(0.16f, 0.0f, 0.0f);
+            }
+
+            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                transform.Translate(-0.16f, 0.0f, 0.0f);
+            }
+
             //子オブジェクト（中心軸）のRotationを回転させる
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                child.Rotate(0.0f, 0.0f, 90.0f);
             }
