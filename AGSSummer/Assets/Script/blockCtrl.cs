@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class blockCtrl : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2d;
-
     private Transform child;
 
     private bool ctrlWaiver;
@@ -15,11 +13,6 @@ public class blockCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-
-        //生成時に落下しない処理
-        rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
-
         //回転する中心軸を取得
         child = transform.Find("RotationCenter");
 
@@ -37,9 +30,6 @@ public class blockCtrl : MonoBehaviour
             //スペースまたは時間経過で落下開始
             if (Input.GetKeyDown(KeyCode.Space) || timeElapsed >= 5)
             {
-                //落下する
-                rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
-
                 //落下したら移動と回転ができなくなるよ
                 ctrlWaiver = true;
 
