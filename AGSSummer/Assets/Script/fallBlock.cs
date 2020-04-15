@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fallBlock : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2d;
+   /* private Rigidbody2D rigidbody2d;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +23,5 @@ public class fallBlock : MonoBehaviour
             //落下する
             rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
         }
-    }
+    }*/
 }
