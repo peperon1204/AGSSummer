@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5933773339616340146}
   - component: {fileID: 226922090494509130}
   - component: {fileID: 6287762288373201426}
-  - component: {fileID: 756812506948039775}
   m_Layer: 0
   m_Name: J-Block
   m_TagString: Untagged
@@ -65,18 +64,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f7ee22c5109d394f818b8c6ad1b8a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &756812506948039775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568667647148947665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9015839950419557211
@@ -175,6 +162,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 264263276525943891, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3497929188303926949, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
         type: 3}
       propertyPath: m_Color.g
@@ -260,6 +252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 264263276525943891, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3497929188303926949, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
         type: 3}
@@ -349,6 +346,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 264263276525943891, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3497929188303926949, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
         type: 3}
       propertyPath: m_Color.g
@@ -437,6 +439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 264263276525943891, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3497929188303926949, guid: 9973e99bc3dcc8c4ebd36aa72ca4d9ec,
         type: 3}
