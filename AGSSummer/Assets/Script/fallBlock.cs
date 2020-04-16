@@ -42,6 +42,7 @@ public class fallBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(hitCheck);
         //床と他のブロックらにぶつかってなかったら落下するよ
         if (!hitCheck)
         {
