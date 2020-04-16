@@ -7,14 +7,14 @@ public class fallBlock : MonoBehaviour
     private Rigidbody2D rigidbody2d;
 
     public blockCtrl BlockCtrl;
-    
+
     private bool speedFall;
 
-    private bool hitWithAnother;
+    private bool hitCheck;
     
-    private GameObject createObject;
+    GameObject createObject;
 
-    private createBlock createScript;
+    createBlock createScript;
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class fallBlock : MonoBehaviour
         speedFall = false;
 
         //衝突判定
-        hitWithAnother = false;
+        hitCheck = false;
 
         //ブロック生成
         createObject = GameObject.Find("CreateBlock");
@@ -38,8 +38,12 @@ public class fallBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float normalSpeed = createScript.normalSpeedFall;
+        float highSpeed = createScript.highSpeedFall;
+
+        Debug.Log(normalSpeed);
         //床と他のブロックらにぶつかってなかったら落下するよ
-        if (!hitWithAnother)
+        if (!hitCheck)
         {
             //落下するときは真っ直ぐ落ちます
             rigidbody2d.velocity = Vector2.zero;
@@ -47,7 +51,7 @@ public class fallBlock : MonoBehaviour
             if (!speedFall)
             {
                 //低速落下する
-                transform.Translate(0.0f, -0.01f, 0.0f);
+                transform.Translate(0.0f, -normalSpeed, 0.0f);
                 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -58,23 +62,25 @@ public class fallBlock : MonoBehaviour
             else
             {
                 //高速落下する
-                transform.Translate(0.0f, -0.16f, 0.0f);
+                transform.Translate(0.0f, -highSpeed, 0.0f);
             }
         }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (!hitWithAnother)
+        if (!hitCheck)
         {
-            if (other.gameObject.tag == "floor" || other.gameObject.tag == "Block")
+            if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
             {
                 //ぶつかったので落下をやめます
-                hitWithAnother = true;
+                hitCheck = true;
 
                 //新しくブロックをつくります
                 createScript.Create();
             }
+           
         }
+        Debug.Log("当たり");
     }
 }
