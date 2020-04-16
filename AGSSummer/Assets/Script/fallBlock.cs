@@ -10,8 +10,8 @@ public class fallBlock : MonoBehaviour
 
     private bool speedFall;
 
-    public float normalSpeed = 0.0f;
-    public float highSpeed = 0.0f;
+    public float normalSpeed;
+    public float highSpeed;
 
     private bool hitCheck;
     
@@ -52,7 +52,7 @@ public class fallBlock : MonoBehaviour
             if (!speedFall)
             {
                 //低速落下する
-                transform.Translate(0.0f, -0.04f, 0.0f);
+                transform.Translate(0.0f, -normalSpeed, 0.0f);
                 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -63,7 +63,7 @@ public class fallBlock : MonoBehaviour
             else
             {
                 //高速落下する
-                transform.Translate(0.0f, -0.32f, 0.0f);
+                transform.Translate(0.0f, -highSpeed, 0.0f);
             }
         }
     }
@@ -80,7 +80,6 @@ public class fallBlock : MonoBehaviour
                 //新しくブロックをつくります
                 createScript.Create();
             }
-           
         }
         Debug.Log("当たり");
     }

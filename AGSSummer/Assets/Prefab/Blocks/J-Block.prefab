@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockCtrl: {fileID: 6287762288373201426}
-  normalSpeed: 0.8
-  highSpeed: 0.32
+  normalSpeed: 0.04
+  highSpeed: 0.16
 --- !u!114 &1571045628204052376
 MonoBehaviour:
   m_ObjectHideFlags: 0
