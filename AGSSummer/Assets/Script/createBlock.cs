@@ -7,9 +7,6 @@ public class createBlock : MonoBehaviour
     public GameObject[] blockList;
     private int blockNumber;
 
-    public float normalSpeedFall = 0.0f;
-    public float highSpeedFall = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {

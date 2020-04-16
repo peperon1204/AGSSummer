@@ -10,11 +10,14 @@ public class fallBlock : MonoBehaviour
 
     private bool speedFall;
 
+    public float normalSpeed = 0.0f;
+    public float highSpeed = 0.0f;
+
     private bool hitCheck;
     
-    GameObject createObject;
+    private GameObject createObject;
 
-    createBlock createScript;
+    private createBlock createScript;
     
     // Start is called before the first frame update
     void Start()
@@ -33,15 +36,12 @@ public class fallBlock : MonoBehaviour
         //ブロック生成
         createObject = GameObject.Find("CreateBlock");
         createScript = createObject.GetComponent<createBlock>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float normalSpeed = createScript.normalSpeedFall;
-        float highSpeed = createScript.highSpeedFall;
-
-        Debug.Log(normalSpeed);
         //床と他のブロックらにぶつかってなかったら落下するよ
         if (!hitCheck)
         {
@@ -51,7 +51,7 @@ public class fallBlock : MonoBehaviour
             if (!speedFall)
             {
                 //低速落下する
-                transform.Translate(0.0f, -normalSpeed, 0.0f);
+                transform.Translate(0.0f, -0.04f, 0.0f);
                 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -62,7 +62,7 @@ public class fallBlock : MonoBehaviour
             else
             {
                 //高速落下する
-                transform.Translate(0.0f, -highSpeed, 0.0f);
+                transform.Translate(0.0f, -0.32f, 0.0f);
             }
         }
     }

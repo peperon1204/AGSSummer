@@ -51,7 +51,7 @@ public class blockCtrl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "floor" || other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
         {
             //スペース押さなくても床や他のブロックにぶつかったら移動と回転できなくなるよ
             ctrlWaiver = true;
