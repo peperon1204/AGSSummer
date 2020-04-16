@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1360857965482485217}
   m_Layer: 0
   m_Name: S-Block
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691488122163539331}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -54,7 +54,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &4580625863218553926
 MonoBehaviour:
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4f531939ca3fc48b0bc3a8f18cdd58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlockCtrl: {fileID: 4580625863218553926}
 --- !u!114 &1360857965482485217
 MonoBehaviour:
   m_ObjectHideFlags: 0

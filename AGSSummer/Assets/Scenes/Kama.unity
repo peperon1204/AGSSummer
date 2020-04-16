@@ -288,7 +288,6 @@ MonoBehaviour:
   - {fileID: 691488122163539331, guid: a8f14d2c624448047a4884354b2dc82f, type: 3}
   - {fileID: 497513280497027712, guid: 6a3f71ac99b86fd4cb766fcb62042d73, type: 3}
   - {fileID: 4235538565826786606, guid: c4f6d1aebdd29104ba5fdd98e13392ba, type: 3}
-  timeOut: 3
 --- !u!4 &1726915235
 Transform:
   m_ObjectHideFlags: 0

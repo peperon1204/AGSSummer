@@ -5,10 +5,8 @@ using UnityEngine;
 public class blockCtrl : MonoBehaviour
 {
     private Transform child;
-
+    
     private bool ctrlWaiver;
-
-    private float timeElapsed;
 
     // Start is called before the first frame update
     void Start()
@@ -25,15 +23,11 @@ public class blockCtrl : MonoBehaviour
     {
         if (!ctrlWaiver)
         {
-            timeElapsed += Time.deltaTime;
-
-            //スペースまたは時間経過で落下開始
-            if (Input.GetKeyDown(KeyCode.Space) || timeElapsed >= 5)
+            //スペースで高速落下開始
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                //落下したら移動と回転ができなくなるよ
+                //高速落下したら移動と回転ができなくなるよ
                 ctrlWaiver = true;
-
-                timeElapsed = 0;
             }
 
             //左右移動
@@ -52,6 +46,15 @@ public class blockCtrl : MonoBehaviour
             {
                child.Rotate(0.0f, 0.0f, 90.0f);
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "floor" || other.gameObject.tag == "Block")
+        {
+            //スペース押さなくても床や他のブロックにぶつかったら移動と回転できなくなるよ
+            ctrlWaiver = true;
         }
     }
 }
