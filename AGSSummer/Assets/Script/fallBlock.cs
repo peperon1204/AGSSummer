@@ -36,7 +36,6 @@ public class fallBlock : MonoBehaviour
         //ブロック生成
         createObject = GameObject.Find("CreateBlock");
         createScript = createObject.GetComponent<createBlock>();
-
     }
 
     // Update is called once per frame
@@ -54,7 +53,7 @@ public class fallBlock : MonoBehaviour
                 //低速落下する
                 transform.Translate(0.0f, -normalSpeed, 0.0f);
                 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     //落下速度を変えます
                     speedFall = true;
@@ -79,8 +78,14 @@ public class fallBlock : MonoBehaviour
 
                 //新しくブロックをつくります
                 createScript.Create();
+
+                Debug.Log("当たり");
             }
         }
-        Debug.Log("当たり");
+
+        if(other.gameObject.tag == "Bottom")
+        {
+            Destroy(gameObject);
+        }
     }
 }

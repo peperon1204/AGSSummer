@@ -24,7 +24,7 @@ public class blockCtrl : MonoBehaviour
         if (!ctrlWaiver)
         {
             //スペースで高速落下開始
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 //高速落下したら移動と回転ができなくなるよ
                 ctrlWaiver = true;
@@ -42,7 +42,7 @@ public class blockCtrl : MonoBehaviour
             }
 
             //子オブジェクト（中心軸）のRotationを回転させる
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                child.Rotate(0.0f, 0.0f, 90.0f);
             }
