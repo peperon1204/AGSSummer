@@ -71,7 +71,7 @@ public class fallBlock : MonoBehaviour
     {
         if (!hitCheck)
         {
-            if (other.gameObject.tag == "Block")
+            if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
             {
                 //ぶつかったので落下をやめます
                 hitCheck = true;
@@ -81,10 +81,7 @@ public class fallBlock : MonoBehaviour
 
                 Debug.Log("当たり");
 
-                if(other.gameObject.tag == "Floor")
-                {
-
-                }
+                rigidbody2d.bodyType = RigidbodyType2D.Static;
             }
         }
 
