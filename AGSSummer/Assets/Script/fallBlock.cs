@@ -65,6 +65,10 @@ public class fallBlock : MonoBehaviour
                 transform.Translate(0.0f, -highSpeed, 0.0f);
             }
         }
+
+        /*if(もう動いてないとき)
+         rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
+         */
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -73,6 +77,7 @@ public class fallBlock : MonoBehaviour
         {
             if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
             {
+
                 //ぶつかったので落下をやめます
                 hitCheck = true;
 

@@ -261,6 +261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreateBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 6730292934802543597, guid: a0713031f24ce2f47b058ebefb4c557a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0713031f24ce2f47b058ebefb4c557a, type: 3}
 --- !u!1001 &1424551380
