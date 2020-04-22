@@ -80,8 +80,6 @@ public class fallBlock : MonoBehaviour
                 createScript.Create();
 
                 Debug.Log("当たり");
-
-                rigidbody2d.bodyType = RigidbodyType2D.Static;
             }
         }
 
