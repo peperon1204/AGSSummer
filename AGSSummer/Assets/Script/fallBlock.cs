@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class fallBlock : MonoBehaviour
-{
-    private Rigidbody2D rigidbody2d;
+{ 
+    private Rigidbody2D rb2;
 
     public blockCtrl BlockCtrl;
 
@@ -23,9 +24,9 @@ public class fallBlock : MonoBehaviour
     void Start()
     {
         //Rigidbodyの初期設定
-        rigidbody2d = GetComponent<Rigidbody2D>();
+        rb2 = GetComponent<Rigidbody2D>();
 
-        rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
+        rb2.bodyType = RigidbodyType2D.Dynamic;
 
         //落下速度
         speedFall = false;
@@ -46,7 +47,7 @@ public class fallBlock : MonoBehaviour
         if (!hitCheck)
         {
             //落下するときは真っ直ぐ落ちます
-            rigidbody2d.velocity = Vector2.zero;
+            rb2.velocity = Vector2.zero;
 
             if (!speedFall)
             {
@@ -65,11 +66,15 @@ public class fallBlock : MonoBehaviour
                 transform.Translate(0.0f, -highSpeed, 0.0f);
             }
         }
-
-        /*if(もう動いてないとき)
-         rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
-         */
+        else
+        {
+            if (rb2.IsSleeping())
+            {
+                rb2.bodyType = RigidbodyType2D.Kinematic;
+            }
+        }
     }
+    
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -77,14 +82,11 @@ public class fallBlock : MonoBehaviour
         {
             if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
             {
-
                 //ぶつかったので落下をやめます
                 hitCheck = true;
 
                 //新しくブロックをつくります
                 createScript.Create();
-
-                Debug.Log("当たり");
             }
         }
 
