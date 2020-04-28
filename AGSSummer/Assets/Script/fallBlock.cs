@@ -89,6 +89,13 @@ public class fallBlock : MonoBehaviour
                 createScript.Create();
             }
         }
+        else
+        {
+            if (other.gameObject.tag == "Block")
+            {
+                rb2.bodyType = RigidbodyType2D.Dynamic;
+            }
+        }
 
         if(other.gameObject.tag == "Bottom")
         {
