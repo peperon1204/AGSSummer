@@ -91,7 +91,7 @@ public class fallBlock : MonoBehaviour
         }
         else
         {
-            if (other.gameObject.tag == "Block")
+            if(rb2.bodyType == RigidbodyType2D.Kinematic && other.gameObject.tag == "Block")
             {
                 rb2.bodyType = RigidbodyType2D.Dynamic;
             }
