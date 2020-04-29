@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class createBlock : MonoBehaviour
 {
@@ -9,24 +10,41 @@ public class createBlock : MonoBehaviour
 
     private float stayTime;
 
+    private bool start;
+
+    private float Timer;
+    private int seconds;
+    public Text timeText;
+    public Canvas canvas;
+
     // Start is called before the first frame update
     void Start()
     {
         //乱数取得
         blockNumber = Random.Range(0, blockList.Length);
 
-        //ランダムにブロックの１つを生成
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
-
         stayTime = 0;
+
+        start = true;
+
+        Timer = 5;
     }
 
     void Update()
     {
-        if(stayTime >= 5.0f)
+        //if(Input.GetKeyDown(KeyCode.S))
+
+        Timer -= Time.deltaTime;
+        seconds = (int)Timer;
+
+        timeText.text = seconds.ToString();
+        
+        //ランダムにブロックの１つを生成
+        if (start && Timer<=0)
         {
-            transform.Translate(0.0f, 1.0f, 0.0f);
-            stayTime = 0;
+            Create();
+            start = false;
+            canvas.enabled = false;
         }
     }   
     
@@ -52,5 +70,4 @@ public class createBlock : MonoBehaviour
             stayTime = 0;
         }
     }
-
 }

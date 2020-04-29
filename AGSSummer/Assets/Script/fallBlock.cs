@@ -74,7 +74,6 @@ public class fallBlock : MonoBehaviour
             }
         }
     }
-    
 
     void OnCollisionEnter2D(Collision2D other)
     {
