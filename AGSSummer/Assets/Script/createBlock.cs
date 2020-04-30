@@ -23,6 +23,8 @@ public class createBlock : MonoBehaviour
         //乱数取得
         blockNumber = Random.Range(0, blockList.Length);
 
+        //Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
+
         stayTime = 0;
 
         start = true;

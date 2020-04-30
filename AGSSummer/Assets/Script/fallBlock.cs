@@ -19,6 +19,8 @@ public class fallBlock : MonoBehaviour
     private GameObject createObject;
 
     private createBlock createScript;
+
+    private bool nextBlock;
     
     // Start is called before the first frame update
     void Start()
@@ -26,13 +28,16 @@ public class fallBlock : MonoBehaviour
         //Rigidbodyの初期設定
         rb2 = GetComponent<Rigidbody2D>();
 
-        rb2.bodyType = RigidbodyType2D.Dynamic;
+        rb2.bodyType = RigidbodyType2D.Static;
 
         //落下速度
         speedFall = false;
 
         //衝突判定
         hitCheck = false;
+
+        //次のブロック
+        nextBlock = true;
 
         //ブロック生成
         createObject = GameObject.Find("CreateBlock");
@@ -43,56 +48,74 @@ public class fallBlock : MonoBehaviour
     void Update()
     {
         Debug.Log(hitCheck);
-        //床と他のブロックらにぶつかってなかったら落下するよ
-        if (!hitCheck)
-        {
-            //落下するときは真っ直ぐ落ちます
-            rb2.velocity = Vector2.zero;
 
-            if (!speedFall)
+        if (nextBlock)
+        {
+            rb2.bodyType = RigidbodyType2D.Static;
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                //低速落下する
-                transform.Translate(0.0f, -normalSpeed, 0.0f);
-                
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                nextBlock = false;
+                rb2.bodyType = RigidbodyType2D.Dynamic;
+
+                //新しくブロックをつくります
+                createScript.Create();
+
+                transform.Translate(3.0f, 0.0f, 0.0f);
+            }
+        }
+        else
+        {    //床と他のブロックらにぶつかってなかったら落下するよ
+            if (!hitCheck)
+            {
+                //落下するときは真っ直ぐ落ちます
+                rb2.velocity = Vector2.zero;
+
+                if (!speedFall)
                 {
-                    //落下速度を変えます
-                    speedFall = true;
+                    //低速落下する
+                    transform.Translate(0.0f, -normalSpeed, 0.0f);
+
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        //落下速度を変えます
+                        speedFall = true;
+                    }
+                }
+                else
+                {
+                    //高速落下する
+                    transform.Translate(0.0f, -highSpeed, 0.0f);
                 }
             }
             else
             {
-                //高速落下する
-                transform.Translate(0.0f, -highSpeed, 0.0f);
-            }
-        }
-        else
-        {
-            if (rb2.IsSleeping())
-            {
-                rb2.bodyType = RigidbodyType2D.Kinematic;
+                if (rb2.IsSleeping())
+                {
+                    rb2.bodyType = RigidbodyType2D.Kinematic;
+                }
             }
         }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (!hitCheck)
+        if (!nextBlock)
         {
-            if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
+            if (!hitCheck)
             {
-                //ぶつかったので落下をやめます
-                hitCheck = true;
-
-                //新しくブロックをつくります
-                createScript.Create();
+                if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
+                {
+                    //ぶつかったので落下をやめます
+                    hitCheck = true;
+                }
             }
-        }
-        else
-        {
-            if(rb2.bodyType == RigidbodyType2D.Kinematic && other.gameObject.tag == "Block")
+            else
             {
-                rb2.bodyType = RigidbodyType2D.Dynamic;
+                if (rb2.bodyType == RigidbodyType2D.Kinematic && other.gameObject.tag == "Block")
+                {
+                    rb2.bodyType = RigidbodyType2D.Dynamic;
+                }
             }
         }
 
