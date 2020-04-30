@@ -32,19 +32,22 @@ public class createBlock : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.S))
-
         Timer -= Time.deltaTime;
         seconds = (int)Timer;
 
-        timeText.text = seconds.ToString();
+        //timeText.text = seconds.ToString();
         
         //ランダムにブロックの１つを生成
         if (start && Timer<=0)
         {
             Create();
             start = false;
-            canvas.enabled = false;
+            //canvas.enabled = false;
+        }
+
+        if(stayTime >= 5)
+        {
+            transform.Translate(0.0f, 1.0f, 0.0f);
         }
     }   
     
