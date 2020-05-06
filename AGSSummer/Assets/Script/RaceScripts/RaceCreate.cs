@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class createBlock : MonoBehaviour
+public class RaceCreate : MonoBehaviour
 {
     public GameObject[] blockList;
     private int blockNumber;
@@ -38,9 +38,9 @@ public class createBlock : MonoBehaviour
         seconds = (int)Timer;
 
         //timeText.text = seconds.ToString();
-        
+
         //ランダムにブロックの１つを生成
-        if (start && Timer<=0)
+        if (start && Timer <= 0)
         {
             Create();
             start = false;
@@ -48,12 +48,12 @@ public class createBlock : MonoBehaviour
         }
 
         //段々と上に上がっていく
-        if(stayTime >= 5)
+        if (stayTime >= 5)
         {
             transform.Translate(0.0f, 1.0f, 0.0f);
         }
-    }   
-    
+    }
+
     public void Create()
     {
         blockNumber = Random.Range(0, blockList.Length);
@@ -63,7 +63,7 @@ public class createBlock : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "Block")
         {
             stayTime += Time.deltaTime;
         }

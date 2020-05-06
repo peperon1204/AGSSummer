@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6730292934802543597}
   - component: {fileID: 6730292934802543596}
-  - component: {fileID: 6730292934802543595}
+  - component: {fileID: 2021821602}
   m_Layer: 0
   m_Name: CreateBlock
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6730292934802543594}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6730292934802543595
+--- !u!114 &2021821602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,14 +67,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6730292934802543594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efd6b4eb3f865543aeaa6781fc69cd4, type: 3}
+  m_Script: {fileID: 11500000, guid: b3bbc73d825797343bdf40e1d6f1624b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockList:
-  - {fileID: 8346055887308788341, guid: 9f9efb3545905344aa1de14e6e1368df, type: 3}
-  - {fileID: 3949139514845415680, guid: 0798e43070d86814f8083a65e51b98df, type: 3}
-  - {fileID: 3079369613023054354, guid: da1b26f1a1c78a844b9319ce7e6d2412, type: 3}
-  - {fileID: 160896339630455606, guid: f036d6fdcb5c255459567af87d676581, type: 3}
-  - {fileID: 4854524807032113241, guid: a8f14d2c624448047a4884354b2dc82f, type: 3}
-  - {fileID: 3043877555119032834, guid: 6a3f71ac99b86fd4cb766fcb62042d73, type: 3}
-  - {fileID: 2166995106629955067, guid: c4f6d1aebdd29104ba5fdd98e13392ba, type: 3}
+  - {fileID: 4883733738168643979, guid: 98010da64794d3249a72ef6682791c55, type: 3}
+  - {fileID: 5765514064061522610, guid: 026751d0338263748a3e8214fd3d2fe2, type: 3}
+  - {fileID: 2737151572742624170, guid: a046c8d1ad78edd429280c2a309d54fa, type: 3}
+  - {fileID: 3767399888567416934, guid: 512073a420d71074ab0280ca640bdd6c, type: 3}
+  - {fileID: 3455313555615752524, guid: 0b316f7dbd4a31b41b207f292f75dcf1, type: 3}
+  - {fileID: 6778407733090884030, guid: b035554e693d44f4ea5ae127941b3437, type: 3}
+  - {fileID: 8781905109566666508, guid: 58924cffcd2df5040840699ad9eb2de3, type: 3}
+  timeText: {fileID: 0}
+  canvas: {fileID: 0}
