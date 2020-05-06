@@ -471,8 +471,9 @@ GameObject:
   - component: {fileID: 3419064411453381393}
   - component: {fileID: 5236855064248593973}
   - component: {fileID: 32750229383573022}
+  - component: {fileID: 7493353154553306233}
   m_Layer: 0
-  m_Name: Z-Block
+  m_Name: Z-Block03
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,3 +554,16 @@ MonoBehaviour:
   BlockCtrl: {fileID: 5236855064248593973}
   normalSpeed: 0.04
   highSpeed: 0.16
+--- !u!114 &7493353154553306233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160875702294020728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e304a3a89718df44856f7152330a0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerBlock: 1

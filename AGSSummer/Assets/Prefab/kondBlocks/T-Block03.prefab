@@ -365,8 +365,9 @@ GameObject:
   - component: {fileID: 9075848110447123707}
   - component: {fileID: 2834953841297439769}
   - component: {fileID: 5211632413904310}
+  - component: {fileID: 3722341728073922598}
   m_Layer: 0
-  m_Name: T-Block
+  m_Name: T-Block03
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,6 +448,19 @@ MonoBehaviour:
   BlockCtrl: {fileID: 2834953841297439769}
   normalSpeed: 0.04
   highSpeed: 0.16
+--- !u!114 &3722341728073922598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742562404342903514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e304a3a89718df44856f7152330a0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerBlock: 1
 --- !u!1 &9026758426266750870
 GameObject:
   m_ObjectHideFlags: 0

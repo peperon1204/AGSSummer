@@ -437,8 +437,9 @@ GameObject:
   - component: {fileID: 1517027668363938511}
   - component: {fileID: 5106223544819281302}
   - component: {fileID: 8415097048696979765}
+  - component: {fileID: 6771497807571756960}
   m_Layer: 0
-  m_Name: S-Block
+  m_Name: S-Block03
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,6 +520,19 @@ MonoBehaviour:
   BlockCtrl: {fileID: 5106223544819281302}
   normalSpeed: 0.04
   highSpeed: 0.16
+--- !u!114 &6771497807571756960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657425145001155097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e304a3a89718df44856f7152330a0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerBlock: 1
 --- !u!1 &8857214643826146147
 GameObject:
   m_ObjectHideFlags: 0
