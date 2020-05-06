@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 4386325736217958693}
   - component: {fileID: 2876724746058821221}
   - component: {fileID: 4545164715740084252}
+  - component: {fileID: 5212540958124909589}
   m_Layer: 0
   m_Name: Z-Block01
   m_TagString: Block
@@ -537,3 +538,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aee334e676cc584c98c1e9e1c760e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5212540958124909589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781905109566666508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b371c1a80c1ba04eb6b332134d2b14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raceCtrl: {fileID: 4545164715740084252}
+  normalSpeed: 0.04
+  highSpeed: 0.16

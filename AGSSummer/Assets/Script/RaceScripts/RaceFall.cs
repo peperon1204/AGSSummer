@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RaceFall : MonoBehaviour
 {
@@ -15,11 +16,17 @@ public class RaceFall : MonoBehaviour
 
     private bool hitCheck;
 
-    private GameObject createObject;
+    private GameObject raceCreateObject;
 
-    private createBlock createScript;
+    private RaceCreate raceCreateScript;
 
     private bool nextBlock;
+
+    private bool nextCreate;
+
+    private float Timer;
+
+    private bool start;
 
     // Start is called before the first frame update
     void Start()
@@ -38,36 +45,51 @@ public class RaceFall : MonoBehaviour
         //次のブロック
         nextBlock = true;
 
+        //次の移行
+        nextCreate = false;
+
         //ブロック生成
-        createObject = GameObject.Find("RaceCreate");
-        createScript = createObject.GetComponent<createBlock>();
+        raceCreateObject = GameObject.Find("CreateBlock");
+        raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
+        
+        Timer = 5;
+
+        start = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(hitCheck);
+        //Debug.Log(hitCheck);
 
-        if (nextBlock)
+        if(start)
         {
-            rb2.bodyType = RigidbodyType2D.Static;
+            Timer -= Time.deltaTime;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if(Timer <= 0)
             {
-                nextBlock = false;
-                rb2.bodyType = RigidbodyType2D.Dynamic;
-
-                //新しくブロックをつくります
-                createScript.Create();
-
-                transform.Translate(3.0f, 0.0f, 0.0f);
+                start = false;
+                nextCreate = true;
             }
         }
-        else
-        {    //床と他のブロックらにぶつかってなかったら落下するよ
-            if (!hitCheck)
+
+        if (!hitCheck)
+        {
+            if (nextCreate)
             {
-                //落下するときは真っ直ぐ落ちます
+                rb2.bodyType = RigidbodyType2D.Dynamic;
+
+                transform.Translate(3.0f, 3.0f, 0.0f);
+
+                nextCreate = false;
+
+                nextBlock = false;
+
+                raceCreateScript.Create();
+            }
+            
+            if (!nextBlock)
+            {
                 rb2.velocity = Vector2.zero;
 
                 if (!speedFall)
@@ -86,38 +108,38 @@ public class RaceFall : MonoBehaviour
                     //高速落下する
                     transform.Translate(0.0f, -highSpeed, 0.0f);
                 }
-            }
-            else
-            {
-                if (rb2.IsSleeping())
-                {
-                    rb2.bodyType = RigidbodyType2D.Kinematic;
-                }
+
             }
         }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (!nextBlock)
+        if(!nextBlock)
         {
             if (!hitCheck)
             {
                 if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
                 {
-                    //ぶつかったので落下をやめます
                     hitCheck = true;
+                    nextCreate = true;
                 }
             }
             else
             {
-                if (rb2.bodyType == RigidbodyType2D.Kinematic && other.gameObject.tag == "Block")
+                if (rb2.IsSleeping())
                 {
-                    rb2.bodyType = RigidbodyType2D.Dynamic;
+                    rb2.bodyType = RigidbodyType2D.Kinematic;
+
+                    if (rb2.bodyType == RigidbodyType2D.Kinematic && other.gameObject.tag == "Block")
+                    {
+                        rb2.bodyType = RigidbodyType2D.Dynamic;
+                    }
                 }
             }
         }
-
+        
+        //下に落ちると削除
         if (other.gameObject.tag == "Bottom")
         {
             Destroy(gameObject);

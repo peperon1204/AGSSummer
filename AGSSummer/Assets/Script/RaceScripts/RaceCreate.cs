@@ -23,7 +23,7 @@ public class RaceCreate : MonoBehaviour
         //乱数取得
         blockNumber = Random.Range(0, blockList.Length);
 
-        //Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
+        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
 
         stayTime = 0;
 
@@ -34,7 +34,7 @@ public class RaceCreate : MonoBehaviour
 
     void Update()
     {
-        Timer -= Time.deltaTime;
+        /*Timer -= Time.deltaTime;
         seconds = (int)Timer;
 
         //timeText.text = seconds.ToString();
@@ -45,7 +45,7 @@ public class RaceCreate : MonoBehaviour
             Create();
             start = false;
             //canvas.enabled = false;
-        }
+        }*/
 
         //段々と上に上がっていく
         if (stayTime >= 5)

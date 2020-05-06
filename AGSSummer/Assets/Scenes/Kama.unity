@@ -570,6 +570,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2021821602, guid: a0713031f24ce2f47b058ebefb4c557a, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1286291250}
+    - target: {fileID: 2021821602, guid: a0713031f24ce2f47b058ebefb4c557a, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 609078300}
@@ -578,15 +582,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreateBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 6730292934802543596, guid: a0713031f24ce2f47b058ebefb4c557a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730292934802543596, guid: a0713031f24ce2f47b058ebefb4c557a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6730292934802543597, guid: a0713031f24ce2f47b058ebefb4c557a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6730292934802543597, guid: a0713031f24ce2f47b058ebefb4c557a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6730292934802543597, guid: a0713031f24ce2f47b058ebefb4c557a,
         type: 3}
