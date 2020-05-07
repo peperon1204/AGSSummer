@@ -7,7 +7,7 @@ public class survivalFall : MonoBehaviour
 {
     private Rigidbody2D rb2d;
 
-    public LimitedBlockCtrl BlockCtrl;
+    public survivalCtrl BlockCtrl;
 
     private bool speedFall;
 
@@ -18,7 +18,7 @@ public class survivalFall : MonoBehaviour
 
     private GameObject createObject;
 
-    private LimitedCreateBlock createScript;
+    private survivalCreate createScript;
 
     private bool nextBlock;
 
