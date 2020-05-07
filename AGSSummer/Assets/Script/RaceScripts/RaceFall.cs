@@ -108,7 +108,6 @@ public class RaceFall : MonoBehaviour
                     //高速落下する
                     transform.Translate(0.0f, -highSpeed, 0.0f);
                 }
-
             }
         }
     }

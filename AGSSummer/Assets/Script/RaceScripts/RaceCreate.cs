@@ -34,6 +34,16 @@ public class RaceCreate : MonoBehaviour
 
     void Update()
     {
+        if(start)
+        {
+            Timer -= Time.deltaTime;
+            seconds = (int)Timer;
+
+            if (Timer <= 0)
+            {
+                start = false;
+            }
+        }
         /*Timer -= Time.deltaTime;
         seconds = (int)Timer;
 
