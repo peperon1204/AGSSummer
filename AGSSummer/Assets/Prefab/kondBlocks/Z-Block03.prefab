@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 3419064411453381393}
   - component: {fileID: 7493353154553306233}
   - component: {fileID: 8460382058832218974}
+  - component: {fileID: 1951548030248592210}
   m_Layer: 0
   m_Name: Z-Block03
   m_TagString: Block
@@ -551,6 +552,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fb41e71dba1034d80ca2a93eec90e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockList: []
-  timeText: {fileID: 0}
-  canvas: {fileID: 0}
+--- !u!114 &1951548030248592210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160875702294020728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efee639b7aabe5429e68d9942bdba83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockCtrl: {fileID: 8460382058832218974}
+  normalSpeed: 0.04
+  highSpeed: 0.12

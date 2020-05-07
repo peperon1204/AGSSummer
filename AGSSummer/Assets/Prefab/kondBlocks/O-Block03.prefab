@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 4934085050187596037}
   - component: {fileID: 4217071506673583436}
   - component: {fileID: 4474372486156689545}
+  - component: {fileID: 6614989347341678335}
   m_Layer: 0
   m_Name: O-Block03
   m_TagString: Block
@@ -199,9 +200,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fb41e71dba1034d80ca2a93eec90e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockList: []
-  timeText: {fileID: 0}
-  canvas: {fileID: 0}
+--- !u!114 &6614989347341678335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3792023958626597218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efee639b7aabe5429e68d9942bdba83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockCtrl: {fileID: 4474372486156689545}
+  normalSpeed: 0.04
+  highSpeed: 0.12
 --- !u!1 &3855754171254612737
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class survivalFall : MonoBehaviour
         if (nextBlock)
         {
             createScript.Create();
-            nextBlock = false;
+            nextBlock = true;
         }
         //if (nextBlock)
         //{
