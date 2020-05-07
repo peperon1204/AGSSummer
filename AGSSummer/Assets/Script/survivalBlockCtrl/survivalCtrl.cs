@@ -1,84 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class survivalCtrl : MonoBehaviour
 {
+    private Transform child;
 
-    public GameObject[] blockList;
-    private int blockNumber;
-
-    private float stayTime;
-
-    private bool start;
-
-    private float Timer;
-    private int seconds;
-    public Text timeText;
-    public Canvas canvas;
-
+    private bool ctrlWaiver;
 
     // Start is called before the first frame update
     void Start()
     {
-        //乱数取得
-        blockNumber = Random.Range(0, blockList.Length);
+        //回転する中心軸を取得
+        child = transform.Find("RotationCenter");
 
-        //Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
-
-        stayTime = 0;
-
-        start = true;
-
-        Timer = 5;
-
+        //ブロック操作が効く状態
+        ctrlWaiver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timer -= Time.deltaTime;
-        seconds = (int)Timer;
-
-        //timeText.text = seconds.ToString();
-
-        //ランダムにブロックの１つを生成
-        if (start && Timer <= 0)
+        if (!ctrlWaiver)
         {
-            Create();
-            start = false;
-            //canvas.enabled = false;
-        }
+            //スペースで高速落下開始
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                //高速落下したら移動と回転ができなくなるよ
+                ctrlWaiver = true;
+            }
 
-        //段々と上に上がっていく
-        if (stayTime >= 5)
-        {
-            transform.Translate(0.0f, 1.0f, 0.0f);
+            //左右移動
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                transform.Translate(0.16f, 0.0f, 0.0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                transform.Translate(-0.16f, 0.0f, 0.0f);
+            }
+
+            //子オブジェクト（中心軸）のRotationを回転させる
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                child.Rotate(0.0f, 0.0f, 90.0f);
+            }
         }
     }
 
-    public void Create()
+    void OnCollisionEnter2D(Collision2D other)
     {
-        blockNumber = Random.Range(0, blockList.Length);
-
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
         {
-            stayTime += Time.deltaTime;
+            //スペース押さなくても床や他のブロックにぶつかったら移動と回転できなくなるよ
+            ctrlWaiver = true;
         }
     }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Block")
-        {
-            stayTime = 0;
-        }
-    }
-
 }

@@ -469,9 +469,8 @@ GameObject:
   - component: {fileID: 5190345697833329168}
   - component: {fileID: 4277815785606250199}
   - component: {fileID: 2552426173045726869}
-  - component: {fileID: 8389743152968129840}
-  - component: {fileID: 4102029384080997213}
   - component: {fileID: 7327716015617651566}
+  - component: {fileID: 1883181094091752331}
   m_Layer: 0
   m_Name: J-Block03
   m_TagString: Block
@@ -527,33 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8389743152968129840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8820410554511093494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb833a62455b064c988e563c3165194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4102029384080997213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8820410554511093494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b436c6fc82139243addb535d1724f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BlockCtrl: {fileID: 8389743152968129840}
-  normalSpeed: 0.04
-  highSpeed: 0.16
 --- !u!114 &7327716015617651566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,3 +539,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerBlock: 1
+--- !u!114 &1883181094091752331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820410554511093494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fb41e71dba1034d80ca2a93eec90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockList: []
+  timeText: {fileID: 0}
+  canvas: {fileID: 0}
