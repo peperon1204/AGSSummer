@@ -10,12 +10,13 @@ public class Timer : MonoBehaviour
     private int seconds;
 
     public Text timeText;
-
-    public Canvas canvas;
+    
+    private bool start;
+    //public Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
-        //seconds = (int)timer;
+        start = true;
     }
 
     // Update is called once per frame
@@ -30,6 +31,7 @@ public class Timer : MonoBehaviour
         else
         {
             timeText.enabled = false;
+            start = false;
         }
     }
 }

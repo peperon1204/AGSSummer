@@ -77,8 +77,6 @@ public class RaceFall : MonoBehaviour
 
         if (!hitCheck)
         {
-            
-
             if (!nextBlock)
             {
                 raceCtrl.enabled = true;
