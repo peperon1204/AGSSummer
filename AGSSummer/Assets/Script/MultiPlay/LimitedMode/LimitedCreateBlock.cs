@@ -28,7 +28,7 @@ public class LimitedCreateBlock : MonoBehaviour
     void Update()
     {
       
-        if(blockNumber > 4)
+        if(blockNumber > 2)
         {
             blockNumber = 0;
         }
