@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RaceCreate : MonoBehaviour
 {
@@ -9,13 +8,6 @@ public class RaceCreate : MonoBehaviour
     private int blockNumber;
 
     private float stayTime;
-
-    private bool start;
-
-    private float Timer;
-    private int seconds;
-    public Text timeText;
-    public Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -26,40 +18,15 @@ public class RaceCreate : MonoBehaviour
         Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
 
         stayTime = 0;
-
-        start = true;
-
-        Timer = 5;
     }
 
     void Update()
     {
-        if(start)
-        {
-            Timer -= Time.deltaTime;
-            seconds = (int)Timer;
-
-            if (Timer <= 0)
-            {
-                start = false;
-            }
-        }
-
         //段々と上に上がっていく
         if (stayTime >= 5)
         {
             transform.Translate(0.0f, 1.0f, 0.0f);
         }
-
-        /*timeText.text = seconds.ToString();
-
-        //ランダムにブロックの１つを生成
-        if (start && Timer <= 0)
-        {
-            Create();
-            start = false;
-            //canvas.enabled = false;
-        }*/
     }
 
     public void Create()

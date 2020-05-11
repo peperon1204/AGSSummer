@@ -77,18 +77,7 @@ public class RaceFall : MonoBehaviour
 
         if (!hitCheck)
         {
-            if (nextCreate)
-            {
-                rb2.bodyType = RigidbodyType2D.Dynamic;
-
-                transform.Translate(3.0f, 3.0f, 0.0f);
-
-                nextCreate = false;
-
-                nextBlock = false;
-
-                raceCreateScript.Create();
-            }
+            
 
             if (!nextBlock)
             {
