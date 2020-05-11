@@ -14,7 +14,7 @@ public class RaceCtrl : MonoBehaviour
         //回転する中心軸を取得
         child = transform.Find("RotationCenter");
 
-        //ブロック操作が効く状態
+        //ブロック操作が効かない状態
         ctrlWaiver = false;
     }
 
@@ -49,12 +49,12 @@ public class RaceCtrl : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
         {
-            //スペース押さなくても床や他のブロックにぶつかったら移動と回転できなくなるよ
+            //下キー押さなくても床や他のブロックにぶつかったら移動と回転できなくなるよ
             ctrlWaiver = true;
         }
-    }
+    }*/
 }

@@ -17,16 +17,17 @@ public class RaceFall : MonoBehaviour
     private bool hitCheck;
 
     private GameObject raceCreateObject;
-
     private RaceCreate raceCreateScript;
+
+    public GameObject MyBlock;
 
     private bool nextBlock;
 
     private bool nextCreate;
 
-    private float Timer;
-
     private bool start;
+
+    private float Timer;
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +49,14 @@ public class RaceFall : MonoBehaviour
         //次の移行
         nextCreate = false;
 
-        //ブロック生成
-        raceCreateObject = GameObject.Find("CreateBlock");
-        raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
-        
+        //
+        start = true;
+
         Timer = 5;
 
-        start = true;
+        //ブロック生成
+        raceCreateObject = GameObject.Find("RaceCreateBlock");
+        raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
     }
 
     // Update is called once per frame
@@ -62,11 +64,11 @@ public class RaceFall : MonoBehaviour
     {
         //Debug.Log(hitCheck);
 
-        if(start)
+        if (start)
         {
             Timer -= Time.deltaTime;
 
-            if(Timer <= 0)
+            if (Timer <= 0)
             {
                 start = false;
                 nextCreate = true;
@@ -87,9 +89,11 @@ public class RaceFall : MonoBehaviour
 
                 raceCreateScript.Create();
             }
-            
+
             if (!nextBlock)
             {
+                raceCtrl.enabled = true;
+
                 rb2.velocity = Vector2.zero;
 
                 if (!speedFall)
@@ -109,6 +113,10 @@ public class RaceFall : MonoBehaviour
                     transform.Translate(0.0f, -highSpeed, 0.0f);
                 }
             }
+        }
+        else
+        {
+            raceCtrl.enabled = false;
         }
     }
 

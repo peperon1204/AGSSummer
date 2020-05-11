@@ -44,10 +44,14 @@ public class RaceCreate : MonoBehaviour
                 start = false;
             }
         }
-        /*Timer -= Time.deltaTime;
-        seconds = (int)Timer;
 
-        //timeText.text = seconds.ToString();
+        //段々と上に上がっていく
+        if (stayTime >= 5)
+        {
+            transform.Translate(0.0f, 1.0f, 0.0f);
+        }
+
+        /*timeText.text = seconds.ToString();
 
         //ランダムにブロックの１つを生成
         if (start && Timer <= 0)
@@ -56,12 +60,6 @@ public class RaceCreate : MonoBehaviour
             start = false;
             //canvas.enabled = false;
         }*/
-
-        //段々と上に上がっていく
-        if (stayTime >= 5)
-        {
-            transform.Translate(0.0f, 1.0f, 0.0f);
-        }
     }
 
     public void Create()
