@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Title : MonoBehaviour
+
+public class SingleMode : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,6 +23,6 @@ public class Title : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Title");
     }
 }
