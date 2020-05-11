@@ -141,24 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1c817b75897bc4db7b23e4b21d9070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPattern1:
-  - {fileID: 8346055887308788341, guid: 9f9efb3545905344aa1de14e6e1368df, type: 3}
-  - {fileID: 3043877555119032834, guid: 6a3f71ac99b86fd4cb766fcb62042d73, type: 3}
-  - {fileID: 3949139514845415680, guid: 0798e43070d86814f8083a65e51b98df, type: 3}
-  - {fileID: 4854524807032113241, guid: a8f14d2c624448047a4884354b2dc82f, type: 3}
-  - {fileID: 8346055887308788341, guid: 9f9efb3545905344aa1de14e6e1368df, type: 3}
-  blockPattern2:
-  - {fileID: 160896339630455606, guid: f036d6fdcb5c255459567af87d676581, type: 3}
-  - {fileID: 3079369613023054354, guid: da1b26f1a1c78a844b9319ce7e6d2412, type: 3}
-  - {fileID: 3949139514845415680, guid: 0798e43070d86814f8083a65e51b98df, type: 3}
-  - {fileID: 3043877555119032834, guid: 6a3f71ac99b86fd4cb766fcb62042d73, type: 3}
-  - {fileID: 2166995106629955067, guid: c4f6d1aebdd29104ba5fdd98e13392ba, type: 3}
-  blockPattern3:
-  - {fileID: 3043877555119032834, guid: 6a3f71ac99b86fd4cb766fcb62042d73, type: 3}
-  - {fileID: 160896339630455606, guid: f036d6fdcb5c255459567af87d676581, type: 3}
-  - {fileID: 8346055887308788341, guid: 9f9efb3545905344aa1de14e6e1368df, type: 3}
-  - {fileID: 8346055887308788341, guid: 9f9efb3545905344aa1de14e6e1368df, type: 3}
-  - {fileID: 3949139514845415680, guid: 0798e43070d86814f8083a65e51b98df, type: 3}
+  blockPattern1: []
+  blockPattern2: []
+  blockPattern3: []
 --- !u!4 &243629047
 Transform:
   m_ObjectHideFlags: 0

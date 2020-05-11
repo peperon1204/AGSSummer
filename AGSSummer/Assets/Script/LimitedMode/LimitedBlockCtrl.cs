@@ -34,9 +34,6 @@ public class LimitedBlockCtrl : MonoBehaviour
                 highSpeed = true;
             }
 
-
-
-
             //左右移動
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
