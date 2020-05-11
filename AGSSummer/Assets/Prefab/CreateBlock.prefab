@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6730292934802543597}
   - component: {fileID: 6730292934802543596}
-  - component: {fileID: 4608324118364141488}
   - component: {fileID: 3718671478807980663}
   m_Layer: 0
   m_Name: CreateBlock
@@ -59,28 +58,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4608324118364141488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730292934802543594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efd6b4eb3f865543aeaa6781fc69cd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockList:
-  - {fileID: 8346055887308788341, guid: 82660ed6e28580c4f8004a54e053c7b9, type: 3}
-  - {fileID: 3949139514845415680, guid: 4cb0bf5463e4a694db1ce4de9196c7d2, type: 3}
-  - {fileID: 3079369613023054354, guid: 3981a113a3ebf2247a9633721da26def, type: 3}
-  - {fileID: 160896339630455606, guid: 8f14a5a81dfc6ba42a9f4e1a87300551, type: 3}
-  - {fileID: 4854524807032113241, guid: 4e6261d455631a64a86a57abb07d9e2a, type: 3}
-  - {fileID: 3043877555119032834, guid: 4c4f42bc1fc220a4ca81d5b038f96964, type: 3}
-  - {fileID: 2166995106629955067, guid: 474a9f656ee643847a43fb7f27e491f5, type: 3}
-  timeText: {fileID: 0}
-  canvas: {fileID: 0}
 --- !u!114 &3718671478807980663
 MonoBehaviour:
   m_ObjectHideFlags: 0

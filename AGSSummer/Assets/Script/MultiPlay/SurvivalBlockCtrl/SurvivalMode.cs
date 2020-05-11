@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Title : MonoBehaviour
+
+public class SurvivalMode : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,6 @@ public class Title : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Title");
     }
 }
