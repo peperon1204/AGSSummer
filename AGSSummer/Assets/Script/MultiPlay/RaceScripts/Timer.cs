@@ -34,4 +34,14 @@ public class Timer : MonoBehaviour
             start = false;
         }
     }
+
+    public bool StartCheck()
+    {
+        return start;
+    } 
+
+    public float TimerCheck()
+    {
+        return timer;
+    }
 }

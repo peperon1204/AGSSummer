@@ -468,9 +468,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4748383134459325169}
   - component: {fileID: 4386325736217958693}
-  - component: {fileID: 2876724746058821221}
-  - component: {fileID: 4545164715740084252}
+  - component: {fileID: 1917720558952128110}
+  - component: {fileID: 6014273262357034033}
   - component: {fileID: 5212540958124909589}
+  - component: {fileID: 4545164715740084252}
+  - component: {fileID: 2876724746058821221}
   m_Layer: 0
   m_Name: Z-Block01
   m_TagString: Block
@@ -514,7 +516,7 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2876724746058821221
+--- !u!114 &1917720558952128110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,9 +525,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 8781905109566666508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c150e9152853c24085dc401d8d799a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raceBlockNext: {fileID: 6014273262357034033}
+  raceFall: {fileID: 5212540958124909589}
+  raceCtrl: {fileID: 4545164715740084252}
+  timer: {fileID: 0}
+--- !u!114 &6014273262357034033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781905109566666508}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a957ba4bcd0ae4da6b82521e9df7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5212540958124909589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781905109566666508}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b371c1a80c1ba04eb6b332134d2b14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raceCtrl: {fileID: 4545164715740084252}
+  normalSpeed: 0.04
+  highSpeed: 0.16
+  MyBlock: {fileID: 0}
 --- !u!114 &4545164715740084252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aee334e676cc584c98c1e9e1c760e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5212540958124909589
+--- !u!114 &2876724746058821221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,9 +581,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8781905109566666508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b371c1a80c1ba04eb6b332134d2b14a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceCtrl: {fileID: 4545164715740084252}
-  normalSpeed: 0.04
-  highSpeed: 0.16
