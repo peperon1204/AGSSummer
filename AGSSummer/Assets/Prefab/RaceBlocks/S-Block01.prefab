@@ -257,7 +257,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3455313555615752524}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -285,7 +285,6 @@ MonoBehaviour:
   raceBlockNext: {fileID: 3421808042794006067}
   raceFall: {fileID: 6945221708425567286}
   raceCtrl: {fileID: 3443766746094595024}
-  timer: {fileID: 0}
 --- !u!114 &3421808042794006067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +312,6 @@ MonoBehaviour:
   raceCtrl: {fileID: 3443766746094595024}
   normalSpeed: 0.04
   highSpeed: 0.16
-  MyBlock: {fileID: 0}
 --- !u!114 &3443766746094595024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +331,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3455313555615752524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
   m_Name: 

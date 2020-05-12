@@ -5,43 +5,43 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float timer;
+    private float timerCount;
 
     private int seconds;
 
     public Text timeText;
     
     private bool start;
-    //public Canvas canvas;
+
     // Start is called before the first frame update
     void Start()
     {
+        timerCount = 5;
         start = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer >= 0)
+        if(start)
         {
-            timer -= Time.deltaTime;
-            seconds = (int)timer;
-            timeText.text = seconds.ToString();
-        }
-        else
-        {
-            timeText.enabled = false;
-            start = false;
+            if(timerCount >= 0)
+            {
+                timerCount -= Time.deltaTime;
+                seconds = (int)timerCount;
+                timeText.text = seconds.ToString();
+            }
+            else
+            {
+                timeText.enabled = false;
+                //start = false;
+            }
         }
     }
 
-    public bool StartCheck()
+    public float TimerCount
     {
-        return start;
-    } 
-
-    public float TimerCheck()
-    {
-        return timer;
+        get{ return timerCount; }  //取得用
+        private set{ timerCount = value; }　//値入力用
     }
 }

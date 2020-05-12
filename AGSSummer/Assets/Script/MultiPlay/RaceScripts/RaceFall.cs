@@ -19,15 +19,9 @@ public class RaceFall : MonoBehaviour
     private GameObject raceCreateObject;
     private RaceCreate raceCreateScript;
 
-    public GameObject MyBlock;
-
     private bool nextBlock;
 
     private bool nextCreate;
-
-    private bool start;
-
-    private float Timer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,53 +29,43 @@ public class RaceFall : MonoBehaviour
         //Rigidbodyの初期設定
         rb2 = GetComponent<Rigidbody2D>();
 
-        rb2.bodyType = RigidbodyType2D.Static;
+        rb2.bodyType = RigidbodyType2D.Dynamic;
+
+        transform.Translate(3.0f, 3.0f, 0.0f);
 
         //落下速度
         speedFall = false;
 
         //衝突判定
-        hitCheck = false;
+        /*hitCheck = false;
 
         //次のブロック
         nextBlock = true;
 
         //次の移行
-        nextCreate = false;
-
-        //
-        start = true;
-
-        Timer = 5;
+        nextCreate = false;*/
 
         //ブロック生成
-        raceCreateObject = GameObject.Find("RaceCreateBlock");
-        raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
+        /*raceCreateObject = GameObject.Find("RaceCreateBlock");
+        raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(hitCheck);
-
-        if (start)
-        {
-            Timer -= Time.deltaTime;
-
-            if (Timer <= 0)
-            {
-                start = false;
-                nextCreate = true;
-            }
-        }
-
-        if (!hitCheck)
+        /*if (!hitCheck)
         {
             if (!nextBlock)
             {
-                raceCtrl.enabled = true;
+                
+            }
+        }
+        else
+        {
+            //raceCtrl.enabled = false;
+        }*/
 
-                rb2.velocity = Vector2.zero;
+        rb2.velocity = Vector2.zero;
 
                 if (!speedFall)
                 {
@@ -99,17 +83,11 @@ public class RaceFall : MonoBehaviour
                     //高速落下する
                     transform.Translate(0.0f, -highSpeed, 0.0f);
                 }
-            }
-        }
-        else
-        {
-            raceCtrl.enabled = false;
-        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(!nextBlock)
+        /*if(!nextBlock)
         {
             if (!hitCheck)
             {
@@ -131,12 +109,6 @@ public class RaceFall : MonoBehaviour
                     }
                 }
             }
-        }
-        
-        //下に落ちると削除
-        if (other.gameObject.tag == "Bottom")
-        {
-            Destroy(gameObject);
-        }
+        }*/
     }
 }

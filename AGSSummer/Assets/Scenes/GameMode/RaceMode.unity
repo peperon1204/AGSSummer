@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 1387833396}
   - component: {fileID: 1387833395}
   m_Layer: 0
-  m_Name: Timer
+  m_Name: TimeObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,7 +481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37361edd085df8c42816b2da16e02d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
   timeText: {fileID: 1286291250}
 --- !u!4 &1387833396
 Transform:
@@ -915,5 +914,47 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 609078300}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[0]
+      value: 
+      objectReference: {fileID: 4883733738168643979, guid: 98010da64794d3249a72ef6682791c55,
+        type: 3}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[1]
+      value: 
+      objectReference: {fileID: 5765514064061522610, guid: 026751d0338263748a3e8214fd3d2fe2,
+        type: 3}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[2]
+      value: 
+      objectReference: {fileID: 2737151572742624170, guid: a046c8d1ad78edd429280c2a309d54fa,
+        type: 3}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[3]
+      value: 
+      objectReference: {fileID: 3767399888567416934, guid: 512073a420d71074ab0280ca640bdd6c,
+        type: 3}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[4]
+      value: 
+      objectReference: {fileID: 3455313555615752524, guid: 0b316f7dbd4a31b41b207f292f75dcf1,
+        type: 3}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[5]
+      value: 
+      objectReference: {fileID: 6778407733090884030, guid: b035554e693d44f4ea5ae127941b3437,
+        type: 3}
+    - target: {fileID: 6115275958146675756, guid: edee2c5b866d6394688738fad6a36aaa,
+        type: 3}
+      propertyPath: blockList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8781905109566666508, guid: 58924cffcd2df5040840699ad9eb2de3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edee2c5b866d6394688738fad6a36aaa, type: 3}
