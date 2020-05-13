@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceBlockNext : MonoBehaviour
+public class CameraMgr : MonoBehaviour
 {
-    private RaceBlockNext raceBlockNext;
+    public  GameObject  blockCreator;
 
     // Start is called before the first frame update
     void Start()
     {
-        //rb2.bodyType = RigidbodyType2D.Kinematic;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 creatorPos = blockCreator.transform.position;
+
+        transform.position = new Vector3(0, creatorPos.y - 3, -10);
     }
 }

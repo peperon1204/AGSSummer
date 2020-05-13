@@ -223,10 +223,8 @@ GameObject:
   - component: {fileID: 2226366070999795755}
   - component: {fileID: 7876446786189249644}
   - component: {fileID: 4417548228901178639}
-  - component: {fileID: 1356390822636330636}
   - component: {fileID: 1355339295867746543}
   - component: {fileID: 5429334338580365659}
-  - component: {fileID: 2881006291250314947}
   m_Layer: 0
   m_Name: L-Block01
   m_TagString: Block
@@ -282,21 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c150e9152853c24085dc401d8d799a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceBlockNext: {fileID: 1356390822636330636}
   raceFall: {fileID: 1355339295867746543}
   raceCtrl: {fileID: 5429334338580365659}
---- !u!114 &1356390822636330636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737151572742624170}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a957ba4bcd0ae4da6b82521e9df7d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1355339295867746543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b371c1a80c1ba04eb6b332134d2b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceCtrl: {fileID: 5429334338580365659}
   normalSpeed: 0.04
   highSpeed: 0.16
 --- !u!114 &5429334338580365659
@@ -322,18 +306,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aee334e676cc584c98c1e9e1c760e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2881006291250314947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737151572742624170}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5267344088982279621

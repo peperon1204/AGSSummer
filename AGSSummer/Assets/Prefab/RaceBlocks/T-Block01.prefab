@@ -435,10 +435,8 @@ GameObject:
   - component: {fileID: 4102213131901953840}
   - component: {fileID: 7244543782525476214}
   - component: {fileID: 3717189375366170146}
-  - component: {fileID: 4473765795702632913}
   - component: {fileID: 2041652663080956528}
   - component: {fileID: 4251022896636418608}
-  - component: {fileID: 6535158474420418463}
   m_Layer: 0
   m_Name: T-Block01
   m_TagString: Block
@@ -494,21 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c150e9152853c24085dc401d8d799a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceBlockNext: {fileID: 4473765795702632913}
   raceFall: {fileID: 2041652663080956528}
   raceCtrl: {fileID: 4251022896636418608}
---- !u!114 &4473765795702632913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6778407733090884030}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a957ba4bcd0ae4da6b82521e9df7d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2041652663080956528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b371c1a80c1ba04eb6b332134d2b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceCtrl: {fileID: 4251022896636418608}
   normalSpeed: 0.04
   highSpeed: 0.16
 --- !u!114 &4251022896636418608
@@ -534,18 +518,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aee334e676cc584c98c1e9e1c760e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6535158474420418463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6778407733090884030}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9203154923608586958

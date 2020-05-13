@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class RaceBlockMgr : MonoBehaviour
 {
-    /*private Rigidbody2D rb2;
-    public RaceBlockNext raceBlockNext;*/
+    private Rigidbody2D rb2;
 
     public RaceFall raceFall;
 
@@ -16,28 +15,34 @@ public class RaceBlockMgr : MonoBehaviour
 
     private Timer timerScript;
 
+    private GameObject fallBlock;
+
+    private RaceBlockMgr raceBlockMgr;
+
+    private GameObject raceCreateObject;
+
+    private RaceCreate raceCreateScript;
+
     private float timerCheck; 
 
     private bool start;
     
-    private GameObject raceCreateObject;
-    private RaceCreate raceCreateScript;
+    private bool standBy;
 
     private bool blockWaiver;
-
-    private bool standBy;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb2 = GetComponent<Rigidbody2D>();
+
         timerObject = GameObject.Find("TimeObject");
         timerScript = timerObject.GetComponent<Timer>();
 
-        timerCheck = timerScript.TimerCount;
-
-        //ブロック生成
-        raceCreateObject = GameObject.Find("RaceCreateBlock");
+        raceCreateObject = GameObject.Find("BlockCreator");
         raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
+
+        timerCheck = timerScript.TimerCount;
 
         if(timerCheck >= 0)
         {
@@ -45,6 +50,9 @@ public class RaceBlockMgr : MonoBehaviour
         }
         else
         {
+            fallBlock = GameObject.Find("FallBlock");
+            raceBlockMgr = fallBlock.GetComponent<RaceBlockMgr>();
+
             standBy = true;
             start = false;
         }
@@ -65,10 +73,29 @@ public class RaceBlockMgr : MonoBehaviour
                 raceCtrl.enabled = true;
                 raceCreateScript.Create();
                 start = false;
+                gameObject.name = "FallBlock";
             }
         }
 
-        ///Debug.Log (start);
+        if(standBy)
+        {
+            if(raceBlockMgr.blockWaiver)
+            {
+                raceCreateScript.Create();
+                standBy = false;
+                raceFall.enabled = true;
+                raceCtrl.enabled = true;
+                gameObject.name = "FallBlock";
+            }
+        }
+
+        if(blockWaiver)
+        {
+            if(rb2.IsSleeping())
+            {
+                rb2.bodyType = RigidbodyType2D.Kinematic;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -77,24 +104,38 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(!blockWaiver)
             {
+                gameObject.name = "BlockWaiver";
                 raceFall.enabled = false;
                 raceCtrl.enabled = false;
-                raceCreateScript.Create();
                 blockWaiver = true;
             }
 
-            if(standBy)
+            if(rb2.bodyType == RigidbodyType2D.Kinematic)
             {
-                raceFall.enabled = true;
-                raceCtrl.enabled = true;
-                standBy = false;
+                StartCoroutine("NextFrameBodyType");
             }
         }
 
         //下に落ちると削除
         if (other.gameObject.tag == "Bottom")
         {
+            if(!blockWaiver)
+            {
+                gameObject.name = "BlockWaiver";
+                raceFall.enabled = false;
+                raceCtrl.enabled = false;
+                blockWaiver = true;
+            }
+
             Destroy(gameObject);
         }
     }
+
+    IEnumerator NextFrameBodyType()
+    {
+        yield return null;
+
+        rb2.bodyType = RigidbodyType2D.Dynamic;
+    }
+
 }
