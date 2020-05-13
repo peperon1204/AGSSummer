@@ -21,8 +21,8 @@ public class Life : MonoBehaviour
 
         for (int i = 0; i > lifeMax; i++)
         {
-            lifeImg[i] = GetComponent<Image>();
-            lifeLostImg[i] = GetComponent<Image>();
+            lifeImg[i] = lifeImg[i].GetComponent<Image>();
+            lifeLostImg[i] = lifeLostImg[i].GetComponent<Image>();
         }
 
        
