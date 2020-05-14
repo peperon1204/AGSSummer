@@ -56,7 +56,7 @@ public class RaceCreate : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "BlockWaiver")
         {
             objUp = true;
         }
@@ -64,7 +64,7 @@ public class RaceCreate : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "BlockWaiver")
         {
             objUp = false;
         }

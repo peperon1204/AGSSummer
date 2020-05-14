@@ -34,23 +34,27 @@ public class GoalLine : MonoBehaviour
         if(countSee)
         {
             timeText.enabled = true;
+            stayTime -= Time.deltaTime;
             seconds = (int)stayTime;
             timeText.text = seconds.ToString();
         }
+        else
+        {
+            stayTime = 5;
+            timeText.enabled = false;
+        }
     }
 
-    void OnCollisionStay2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "BlockWaiver")
         {
             countSee = true;
-            stayTime -= Time.deltaTime;
         }
     }
 
     void OnCollisionExit2D(Collision2D other)
     {
         countSee = false;
-        stayTime = 5;
     }
 }
