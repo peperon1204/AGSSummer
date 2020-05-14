@@ -17,6 +17,6 @@ public class CameraMgr : MonoBehaviour
     {
         Vector3 creatorPos = blockCreator.transform.position;
 
-        transform.position = new Vector3(0, creatorPos.y - 3, -10);
+        transform.position = new Vector3(0, creatorPos.y - 2, -10);
     }
 }

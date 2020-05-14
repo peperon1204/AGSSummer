@@ -32,15 +32,14 @@ public class RaceCreate : MonoBehaviour
         Vector3 creatorPos = creatorMgr.transform.position;
         transform.position = new Vector3(creatorPos.x, creatorPos.y, 0.0f);
 
-        if(stayTime >= 3)
-        {
-            objUp = true;
-        }
-
         //段々と上に上がっていく
         if (objUp)
         {
-            transform.Translate(0.0f, 0.1f, 0.0f);
+            stayTime += Time.deltaTime;
+            if(stayTime >= 1)
+            {
+                transform.Translate(0.0f, 0.4f, 0.0f);
+            }
         }
     }
 
@@ -55,7 +54,7 @@ public class RaceCreate : MonoBehaviour
     {
         if (other.gameObject.tag == "Block")
         {
-            stayTime += Time.deltaTime;
+            objUp = true;
         }
     }
 

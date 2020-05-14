@@ -74,6 +74,7 @@ public class RaceBlockMgr : MonoBehaviour
                 raceCreateScript.Create();
                 start = false;
                 gameObject.name = "FallBlock";
+                Physics2D.gravity = new Vector3(0,0,0);
             }
         }
 
@@ -81,11 +82,12 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(raceBlockMgr.blockWaiver)
             {
-                raceCreateScript.Create();
-                standBy = false;
                 raceFall.enabled = true;
                 raceCtrl.enabled = true;
+                raceCreateScript.Create();
+                standBy = false;
                 gameObject.name = "FallBlock";
+                Physics2D.gravity = new Vector3(0,0,0);
             }
         }
 
@@ -104,10 +106,12 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(!blockWaiver)
             {
-                gameObject.name = "BlockWaiver";
                 raceFall.enabled = false;
                 raceCtrl.enabled = false;
+                gameObject.name = "BlockWaiver";
                 blockWaiver = true;
+
+                StartCoroutine("NextFrameGravity");
             }
 
             if(rb2.bodyType == RigidbodyType2D.Kinematic)
@@ -121,9 +125,9 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(!blockWaiver)
             {
-                gameObject.name = "BlockWaiver";
                 raceFall.enabled = false;
                 raceCtrl.enabled = false;
+                gameObject.name = "BlockWaiver";
                 blockWaiver = true;
             }
 
@@ -138,4 +142,10 @@ public class RaceBlockMgr : MonoBehaviour
         rb2.bodyType = RigidbodyType2D.Dynamic;
     }
 
+    IEnumerator NextFrameGravity()
+    {
+        yield return null;
+        
+        Physics2D.gravity = new Vector3(0,-10,0);
+    }
 }
