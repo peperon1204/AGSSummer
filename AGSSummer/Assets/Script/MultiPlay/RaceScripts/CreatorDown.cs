@@ -30,20 +30,23 @@ public class CreatorDown : MonoBehaviour
                 transform.Translate(0.0f, -0.1f, 0.0f);
             }
         }
+        else
+        {
+            stayTime = 0;
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Block" || other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
         {
-            stayTime = 0;
             objDown = false;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Block" || other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
         {
             objDown = true;
         }

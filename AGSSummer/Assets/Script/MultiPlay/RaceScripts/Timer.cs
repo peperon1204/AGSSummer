@@ -34,7 +34,6 @@ public class Timer : MonoBehaviour
             else
             {
                 timeText.enabled = false;
-                //start = false;
             }
         }
     }

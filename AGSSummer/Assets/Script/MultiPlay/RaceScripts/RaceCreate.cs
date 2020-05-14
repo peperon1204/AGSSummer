@@ -38,8 +38,12 @@ public class RaceCreate : MonoBehaviour
             stayTime += Time.deltaTime;
             if(stayTime >= 1)
             {
-                transform.Translate(0.0f, 0.4f, 0.0f);
+                transform.Translate(0.0f, 0.1f, 0.0f);
             }
+        }
+        else
+        {
+            stayTime = 0;
         }
     }
 
@@ -62,7 +66,6 @@ public class RaceCreate : MonoBehaviour
     {
         if (other.gameObject.tag == "Block")
         {
-            stayTime = 0;
             objUp = false;
         }
     }

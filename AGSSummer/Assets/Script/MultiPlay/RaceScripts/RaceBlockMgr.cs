@@ -102,13 +102,14 @@ public class RaceBlockMgr : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "BlockWaiver")
         {
             if(!blockWaiver)
             {
                 raceFall.enabled = false;
                 raceCtrl.enabled = false;
                 gameObject.name = "BlockWaiver";
+                gameObject.tag = "BlockWaiver";
                 blockWaiver = true;
 
                 StartCoroutine("NextFrameGravity");
@@ -125,9 +126,6 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(!blockWaiver)
             {
-                raceFall.enabled = false;
-                raceCtrl.enabled = false;
-                gameObject.name = "BlockWaiver";
                 blockWaiver = true;
             }
 
@@ -145,7 +143,7 @@ public class RaceBlockMgr : MonoBehaviour
     IEnumerator NextFrameGravity()
     {
         yield return null;
-        
+
         Physics2D.gravity = new Vector3(0,-10,0);
     }
 }
