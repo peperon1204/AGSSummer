@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2749601468985110534}
   - component: {fileID: 6562433767975437266}
-  - component: {fileID: 4620978336656651410}
-  - component: {fileID: 5938017965740028851}
-  - component: {fileID: 1589927161325579412}
+  - component: {fileID: 3662456899910172335}
+  - component: {fileID: 4858998298173261998}
+  - component: {fileID: 7632857897248057285}
   m_Layer: 0
   m_Name: Z-Block
   m_TagString: Block
@@ -43,7 +43,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2166995106629955067}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -56,7 +56,7 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &4620978336656651410
+--- !u!114 &3662456899910172335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,10 +65,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2166995106629955067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1282ad35503ce2140b707867d186a9f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 32e43794058a10b45bc7eee813ddd788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5938017965740028851
+  survivalFall: {fileID: 4858998298173261998}
+  survivalCtrl: {fileID: 7632857897248057285}
+--- !u!114 &4858998298173261998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,24 +79,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2166995106629955067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efeacaa9b65bb73428b22bd0507d4726, type: 3}
+  m_Script: {fileID: 11500000, guid: f777e9cc3a2f79d4a978f702d81da267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1589927161325579412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2166995106629955067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fd871ce2b040245ae753c64cac6e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BlockCtrl: {fileID: 5938017965740028851}
   normalSpeed: 0.04
-  highSpeed: 0.12
+  highSpeed: 0.16
+--- !u!114 &7632857897248057285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166995106629955067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc623ce279fff045ae4ce1dbafd8c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4550905850606909435
 GameObject:
   m_ObjectHideFlags: 0

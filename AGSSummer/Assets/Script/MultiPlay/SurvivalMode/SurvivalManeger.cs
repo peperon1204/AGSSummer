@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
-public class SurvicalManeger : MonoBehaviour
+
+public class SurvivalManeger : MonoBehaviour
 {
     public bool win;        //本来はprivate
     public bool lose;       //テストのためにpublic
@@ -90,5 +92,15 @@ public class SurvicalManeger : MonoBehaviour
                 lose = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Invoke("ChangeScene", 0.0f);
+        }
+    }
+
+    void ChangeScene()
+    {
+        SceneManager.LoadScene("Title");
     }
 }
