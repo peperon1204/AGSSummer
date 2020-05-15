@@ -22,12 +22,17 @@ public class CreateDownMgr : MonoBehaviour
         Vector3 createPos = blockCreate.transform.position;
         transform.position = new Vector3(createPos.x, createPos.y, 0.0f);
 
+        if(transform.position.y < 0)
+        {
+            transform.position = new Vector3(createPos.x, 0.0f, 0.0f);
+        }
+
         if(objDown)
         {
             stayTime += Time.deltaTime;
             if(stayTime >= 1)
             {
-                transform.Translate(0.0f, -0.1f, 0.0f);
+                transform.Translate(0.0f, -0.05f, 0.0f);
             }
         }
         else

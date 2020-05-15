@@ -23,6 +23,10 @@ public class RaceBlockMgr : MonoBehaviour
 
     private RaceCreate raceCreateScript;
 
+    private GameObject goalLineObject;
+
+    private GoalLine goalLine;
+
     private float timerCheck; 
 
     private bool start;
@@ -53,6 +57,9 @@ public class RaceBlockMgr : MonoBehaviour
             fallBlock = GameObject.Find("FallBlock");
             raceBlockMgr = fallBlock.GetComponent<RaceBlockMgr>();
 
+            goalLineObject = GameObject.Find("GoalLineObject");
+            goalLine =  goalLineObject.GetComponent<GoalLine>();
+
             standBy = true;
             start = false;
         }
@@ -60,6 +67,25 @@ public class RaceBlockMgr : MonoBehaviour
         blockWaiver = false;
     }
 
+    /*"やらなきゃいけないこと"
+    "落ちたブロックがゴールラインに触れているかを取得"
+    
+    if"触れていた場合"
+    {    
+        "Next表示のブロックの一時停止"
+        "触れている間タイマーをセット"
+
+        if"タイマーが０になったら"
+        {
+            gameset;
+        }
+    }
+    else "0になる前に触れるのをやめたら"
+    {
+        "Next表示のブロックを落とす"
+        "タイマーをリセット"
+    }
+    */
     // Update is called once per frame
     void Update()
     {
@@ -74,50 +100,55 @@ public class RaceBlockMgr : MonoBehaviour
                 raceCreateScript.Create();
                 start = false;
                 gameObject.name = "FallBlock";
-                Physics2D.gravity = new Vector3(0,0,0);
             }
         }
 
         if(standBy)
         {
-            if(raceBlockMgr.blockWaiver)
+            if(!goalLine.CountSee)
             {
-                raceFall.enabled = true;
-                raceCtrl.enabled = true;
-                raceCreateScript.Create();
-                standBy = false;
-                gameObject.name = "FallBlock";
-                Physics2D.gravity = new Vector3(0,0,0);
+                if(raceBlockMgr.blockWaiver)
+                {
+                    raceFall.enabled = true;
+                    raceCtrl.enabled = true;
+                    raceCreateScript.Create();
+                    standBy = false;
+                    gameObject.name = "FallBlock";
+                }
             }
         }
+        
 
         if(blockWaiver)
         {
             if(rb2.IsSleeping())
             {
-                rb2.bodyType = RigidbodyType2D.Kinematic;
+                StartCoroutine("NextFrameBlockBody");
             }
         }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "BlockWaiver")
+        if(!blockWaiver)
         {
-            if(!blockWaiver)
+            if (other.gameObject.tag == "Floor" || other.gameObject.tag == "BlockWaiver")
             {
                 raceFall.enabled = false;
                 raceCtrl.enabled = false;
                 gameObject.name = "BlockWaiver";
                 gameObject.tag = "BlockWaiver";
                 blockWaiver = true;
-
-                StartCoroutine("NextFrameGravity");
             }
-
-            if(rb2.bodyType == RigidbodyType2D.Kinematic)
+        }
+        else
+        {
+            if (other.gameObject.tag == "BlockWaiver")
             {
-                StartCoroutine("NextFrameBodyType");
+                if(rb2.bodyType == RigidbodyType2D.Kinematic)
+                {
+                    rb2.bodyType = RigidbodyType2D.Dynamic;
+                }
             }
         }
 
@@ -133,17 +164,10 @@ public class RaceBlockMgr : MonoBehaviour
         }
     }
 
-    IEnumerator NextFrameBodyType()
+    IEnumerator NextFrameBlockBody()
     {
         yield return null;
 
-        rb2.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    IEnumerator NextFrameGravity()
-    {
-        yield return null;
-
-        Physics2D.gravity = new Vector3(0,-10,0);
+        rb2.bodyType = RigidbodyType2D.Kinematic;
     }
 }

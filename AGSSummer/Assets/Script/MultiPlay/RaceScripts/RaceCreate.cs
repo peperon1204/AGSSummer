@@ -38,7 +38,7 @@ public class RaceCreate : MonoBehaviour
             stayTime += Time.deltaTime;
             if(stayTime >= 3)
             {
-                transform.Translate(0.0f, 0.1f, 0.0f);
+                transform.Translate(0.0f, 0.05f, 0.0f);
             }
         }
         else

@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class GoalLine : MonoBehaviour
 {
-    //private bool goalIn;
+    private bool blockGoalIn;
 
     private float stayTime;
+
+    private float blockStay;
 
     private bool countSee;
 
@@ -15,12 +17,15 @@ public class GoalLine : MonoBehaviour
 
     public Text timeText;
 
+    private GameObject BlockWaiverObject;
+
     // Start is called before the first frame update
     void Start()
     {
-        //goalIn = false;
+        blockGoalIn = false;
         countSee = false;
         stayTime = 5;
+        blockStay = 0;
     }
 
     // Update is called once per frame
@@ -28,36 +33,53 @@ public class GoalLine : MonoBehaviour
     {
         if(stayTime <= 0)
         {
-            //goalIn = true;
+            blockGoalIn = true;
         }
 
-        if(!countSee)
+        if(blockStay >= 3)
         {
-            //stayTime = 5;
-            //timeText.enabled = false;
+            countSee = true;
         }
         else
         {
-            timeText.enabled = true;
-            stayTime -= Time.deltaTime;
-            seconds = (int)stayTime;
-            timeText.text = seconds.ToString();
+            countSee = false;
+        }
+
+        if(!blockGoalIn)
+        {
+            if(!countSee)
+            {
+                stayTime = 5;
+                timeText.enabled = false;
+            }
+            else
+            {
+                timeText.enabled = true;
+                stayTime -= Time.deltaTime;
+                seconds = (int)stayTime;
+                timeText.text = seconds.ToString();
+            }
+        }
+        else
+        {
+            //timeText.enabled = false;
+            timeText.text = ("Win");
         }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver")
-        {
-            countSee = true;
-        }
+        blockStay += Time.deltaTime;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver")
-        {
-            countSee = false;
-        }
+        blockStay = 0;
+    }
+
+    public bool CountSee
+    {
+        get{ return countSee; }  //取得用
+        private set{ countSee = value; }　//値入力用
     }
 }
