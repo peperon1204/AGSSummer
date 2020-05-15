@@ -10,31 +10,25 @@ public class Timer : MonoBehaviour
     private int seconds;
 
     public Text timeText;
-    
-    private bool start;
 
     // Start is called before the first frame update
     void Start()
     {
         timerCount = 5;
-        start = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(start)
+        if(timerCount >= 0)
         {
-            if(timerCount >= 0)
-            {
-                timerCount -= Time.deltaTime;
-                seconds = (int)timerCount;
-                timeText.text = seconds.ToString();
-            }
-            else
-            {
-                timeText.enabled = false;
-            }
+            timerCount -= Time.deltaTime;
+            seconds = (int)timerCount;
+            timeText.text = seconds.ToString();
+        }
+        else
+        {
+            timeText.enabled = false;
         }
     }
 

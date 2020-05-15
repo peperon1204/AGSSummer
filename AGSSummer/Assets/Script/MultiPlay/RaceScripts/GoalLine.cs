@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GoalLine : MonoBehaviour
 {
-    private bool goalIn;
+    //private bool goalIn;
 
     private float stayTime;
 
@@ -18,7 +18,7 @@ public class GoalLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        goalIn = false;
+        //goalIn = false;
         countSee = false;
         stayTime = 5;
     }
@@ -28,24 +28,24 @@ public class GoalLine : MonoBehaviour
     {
         if(stayTime <= 0)
         {
-            goalIn = true;
+            //goalIn = true;
         }
 
-        if(countSee)
+        if(!countSee)
+        {
+            //stayTime = 5;
+            //timeText.enabled = false;
+        }
+        else
         {
             timeText.enabled = true;
             stayTime -= Time.deltaTime;
             seconds = (int)stayTime;
             timeText.text = seconds.ToString();
         }
-        else
-        {
-            stayTime = 5;
-            timeText.enabled = false;
-        }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "BlockWaiver")
         {
@@ -53,8 +53,11 @@ public class GoalLine : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
-        countSee = false;
+        if (other.gameObject.tag == "BlockWaiver")
+        {
+            countSee = false;
+        }
     }
 }

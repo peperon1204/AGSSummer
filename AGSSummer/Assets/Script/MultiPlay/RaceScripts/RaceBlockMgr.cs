@@ -39,7 +39,7 @@ public class RaceBlockMgr : MonoBehaviour
         timerObject = GameObject.Find("TimeObject");
         timerScript = timerObject.GetComponent<Timer>();
 
-        raceCreateObject = GameObject.Find("BlockCreator");
+        raceCreateObject = GameObject.Find("BlockCreate");
         raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
 
         timerCheck = timerScript.TimerCount;

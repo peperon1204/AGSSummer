@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaceCreate : MonoBehaviour
 {
-    public GameObject creatorMgr;
+    public GameObject createMgr;
 
     public GameObject[] blockList;
 
@@ -29,14 +29,14 @@ public class RaceCreate : MonoBehaviour
 
     void Update()
     {
-        Vector3 creatorPos = creatorMgr.transform.position;
-        transform.position = new Vector3(creatorPos.x, creatorPos.y, 0.0f);
+        Vector3 createPos = createMgr.transform.position;
+        transform.position = new Vector3(createPos.x, createPos.y, 0.0f);
 
         //段々と上に上がっていく
         if (objUp)
         {
             stayTime += Time.deltaTime;
-            if(stayTime >= 1)
+            if(stayTime >= 3)
             {
                 transform.Translate(0.0f, 0.1f, 0.0f);
             }
@@ -56,17 +56,11 @@ public class RaceCreate : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver")
-        {
-            objUp = true;
-        }
+        objUp = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver")
-        {
-            objUp = false;
-        }
+        objUp = false;
     }
 }

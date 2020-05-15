@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMgr : MonoBehaviour
 {
-    public  GameObject  blockCreator;
+    public  GameObject  createMgr;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +15,8 @@ public class CameraMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 creatorPos = blockCreator.transform.position;
+        Vector3 createPos = createMgr.transform.position;
 
-        transform.position = new Vector3(0, creatorPos.y - 2, -10);
+        transform.position = new Vector3(0, createPos.y - 2, -10);
     }
 }

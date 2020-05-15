@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatorDown : MonoBehaviour
+public class CreateDownMgr : MonoBehaviour
 {
-    public GameObject blockCreator;
+    public GameObject blockCreate;
 
     private bool objDown;
 
@@ -19,8 +19,8 @@ public class CreatorDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 creatorPos = blockCreator.transform.position;
-        transform.position = new Vector3(creatorPos.x, creatorPos.y, 0.0f);
+        Vector3 createPos = blockCreate.transform.position;
+        transform.position = new Vector3(createPos.x, createPos.y, 0.0f);
 
         if(objDown)
         {
@@ -36,19 +36,13 @@ public class CreatorDown : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
-        {
-            objDown = false;
-        }
+        objDown = false;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
-        {
-            objDown = true;
-        }
+        objDown = true;
     }
 }
