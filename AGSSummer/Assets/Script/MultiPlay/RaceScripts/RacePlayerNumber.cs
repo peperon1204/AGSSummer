@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMgr : MonoBehaviour
+public class RacePlayerNumber : MonoBehaviour
 {
-    public  GameObject  createMgr;
+    public GameObject[] getNumber;
+
+    public GameObject[] blockCreatePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +17,6 @@ public class CameraMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 createPos = createMgr.transform.position;
-
-        transform.position = new Vector3(0, createPos.y, -10);
+        
     }
 }

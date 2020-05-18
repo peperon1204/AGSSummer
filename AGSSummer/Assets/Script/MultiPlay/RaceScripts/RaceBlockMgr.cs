@@ -35,6 +35,12 @@ public class RaceBlockMgr : MonoBehaviour
 
     private bool blockWaiver;
 
+    private GameObject playerNumber;
+    
+    private RacePlayerNumber getPlayerNumber;
+
+    public GameObject root;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +49,28 @@ public class RaceBlockMgr : MonoBehaviour
         timerObject = GameObject.Find("TimeObject");
         timerScript = timerObject.GetComponent<Timer>();
 
-        raceCreateObject = GameObject.Find("BlockCreate");
+        playerNumber = GameObject.Find("GetPlayerNumber");
+        getPlayerNumber = playerNumber.GetComponent<RacePlayerNumber>();
+
+        root = transform.root.gameObject;
+
+        if (root == getPlayerNumber.getNumber[0])
+        {
+            raceCreateObject = GameObject.Find("BlockCreate (1)");
+        }
+        else if (root == getPlayerNumber.getNumber[1])
+        {
+            raceCreateObject = GameObject.Find("BlockCreate (2)");
+        }
+        else if (root == getPlayerNumber.getNumber[2])
+        {
+            raceCreateObject = GameObject.Find("BlockCreate (3)");
+        }
+        else if (root == getPlayerNumber.getNumber[3])
+        {
+            raceCreateObject = GameObject.Find("BlockCreate (4)");
+        }
+
         raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
 
         timerCheck = timerScript.TimerCount;
@@ -54,7 +81,23 @@ public class RaceBlockMgr : MonoBehaviour
         }
         else
         {
-            fallBlock = GameObject.Find("FallBlock");
+            if (root == getPlayerNumber.getNumber[0])
+            {
+                fallBlock = GameObject.Find("FallBlock1");
+            }
+            else if (root == getPlayerNumber.getNumber[1])
+            {
+                fallBlock = GameObject.Find("FallBlock2");
+            }
+            else if (root == getPlayerNumber.getNumber[2])
+            {
+                fallBlock = GameObject.Find("FallBlock3");
+            }
+            else if (root == getPlayerNumber.getNumber[3])
+            {
+                fallBlock = GameObject.Find("FallBlock4");
+            }
+
             raceBlockMgr = fallBlock.GetComponent<RaceBlockMgr>();
 
             goalLineObject = GameObject.Find("GoalLineObject");
@@ -66,7 +109,7 @@ public class RaceBlockMgr : MonoBehaviour
 
         blockWaiver = false;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -80,7 +123,23 @@ public class RaceBlockMgr : MonoBehaviour
                 raceCtrl.enabled = true;
                 raceCreateScript.Create();
                 start = false;
-                gameObject.name = "FallBlock";
+                
+                if (root == getPlayerNumber.getNumber[0])
+                {
+                    gameObject.name = "FallBlock1";
+                }
+                else if (root == getPlayerNumber.getNumber[1])
+                {
+                    gameObject.name = "FallBlock2";
+                }
+                else if (root == getPlayerNumber.getNumber[2])
+                {
+                    gameObject.name = "FallBlock3";
+                }
+                else if (root == getPlayerNumber.getNumber[3])
+                {
+                    gameObject.name = "FallBlock4";
+                }
             }
         }
 
@@ -94,7 +153,23 @@ public class RaceBlockMgr : MonoBehaviour
                     raceCtrl.enabled = true;
                     raceCreateScript.Create();
                     standBy = false;
-                    gameObject.name = "FallBlock";
+                    
+                    if (root == getPlayerNumber.getNumber[0])
+                    {
+                        gameObject.name = "FallBlock1";
+                    }
+                    else if (root == getPlayerNumber.getNumber[1])
+                    {
+                        gameObject.name = "FallBlock2";
+                    }
+                    else if (root == getPlayerNumber.getNumber[2])
+                    {
+                        gameObject.name = "FallBlock3";
+                    }
+                    else if (root == getPlayerNumber.getNumber[3])
+                    {
+                        gameObject.name = "FallBlock4";
+                    }
                 }
             }
         }
@@ -111,25 +186,32 @@ public class RaceBlockMgr : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(!blockWaiver)
+        if (root == getPlayerNumber.getNumber[0])
         {
-            if (other.gameObject.tag == "Floor" || other.gameObject.tag == "BlockWaiver")
+            if (other.gameObject.tag == "1P_Floor" || other.gameObject.tag == "BlockWaiver")
             {
-                raceFall.enabled = false;
-                raceCtrl.enabled = false;
-                gameObject.name = "BlockWaiver";
-                gameObject.tag = "BlockWaiver";
-                blockWaiver = true;
+                BlockControl();
             }
         }
-        else
+        if (root == getPlayerNumber.getNumber[1])
         {
-            if (other.gameObject.tag == "BlockWaiver")
+            if (other.gameObject.tag == "2P_Floor" || other.gameObject.tag == "BlockWaiver")
             {
-                if(rb2.bodyType == RigidbodyType2D.Kinematic)
-                {
-                    rb2.bodyType = RigidbodyType2D.Dynamic;
-                }
+                BlockControl();
+            }
+        }
+        if (root == getPlayerNumber.getNumber[2])
+        {
+            if (other.gameObject.tag == "3P_Floor" || other.gameObject.tag == "BlockWaiver")
+            {
+                BlockControl();
+            }
+        }
+        if (root == getPlayerNumber.getNumber[3])
+        {
+            if (other.gameObject.tag == "4P_Floor" || other.gameObject.tag == "BlockWaiver")
+            {
+                BlockControl();
             }
         }
 
@@ -150,5 +232,24 @@ public class RaceBlockMgr : MonoBehaviour
         yield return null;
 
         rb2.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    public void BlockControl()
+    {
+        if(!blockWaiver)
+        {
+            raceFall.enabled = false;
+            raceCtrl.enabled = false;
+            gameObject.name = "BlockWaiver";
+            gameObject.tag = "BlockWaiver";
+            blockWaiver = true;
+        }
+        else
+        {
+            if(rb2.bodyType == RigidbodyType2D.Kinematic)
+            {
+                rb2.bodyType = RigidbodyType2D.Dynamic;
+            }
+        }
     }
 }

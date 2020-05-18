@@ -14,13 +14,15 @@ public class RaceCreate : MonoBehaviour
 
     private bool objUp;
 
+    public Transform playerNumber;
+
     // Start is called before the first frame update
     void Start()
     {
         //乱数取得
         blockNumber = Random.Range(0, blockList.Length);
 
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
+        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity, playerNumber);
 
         objUp = false;
 
@@ -51,7 +53,7 @@ public class RaceCreate : MonoBehaviour
     {
         blockNumber = Random.Range(0, blockList.Length);
 
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
+        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity, playerNumber);
     }
 
     void OnTriggerStay2D(Collider2D other)
