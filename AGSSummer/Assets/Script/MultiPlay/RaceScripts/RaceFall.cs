@@ -21,7 +21,7 @@ public class RaceFall : MonoBehaviour
 
         rb2.bodyType = RigidbodyType2D.Dynamic;
 
-        transform.Translate(3.0f, 4.0f, 0.0f);
+        transform.Translate(3.0f, 6.0f, 0.0f);
 
         //落下速度
         speedFall = false;

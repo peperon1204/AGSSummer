@@ -66,26 +66,7 @@ public class RaceBlockMgr : MonoBehaviour
 
         blockWaiver = false;
     }
-
-    /*"やらなきゃいけないこと"
-    "落ちたブロックがゴールラインに触れているかを取得"
     
-    if"触れていた場合"
-    {    
-        "Next表示のブロックの一時停止"
-        "触れている間タイマーをセット"
-
-        if"タイマーが０になったら"
-        {
-            gameset;
-        }
-    }
-    else "0になる前に触れるのをやめたら"
-    {
-        "Next表示のブロックを落とす"
-        "タイマーをリセット"
-    }
-    */
     // Update is called once per frame
     void Update()
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GoalLine : MonoBehaviour
 {
@@ -16,8 +17,6 @@ public class GoalLine : MonoBehaviour
     private int seconds;
 
     public Text timeText;
-
-    private GameObject BlockWaiverObject;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +61,6 @@ public class GoalLine : MonoBehaviour
         }
         else
         {
-            //timeText.enabled = false;
             timeText.text = ("Win");
         }
     }
