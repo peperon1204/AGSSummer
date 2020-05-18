@@ -12,6 +12,12 @@ public class SurvivalBlockFall : MonoBehaviour
 
     public float highSpeed;
 
+    private GameObject playerNumber;
+    private GetPlayerNumber getPlayerNumber;
+
+    public GameObject root; //一番上の親を取得する
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +26,30 @@ public class SurvivalBlockFall : MonoBehaviour
 
         rb2.bodyType = RigidbodyType2D.Dynamic;
 
+
+
+        playerNumber = GameObject.Find("GetPlayerNumber");
+        getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
+
+
+        root = transform.root.gameObject;
+
+        if (root == getPlayerNumber.getNumber[0])
+        {
+            transform.parent = root.transform;
+        }
+        else if (root == getPlayerNumber.getNumber[1])
+        {
+            transform.parent = root.transform;
+        }
+        else if (root == getPlayerNumber.getNumber[2])
+        {
+            transform.parent = root.transform;
+        }
+        else if (root == getPlayerNumber.getNumber[3])
+        {
+            transform.parent = root.transform;
+        }
         transform.Translate(1.5f, 3.0f, 0.0f);
 
         //落下速度

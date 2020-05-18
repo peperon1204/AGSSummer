@@ -27,6 +27,9 @@ public class SurvivalBlockMgr : MonoBehaviour
     private GameObject playerNumber;
     private GetPlayerNumber getPlayerNumber;
 
+    private GameObject playerLife;
+    private Life lifeScript;
+
     public GameObject root; //一番上の親を取得する
    
 
@@ -45,28 +48,35 @@ public class SurvivalBlockMgr : MonoBehaviour
         playerNumber = GameObject.Find("GetPlayerNumber");
         getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
 
+        playerLife = GameObject.Find("PlayerLife");
+       
+
 
         root = transform.root.gameObject;
 
         if (root == getPlayerNumber.getNumber[0])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (1)");
+            playerLife = GameObject.Find("Life (1)");
         }
         else if (root == getPlayerNumber.getNumber[1])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (2)");
+            playerLife = GameObject.Find("Life (2)");
         }
         else if (root == getPlayerNumber.getNumber[2])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (3)");
+            playerLife = GameObject.Find("Life (3)");
         }
         else if (root == getPlayerNumber.getNumber[3])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (4)");
+            playerLife = GameObject.Find("Life (4)");
         }
 
         survivalCreateScript = survivalCreateObject.GetComponent<SurvivalCreateBlock>();
-
+        lifeScript = playerLife.GetComponent<Life>();
 
         timerCheck = timerScript.TimerCount;
 
@@ -243,6 +253,7 @@ public class SurvivalBlockMgr : MonoBehaviour
                 blockWaiver = true;
             }
 
+            lifeScript.LifeLost();
             Destroy(gameObject);
         }
 

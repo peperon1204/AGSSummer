@@ -14,10 +14,13 @@ public class SurvivalManeger : MonoBehaviour
     public Text winText;
     public Text loseText;
 
-    private GameObject playerLife;
-    private Life lifeScript;
+    public GameObject[] playerLife;
+    private Life[] lifeScript;
 
     private int survivalLife;
+
+    private GameObject playerNumber;
+    private GetPlayerNumber getPlayerNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +33,15 @@ public class SurvivalManeger : MonoBehaviour
         loseText = loseText.GetComponent<Text>();
 
 
+        playerNumber = GameObject.Find("GetPlayerNumber");
+        getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
+
+
         //ライフオブジェクトからライフを取得
-        playerLife = GameObject.Find("Life");
-        lifeScript = playerLife.GetComponent<Life>();
+        lifeScript[0] = playerLife[0].GetComponent<Life>();
+        lifeScript[1] = playerLife[1].GetComponent<Life>();
+        lifeScript[2] = playerLife[2].GetComponent<Life>();
+        lifeScript[3] = playerLife[3].GetComponent<Life>();
 
         winText.enabled = false;
         loseText.enabled = false;
@@ -41,7 +50,7 @@ public class SurvivalManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        survivalLife = lifeScript.life;
+        //survivalLife = lifeScript.life;
 
         Debug.Log("survivalLife" + survivalLife);
 

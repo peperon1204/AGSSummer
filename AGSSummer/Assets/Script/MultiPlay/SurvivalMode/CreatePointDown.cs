@@ -38,7 +38,7 @@ public class CreatePointDown : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
+        //if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
         {
             objDown = false;
         }
@@ -46,7 +46,7 @@ public class CreatePointDown : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
+       // if (other.gameObject.tag == "BlockWaiver" || other.gameObject.tag == "Floor")
         {
             objDown = true;
         }

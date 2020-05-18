@@ -7,8 +7,11 @@ public class Life : MonoBehaviour
 {
     public int life;                    //プレイヤーライフ
     private int lifeMax;                //ライフ最大値
-    public Image[] lifeImg;             //ライフ画像
-    public Image[] lifeLostImg;         //ライフ減少時画像
+   // public Image[] lifeImg;             //ライフ画像
+   // public Image[] lifeLostImg;         //ライフ減少時画像
+
+    public GameObject[] playerLife;             //ライフ画像
+    public GameObject[] playerLifeLost;         //ライフ減少時画像
 
 
     // Start is called before the first frame update
@@ -19,13 +22,28 @@ public class Life : MonoBehaviour
         lifeMax = life;//プレイヤーライフ取得
 
 
-        for (int i = 0; i > lifeMax; i++)
+        /*for (int i = 0; i > lifeMax; i++)
         {
             lifeImg[i] = lifeImg[i].GetComponent<Image>();
             lifeLostImg[i] = lifeLostImg[i].GetComponent<Image>();
+        }*/
+
+        for (int i = 0; i > lifeMax; i++)
+        {
+            //playerLife[i] = playerLife[i].GetComponent<GameObject>();
+            //playerLifeLost[i] = playerLifeLost[i].GetComponent<GameObject>();
+
+            //playerLife[i].SetActive(true);
+            //playerLifeLost[i].SetActive(false);
         }
 
-       
+        playerLife[0].SetActive(true);
+        playerLifeLost[0].SetActive(false);
+        playerLife[1].SetActive(true);
+        playerLifeLost[1].SetActive(false);
+        playerLife[2].SetActive(true);
+        playerLifeLost[2].SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -40,43 +58,55 @@ public class Life : MonoBehaviour
             life++;
         }
 
-        if (life < 0)
+
+        if (life == 2)
         {
-            life = 0;
+            playerLife[2].SetActive(false);
+            playerLifeLost[2].SetActive(true);
         }
+        else if (life == 1)
+        {
+            playerLife[1].SetActive(false);
+            playerLifeLost[1].SetActive(true);
+        }
+        else if (life == 0)
+        {
+            playerLife[0].SetActive(false);
+            playerLifeLost[0].SetActive(true);
+        }
+
+
+        if (life > 2)
+        {
+            playerLife[2].SetActive(true);
+            playerLifeLost[2].SetActive(false);
+        }
+        else if (life > 1)
+        {
+            playerLife[1].SetActive(true);
+            playerLifeLost[1].SetActive(false);
+        }
+        else if (life > 0)
+        {
+            playerLife[0].SetActive(true);
+            playerLifeLost[0].SetActive(false);
+        }
+
         if (life > lifeMax)
         {
             life = lifeMax;
         }
-
-
-        if (life == 2)
+        else if(life < 0)
         {
-            lifeImg[2].enabled = false;
-        }
-        else if (life == 1)
-        {
-            lifeImg[1].enabled = false;
-        }
-        else if (life == 0)
-        {
-            lifeImg[0].enabled = false;
-        }
-
-        if (life > 2)
-        {
-            lifeImg[2].enabled = true;
-        }
-        else if (life > 1)
-        {
-            lifeImg[1].enabled = true;
-        }
-        else if (life > 0)
-        {
-            lifeImg[0].enabled = true;
+            life = 0;
         }
 
         Debug.Log("Life" + life);
         Debug.Log("LifeMax" + lifeMax);
+    }
+
+    public void LifeLost()
+    {
+        life--;
     }
 }
