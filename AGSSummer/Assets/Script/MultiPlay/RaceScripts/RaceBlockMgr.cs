@@ -7,6 +7,8 @@ public class RaceBlockMgr : MonoBehaviour
 {
     private Rigidbody2D rb2;
 
+    Collider2D collider;
+
     public RaceFall raceFall;
 
     public RaceCtrl raceCtrl;
@@ -103,6 +105,10 @@ public class RaceBlockMgr : MonoBehaviour
             goalLineObject = GameObject.Find("GoalLineObject");
             goalLine =  goalLineObject.GetComponent<GoalLine>();
 
+            collider = gameObject.GetComponentInChildren<BoxCollider2D>();
+
+            collider.enabled = false;
+            
             standBy = true;
             start = false;
         }
