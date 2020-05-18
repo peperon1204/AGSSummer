@@ -79,11 +79,29 @@ public class SurvivalBlockMgr : MonoBehaviour
         }
         else
         {
-            fallBlock = GameObject.Find("FallBlock");
-            survivalBlockMgr = fallBlock.GetComponent<SurvivalBlockMgr>();
 
             standBy = true;
             start = false;
+
+            if (root == getPlayerNumber.getNumber[0])
+            {
+                fallBlock = GameObject.Find("FallBlock1");
+            }
+            else if (root == getPlayerNumber.getNumber[1])
+            {
+                fallBlock = GameObject.Find("FallBlock2");
+            }
+            else if (root == getPlayerNumber.getNumber[2])
+            {
+                fallBlock = GameObject.Find("FallBlock3");
+            }
+            else if (root == getPlayerNumber.getNumber[3])
+            {
+                fallBlock = GameObject.Find("FallBlock4");
+            }
+
+            survivalBlockMgr = fallBlock.GetComponent<SurvivalBlockMgr>();
+
         }
 
         blockWaiver = false;
@@ -102,8 +120,25 @@ public class SurvivalBlockMgr : MonoBehaviour
                 survivalCtrl.enabled = true;
                 survivalCreateScript.Create();
                 start = false;
-                gameObject.name = "FallBlock";
+                // gameObject.name = "FallBlock";
                 Physics2D.gravity = new Vector3(0, 0, 0);
+                if (root == getPlayerNumber.getNumber[0])
+                {
+                    gameObject.name = "FallBlock1";
+                }
+                else if (root == getPlayerNumber.getNumber[1])
+                {
+                    gameObject.name = "FallBlock2";
+                }
+                else if (root == getPlayerNumber.getNumber[2])
+                {
+                    gameObject.name = "FallBlock3";
+                }
+                else if (root == getPlayerNumber.getNumber[3])
+                {
+                    gameObject.name = "FallBlock4";
+                }
+
             }
         }
 
@@ -115,20 +150,54 @@ public class SurvivalBlockMgr : MonoBehaviour
                 survivalCtrl.enabled = true;
                 survivalCreateScript.Create();
                 standBy = false;
-                gameObject.name = "FallBlock";
+                //gameObject.name = "FallBlock";
                 Physics2D.gravity = new Vector3(0, 0, 0);
-            }
-        }
 
-        if (blockWaiver)
-        {
-            if (rb2.IsSleeping())
+                if (root == getPlayerNumber.getNumber[0])
+                {
+                    gameObject.name = "FallBlock1";
+                }
+                else if (root == getPlayerNumber.getNumber[1])
+                {
+                    gameObject.name = "FallBlock2";
+                }
+                else if (root == getPlayerNumber.getNumber[2])
+                {
+                    gameObject.name = "FallBlock3";
+                }
+                else if (root == getPlayerNumber.getNumber[3])
+                {
+                    gameObject.name = "FallBlock4";
+                }
+            }
+
+            if (blockWaiver)
             {
-                rb2.bodyType = RigidbodyType2D.Kinematic;
+                if (rb2.IsSleeping())
+                {
+                    rb2.bodyType = RigidbodyType2D.Kinematic;
+                }
+            }
+
+            Debug.Log(getPlayerNumber);
+
+            if (root == getPlayerNumber.getNumber[0])
+            {
+                survivalCreateObject = GameObject.Find("CreateBlock (1)");
+            }
+            else if (root == getPlayerNumber.getNumber[1])
+            {
+                survivalCreateObject = GameObject.Find("CreateBlock (2)");
+            }
+            else if (root == getPlayerNumber.getNumber[2])
+            {
+                survivalCreateObject = GameObject.Find("CreateBlock (3)");
+            }
+            else if (root == getPlayerNumber.getNumber[3])
+            {
+                survivalCreateObject = GameObject.Find("CreateBlock (4)");
             }
         }
-
-        Debug.Log(getPlayerNumber);
     }
 
     void OnCollisionEnter2D(Collision2D other)
