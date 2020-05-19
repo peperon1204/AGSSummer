@@ -528,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raceFall: {fileID: 5212540958124909589}
   raceCtrl: {fileID: 4545164715740084252}
+  root: {fileID: 0}
 --- !u!114 &5212540958124909589
 MonoBehaviour:
   m_ObjectHideFlags: 0

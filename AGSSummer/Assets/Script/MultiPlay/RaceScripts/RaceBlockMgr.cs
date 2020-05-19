@@ -7,7 +7,7 @@ public class RaceBlockMgr : MonoBehaviour
 {
     private Rigidbody2D rb2;
 
-    Collider2D collider;
+    BoxCollider2D[] collider;
 
     public RaceFall raceFall;
 
@@ -77,6 +77,13 @@ public class RaceBlockMgr : MonoBehaviour
 
         timerCheck = timerScript.TimerCount;
 
+        collider = gameObject.GetComponentsInChildren<BoxCollider2D>();
+
+        for(int i = 0; i < 4; i++)
+        {
+            collider[i].enabled = false;
+        }
+
         if(timerCheck >= 0)
         {
             start = true;
@@ -105,10 +112,6 @@ public class RaceBlockMgr : MonoBehaviour
             goalLineObject = GameObject.Find("GoalLineObject");
             goalLine =  goalLineObject.GetComponent<GoalLine>();
 
-            collider = gameObject.GetComponentInChildren<BoxCollider2D>();
-
-            collider.enabled = false;
-            
             standBy = true;
             start = false;
         }
@@ -125,6 +128,10 @@ public class RaceBlockMgr : MonoBehaviour
 
             if(timerCheck <= 0)
             {
+                for(int i = 0; i < 4; i++)
+                {
+                    collider[i].enabled = true;
+                }
                 raceFall.enabled = true;
                 raceCtrl.enabled = true;
                 raceCreateScript.Create();
@@ -155,6 +162,10 @@ public class RaceBlockMgr : MonoBehaviour
             {
                 if(raceBlockMgr.blockWaiver)
                 {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        collider[i].enabled = true;
+                    }
                     raceFall.enabled = true;
                     raceCtrl.enabled = true;
                     raceCreateScript.Create();
