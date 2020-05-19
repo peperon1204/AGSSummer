@@ -48,7 +48,7 @@ public class SurvivalBlockMgr : MonoBehaviour
         playerNumber = GameObject.Find("GetPlayerNumber");
         getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
 
-        playerLife = GameObject.Find("PlayerLife");
+        //playerLife = GameObject.Find("PlayerLife");
        
 
 

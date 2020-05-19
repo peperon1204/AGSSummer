@@ -17,7 +17,7 @@ public class SurvivalManeger : MonoBehaviour
     public GameObject[] playerLife;
     private Life[] lifeScript;
 
-    private int survivalLife;
+    //private int survivalLife;
 
     private GameObject playerNumber;
     private GetPlayerNumber getPlayerNumber;
@@ -38,10 +38,10 @@ public class SurvivalManeger : MonoBehaviour
 
 
         //ライフオブジェクトからライフを取得
-        lifeScript[0] = playerLife[0].GetComponent<Life>();
-        lifeScript[1] = playerLife[1].GetComponent<Life>();
-        lifeScript[2] = playerLife[2].GetComponent<Life>();
-        lifeScript[3] = playerLife[3].GetComponent<Life>();
+        //lifeScript[0] = playerLife[0].GetComponent<Life>();
+        //lifeScript[1] = playerLife[1].GetComponent<Life>();
+        //lifeScript[2] = playerLife[2].GetComponent<Life>();
+        //lifeScript[3] = playerLife[3].GetComponent<Life>();
 
         winText.enabled = false;
         loseText.enabled = false;
@@ -52,55 +52,8 @@ public class SurvivalManeger : MonoBehaviour
     {
         //survivalLife = lifeScript.life;
 
-        Debug.Log("survivalLife" + survivalLife);
+        //Debug.Log("survivalLife" + survivalLife);
 
-        if(win)
-        {
-            winText.enabled = true;
-            loseText.enabled = false;
-        }
-        else if (lose)
-        {
-            winText.enabled = false;
-
-            if (survivalLife == 0)
-            {
-                loseText.enabled = true;
-            }
-            else
-            {
-                loseText.enabled = false;
-            }
-        }
-        else
-        {
-            winText.enabled = false;
-            loseText.enabled = false;
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (win)
-            {
-                win = false;
-            }
-            else
-            {
-                win = true;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (lose)
-            {
-                lose = false;
-            }
-            else
-            {
-                lose = true;
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {

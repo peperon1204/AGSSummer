@@ -59,17 +59,17 @@ public class Life : MonoBehaviour
         }
 
 
-        if (life == 2)
+        if (life <= 2)
         {
             playerLife[2].SetActive(false);
             playerLifeLost[2].SetActive(true);
         }
-        else if (life == 1)
+        if (life <= 1)
         {
             playerLife[1].SetActive(false);
             playerLifeLost[1].SetActive(true);
         }
-        else if (life == 0)
+        if (life <= 0)
         {
             playerLife[0].SetActive(false);
             playerLifeLost[0].SetActive(true);
@@ -81,12 +81,12 @@ public class Life : MonoBehaviour
             playerLife[2].SetActive(true);
             playerLifeLost[2].SetActive(false);
         }
-        else if (life > 1)
+        if (life > 1)
         {
             playerLife[1].SetActive(true);
             playerLifeLost[1].SetActive(false);
         }
-        else if (life > 0)
+        if (life > 0)
         {
             playerLife[0].SetActive(true);
             playerLifeLost[0].SetActive(false);
