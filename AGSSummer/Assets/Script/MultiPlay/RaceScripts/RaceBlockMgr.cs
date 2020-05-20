@@ -191,7 +191,6 @@ public class RaceBlockMgr : MonoBehaviour
             }
         }
         
-
         if(blockWaiver)
         {
             if(rb2.IsSleeping())

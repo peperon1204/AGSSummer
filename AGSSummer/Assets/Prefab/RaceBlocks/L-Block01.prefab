@@ -296,7 +296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalSpeed: 0.04
-  highSpeed: 0.16
+  highSpeed: 0.12
+  root: {fileID: 0}
 --- !u!114 &5429334338580365659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aee334e676cc584c98c1e9e1c760e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  root: {fileID: 0}
 --- !u!1 &5267344088982279621
 GameObject:
   m_ObjectHideFlags: 0

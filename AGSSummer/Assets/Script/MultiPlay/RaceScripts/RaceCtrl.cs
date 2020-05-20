@@ -6,13 +6,15 @@ public class RaceCtrl : MonoBehaviour
 {
     private Transform child;
 
-    private bool[] ctrlWaiver;
+    private bool ctrlWaiver;
 
     private GameObject playerNumber;
 
     private RacePlayerNumber getPlayerNumber;
 
     public GameObject root;
+
+    private RaceFall raceFall;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +24,12 @@ public class RaceCtrl : MonoBehaviour
 
         root = transform.root.gameObject;
 
+        raceFall = gameObject.GetComponent<RaceFall>();
+
         //回転する中心軸を取得
         child = transform.Find("RotationCenter");
 
-        for(int i = 0; i < 4; i++)
-        {
-            ctrlWaiver[i] = false;
-        }
+        ctrlWaiver = false;
     }
 
     // Update is called once per frame
@@ -36,13 +37,14 @@ public class RaceCtrl : MonoBehaviour
     {
         if (root == getPlayerNumber.getNumber[0])
         {
-            if(!ctrlWaiver[0])
+            if(!ctrlWaiver)
             {
                 //スペースで高速落下開始
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     //高速落下したら移動と回転ができなくなるよ
-                    ctrlWaiver[0] = true;
+                    ctrlWaiver = true;
+                    raceFall.speedFall = true;
                 }
 
                 //左右移動
@@ -66,13 +68,14 @@ public class RaceCtrl : MonoBehaviour
 
         if (root == getPlayerNumber.getNumber[1])
         {
-            if(!ctrlWaiver[1])
+            if(!ctrlWaiver)
             {
                 //スペースで高速落下開始
                 if (Input.GetKeyDown(KeyCode.S))
                 {
                     //高速落下したら移動と回転ができなくなるよ
-                    ctrlWaiver[1] = true;
+                    ctrlWaiver = true;
+                    raceFall.speedFall = true;
                 }
 
                 //左右移動
@@ -96,13 +99,14 @@ public class RaceCtrl : MonoBehaviour
 
         if (root == getPlayerNumber.getNumber[2])
         {
-            if(!ctrlWaiver[2])
+            if(!ctrlWaiver)
             {
                 //スペースで高速落下開始
                 if (Input.GetKeyDown(KeyCode.G))
                 {
                     //高速落下したら移動と回転ができなくなるよ
-                    ctrlWaiver[2] = true;
+                    ctrlWaiver = true;
+                    raceFall.speedFall = true;
                 }
 
                 //左右移動
@@ -126,13 +130,14 @@ public class RaceCtrl : MonoBehaviour
 
         if (root == getPlayerNumber.getNumber[3])
         {
-            if(!ctrlWaiver[3])
+            if(!ctrlWaiver)
             {
                 //スペースで高速落下開始
                 if (Input.GetKeyDown(KeyCode.K))
                 {
                     //高速落下したら移動と回転ができなくなるよ
-                    ctrlWaiver[3] = true;
+                    ctrlWaiver = true;
+                    raceFall.speedFall = true;
                 }
 
                 //左右移動
