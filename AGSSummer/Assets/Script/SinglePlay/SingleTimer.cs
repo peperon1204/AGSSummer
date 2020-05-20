@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SingleTimer : MonoBehaviour
 {
-    private float timerCount;
+    public float timerCount;
 
     private int seconds;
 

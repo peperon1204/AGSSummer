@@ -31,6 +31,9 @@ public class BlockMgr : MonoBehaviour
 
     private bool blockWaiver;
 
+    //private Transform chilledObject;
+
+    //private Transform child;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,13 @@ public class BlockMgr : MonoBehaviour
         }
 
         blockWaiver = false;
+
+        //chilledObject = transform.FindChild("RotationCenter");
+
+        //foreach (Transform child in chilledObject)
+        //{
+        //    Debug.Log(child.name);
+        //}
     }
 
     // Update is called once per frame
@@ -155,6 +165,7 @@ public class BlockMgr : MonoBehaviour
             gameObject.name = "BlockWaiver";
             gameObject.tag = "BlockWaiver";
             blockWaiver = true;
+
         }
         else
         {

@@ -26,7 +26,7 @@ public class SurvivalCreateBlock : MonoBehaviour
 
         //Instantiate(blockList[blockNumber], transform.position, Quaternion.identity, playerNumber);
 
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity, playerCamera);
+        Instantiate(blockList[blockNumber], transform.position + blockList[blockNumber].transform.position, Quaternion.identity, playerCamera);
 
         objUp = false;
 
@@ -57,7 +57,7 @@ public class SurvivalCreateBlock : MonoBehaviour
     {
         blockNumber = Random.Range(0, blockList.Length);
 
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity, playerCamera);
+        Instantiate(blockList[blockNumber], transform.position + blockList[blockNumber].transform.position, Quaternion.identity, playerCamera);
     }
 
     void OnTriggerStay2D(Collider2D other)

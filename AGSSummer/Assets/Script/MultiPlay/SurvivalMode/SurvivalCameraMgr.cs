@@ -44,22 +44,22 @@ public class SurvivalCameraMgr : MonoBehaviour
         if (root == getPlayerNumber.getNumber[0])
         {
             Vector3 createPos = getPlayerNumber.blockCreatePoint[0].transform.position;
-            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 4, -10);
+            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 3, -10);
         }
         else if (root == getPlayerNumber.getNumber[1])
         {
             Vector3 createPos = getPlayerNumber.blockCreatePoint[1].transform.position;
-            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 4, -10);
+            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 3, -10);
         }
         else if (root == getPlayerNumber.getNumber[2])
         {
             Vector3 createPos = getPlayerNumber.blockCreatePoint[2].transform.position;
-            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 4, -10);
+            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 3, -10);
         }
         else if (root == getPlayerNumber.getNumber[3])
         {
             Vector3 createPos = getPlayerNumber.blockCreatePoint[3].transform.position;
-            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 4, -10);
+            transform.position = new Vector3(createPos.x + 1.5f, createPos.y - 3, -10);
         }
 
         //Debug.Log("root" + root);

@@ -21,7 +21,7 @@ public class SingleCreateBlock : MonoBehaviour
         //乱数取得
         blockNumber = Random.Range(0, blockList.Length);
 
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
+        Instantiate(blockList[blockNumber], transform.position + blockList[blockNumber].transform.position, Quaternion.identity);
 
         objUp = false;
 
@@ -37,7 +37,7 @@ public class SingleCreateBlock : MonoBehaviour
         if (objUp)
         {
             stayTime += Time.deltaTime;
-            if (stayTime >= 3)
+            if (stayTime >= 1.5f)
             {
                 transform.Translate(0.0f, 0.05f, 0.0f);
             }
@@ -52,7 +52,7 @@ public class SingleCreateBlock : MonoBehaviour
     {
         blockNumber = Random.Range(0, blockList.Length);
 
-        Instantiate(blockList[blockNumber], transform.position, Quaternion.identity);
+        Instantiate(blockList[blockNumber], transform.position + blockList[blockNumber].transform.position, Quaternion.identity);
     }
 
     void OnTriggerStay2D(Collider2D other)

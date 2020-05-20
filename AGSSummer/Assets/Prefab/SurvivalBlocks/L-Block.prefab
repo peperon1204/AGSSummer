@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3079369613023054354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.16, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2601142053898863269}
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   survivalFall: {fileID: 4673765617244270115}
   survivalCtrl: {fileID: 9064166960960295305}
+  root: {fileID: 0}
 --- !u!114 &4673765617244270115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 0.04
   highSpeed: 0.16
+  root: {fileID: 0}
 --- !u!114 &9064166960960295305
 MonoBehaviour:
   m_ObjectHideFlags: 0

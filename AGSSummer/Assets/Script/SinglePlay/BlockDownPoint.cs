@@ -30,7 +30,7 @@ public class BlockDownPoint : MonoBehaviour
         if (objDown)
         {
             stayTime += Time.deltaTime;
-            if (stayTime >= 1)
+            if (stayTime >= 2)
             {
                 transform.Translate(0.0f, -0.05f, 0.0f);
             }
