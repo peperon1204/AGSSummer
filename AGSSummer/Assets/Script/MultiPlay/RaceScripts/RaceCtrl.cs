@@ -79,12 +79,12 @@ public class RaceCtrl : MonoBehaviour
                 }
 
                 //左右移動
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.D))
                 {
                     transform.Translate(0.16f, 0.0f, 0.0f);
                 }
 
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.A))
                 {
                     transform.Translate(-0.16f, 0.0f, 0.0f);
                 }
@@ -110,12 +110,12 @@ public class RaceCtrl : MonoBehaviour
                 }
 
                 //左右移動
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.H))
                 {
                     transform.Translate(0.16f, 0.0f, 0.0f);
                 }
 
-                if (Input.GetKeyDown(KeyCode.H))
+                if (Input.GetKeyDown(KeyCode.F))
                 {
                     transform.Translate(-0.16f, 0.0f, 0.0f);
                 }
@@ -141,12 +141,12 @@ public class RaceCtrl : MonoBehaviour
                 }
 
                 //左右移動
-                if (Input.GetKeyDown(KeyCode.J))
+                if (Input.GetKeyDown(KeyCode.L))
                 {
                     transform.Translate(0.16f, 0.0f, 0.0f);
                 }
 
-                if (Input.GetKeyDown(KeyCode.L))
+                if (Input.GetKeyDown(KeyCode.J))
                 {
                     transform.Translate(-0.16f, 0.0f, 0.0f);
                 }

@@ -8,14 +8,14 @@ public class GetNumber : MonoBehaviour
 {
     private int number;
 
-    private bool playGame;
+    public bool playGame;
 
     public Text numberText;
 
     // Start is called before the first frame update
     void Start()
     {
-        number = 1;
+        number = 3;
         playGame = false;
         DontDestroyOnLoad (this);
     }
@@ -23,24 +23,28 @@ public class GetNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!playGame)
-        {
-            if(number < 4)
-            {
-                if(Input.GetMouseButtonDown(0))
-                {
-                    number += 1;
-                }
-            }
-
-            if(number > 1)
-            {
-                if(Input.GetMouseButtonDown(1))
-                {
-                    number -= 1;
-                }
-            }
-        }
         numberText.text = number.ToString();
+    }
+
+    public int Number
+    {
+        get{ return number; }  //取得用
+        private set{ number = value; }　//値入力用
+    }
+
+    public void PlayerPlusCount()
+    {
+        if(number < 4)
+        {
+            number += 1;
+        }
+    }
+
+    public void PlayerMinusCount()
+    {
+        if(number > 1)
+        {
+            number -= 1;
+        }    
     }
 }
