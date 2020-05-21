@@ -13,11 +13,15 @@ public class GetNumber : MonoBehaviour
     public Text numberText;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        DontDestroyOnLoad (gameObject);
+    }
+
     void Start()
     {
-        number = 3;
+        number = 2;
         playGame = false;
-        DontDestroyOnLoad (this);
     }
 
     // Update is called once per frame
@@ -42,7 +46,7 @@ public class GetNumber : MonoBehaviour
 
     public void PlayerMinusCount()
     {
-        if(number > 1)
+        if(number > 2)
         {
             number -= 1;
         }    

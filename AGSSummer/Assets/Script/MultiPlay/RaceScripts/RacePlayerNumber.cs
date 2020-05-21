@@ -12,26 +12,20 @@ public class RacePlayerNumber : MonoBehaviour
 
     private GetNumber getNumberScript;
 
-    private Camera[] camera;
-
-    private Rect[] camerarect;
-
     private int playerNumber;
+
+    public Camera player1Camera;
+    public Camera player2Camera;
+    public Camera player3Camera;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 4; i++)
-        {
-            camera[i] = getNumber[i].GetComponent<Camera>();
-            camerarect[i] = camera[i].rect;
-        }
-
         getPlayerObject = GameObject.Find("GetPlayer");
         getNumberScript = getPlayerObject.GetComponent<GetNumber>();
         playerNumber = getNumberScript.Number;
         Debug.Log(playerNumber);
-        getNumberScript.enabled = false;
+        Destroy(getPlayerObject);
     }
 
     // Update is called once per frame
@@ -45,12 +39,14 @@ public class RacePlayerNumber : MonoBehaviour
             {
                 getNumber[2].SetActive(false);
 
-                if(playerNumber < 2)
-                {
-                    getNumber[1].SetActive(false);
-
-                    camerarect[0] = new Rect(0, 0, 1, 1);
-                }
+                player1Camera.rect = new Rect(0.0f, 0.0f, 0.5f, 1.0f);
+                player2Camera.rect = new Rect(0.5f, 0.0f, 0.5f, 1.0f); 
+            }
+            else if (playerNumber == 3)
+            {
+                player1Camera.rect = new Rect(0.0f, 0.0f, 0.333f, 1.0f);
+                player2Camera.rect = new Rect(0.333f, 0.0f, 0.333f, 1.0f);
+                player3Camera.rect = new Rect(0.666f, 0.0f, 0.334f, 1.0f);
             }
         }
     }
