@@ -93,23 +93,26 @@ public class RaceBlockMgr : MonoBehaviour
             if (root == getPlayerNumber.getNumber[0])
             {
                 fallBlock = GameObject.Find("FallBlock1");
+                goalLineObject = GameObject.Find("GoalLineObject (1)");
             }
             else if (root == getPlayerNumber.getNumber[1])
             {
                 fallBlock = GameObject.Find("FallBlock2");
+                goalLineObject = GameObject.Find("GoalLineObject (2)");
             }
             else if (root == getPlayerNumber.getNumber[2])
             {
                 fallBlock = GameObject.Find("FallBlock3");
+                goalLineObject = GameObject.Find("GoalLineObject (3)");
             }
             else if (root == getPlayerNumber.getNumber[3])
             {
                 fallBlock = GameObject.Find("FallBlock4");
+                goalLineObject = GameObject.Find("GoalLineObject (4)");
             }
 
             raceBlockMgr = fallBlock.GetComponent<RaceBlockMgr>();
 
-            goalLineObject = GameObject.Find("GoalLineObject");
             goalLine =  goalLineObject.GetComponent<GoalLine>();
 
             standBy = true;
