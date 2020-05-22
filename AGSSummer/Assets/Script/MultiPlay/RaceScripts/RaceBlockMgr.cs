@@ -135,6 +135,7 @@ public class RaceBlockMgr : MonoBehaviour
                 {
                     collider[i].enabled = true;
                 }
+                
                 raceFall.enabled = true;
                 raceCtrl.enabled = true;
                 raceCreateScript.Create();

@@ -80,4 +80,10 @@ public class GoalLine : MonoBehaviour
         get{ return countSee; }  //取得用
         private set{ countSee = value; }　//値入力用
     }
+
+    public bool BlockGoalIn
+    {
+        get{ return blockGoalIn; }  //取得用
+        private set{ blockGoalIn = value; }　//値入力用
+    }
 }
