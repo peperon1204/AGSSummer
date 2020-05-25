@@ -47,6 +47,10 @@ public class RaceBlockMgr : MonoBehaviour
 
     private bool fixedBlock;
 
+    private GameObject FixedObj;
+
+    private FixedBlock fixedPermit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,7 +131,9 @@ public class RaceBlockMgr : MonoBehaviour
 
         fixedBlock = false;
 
-        myBlockMgr = gameObject.GetComponent<RaceBlockMgr>();
+        FixedObj = GameObject.Find("FixedObj");
+
+        fixedPermit = FixedObj.GetComponent<FixedBlock>();
     }
 
     // Update is called once per frame
@@ -207,34 +213,41 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(!start)
             {
-                if (root == getPlayerNumber.getNumber[0])
-                {
-                    if(Input.GetKeyDown(KeyCode.Z))
+                
+                    if (root == getPlayerNumber.getNumber[0])
                     {
-                        fixedBlock = true;
+                        if(Input.GetKeyDown(KeyCode.Z))
+                        {
+                            Debug.Log("bbbb");
+                            if(fixedPermit.FixedPermit)
+                            {
+                                Debug.Log("aaaa");
+                                fixedBlock = true;
+                            }
+                        }
                     }
-                }
-                else if (root == getPlayerNumber.getNumber[1])
-                {
-                    if(Input.GetKeyDown(KeyCode.X))
+                    else if (root == getPlayerNumber.getNumber[1])
                     {
-                        fixedBlock = true;
+                        if(Input.GetKeyDown(KeyCode.X))
+                        {
+                            fixedBlock = true;
+                        }
                     }
-                }
-                else if (root == getPlayerNumber.getNumber[2])
-                {
-                    if(Input.GetKeyDown(KeyCode.C))
+                    else if (root == getPlayerNumber.getNumber[2])
                     {
-                        fixedBlock = true;
+                        if(Input.GetKeyDown(KeyCode.C))
+                        {
+                            fixedBlock = true;
+                        }
                     }
-                }
-                else if (root == getPlayerNumber.getNumber[3])
-                {
-                    if(Input.GetKeyDown(KeyCode.V))
+                    else if (root == getPlayerNumber.getNumber[3])
                     {
-                        fixedBlock = true;
+                        if(Input.GetKeyDown(KeyCode.V))
+                        {
+                            fixedBlock = true;
+                        }
                     }
-                }
+                
             }
         }
         
