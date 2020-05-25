@@ -29,7 +29,7 @@ public class TimerControl : MonoBehaviour
         {
             totalTime -= Time.deltaTime;
             seconds = (int)totalTime;
-            timerText.text = seconds.ToString();
+            timerText.text = "残りの時間" + seconds.ToString();
         }
 
         if(totalTime < 0)

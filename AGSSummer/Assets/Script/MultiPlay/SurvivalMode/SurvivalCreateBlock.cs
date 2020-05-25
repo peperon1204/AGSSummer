@@ -14,9 +14,20 @@ public class SurvivalCreateBlock : MonoBehaviour
 
     private bool objUp;
 
-    public Transform playerNumber;
+   // public Transform playerNumber;
 
     public Transform playerCamera;
+
+    private GameObject loseProcessObject;
+    private SurvivalResult loseScript;
+
+    private GameObject gameResult;
+    private ResultProcess resultScript;
+
+    public GameObject root; //一番上の親を取得する
+
+    private GameObject playerNumber;
+    private GetPlayerNumber getPlayerNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +42,35 @@ public class SurvivalCreateBlock : MonoBehaviour
         objUp = false;
 
         stayTime = 0;
+
+        gameResult = GameObject.Find("ResultManager");
+        resultScript = gameResult.GetComponent<ResultProcess>();
+
+        root = transform.root.gameObject;
+
+        playerNumber = GameObject.Find("GetPlayerNumber");
+        getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
+
+
+        if (root == getPlayerNumber.getNumber[0])
+        {
+            loseProcessObject = GameObject.Find("Player1");
+        }
+        else if (root == getPlayerNumber.getNumber[1])
+        {
+            loseProcessObject = GameObject.Find("Player2");
+        }
+        else if (root == getPlayerNumber.getNumber[2])
+        {
+            loseProcessObject = GameObject.Find("Player3");
+        }
+        else if (root == getPlayerNumber.getNumber[3])
+        {
+            loseProcessObject = GameObject.Find("Player4");
+        }
+
+        loseScript = loseProcessObject.GetComponent<SurvivalResult>();
+
     }
 
     void Update()
@@ -39,17 +79,20 @@ public class SurvivalCreateBlock : MonoBehaviour
         transform.position = new Vector3(createPos.x, createPos.y, 0.0f);
 
         //段々と上に上がっていく
-        if (objUp)
+        if (!loseScript.loseFlag && !resultScript.winFlag)
         {
-            stayTime += Time.deltaTime;
-            if (stayTime >= 1)
+            if (objUp)
             {
-                transform.Translate(0.0f, 0.1f, 0.0f);
+                stayTime += Time.deltaTime;
+                if (stayTime >= 1)
+                {
+                    transform.Translate(0.0f, 0.1f, 0.0f);
+                }
             }
-        }
-        else
-        {
-            stayTime = 0;
+            else
+            {
+                stayTime = 0;
+            }
         }
     }
 

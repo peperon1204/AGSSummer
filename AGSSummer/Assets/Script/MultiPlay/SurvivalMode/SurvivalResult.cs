@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SurvivalResult : MonoBehaviour
 {
-    private bool lose;
+    public bool loseFlag;
 
     public Text winText;
     public Text loseText;
@@ -29,7 +29,6 @@ public class SurvivalResult : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lose = false;
 
        // playerPlay = true;
 
@@ -71,22 +70,23 @@ public class SurvivalResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (resultScript.winFlag)
+       
+        if (!loseFlag && resultScript.winFlag)
         {
             winText.enabled = true;
         }
 
-        if (!lose)
+        if (!loseFlag)
         {
             if (lifeScript.life == 0)
             {
                 loseText.enabled = true;
-                lose = true;
+                loseFlag = true;
                 resultScript.AddLosePlayer();
             }
         }
-       
-      
+
+        Debug.Log("lose" + loseFlag);
 
     }
 }

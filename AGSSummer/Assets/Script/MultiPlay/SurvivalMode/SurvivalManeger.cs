@@ -22,6 +22,18 @@ public class SurvivalManeger : MonoBehaviour
     private GameObject playerNumber;
     private GetPlayerNumber getPlayerNumber;
 
+    private GameObject resultObject;
+    private ResultProcess resultScript;
+
+    public enum GameModeScene
+    {
+        Start,
+        Play,
+        Result
+    }
+
+    public GameModeScene gameMode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +49,10 @@ public class SurvivalManeger : MonoBehaviour
         getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
 
 
-        //ライフオブジェクトからライフを取得
-        //lifeScript[0] = playerLife[0].GetComponent<Life>();
-        //lifeScript[1] = playerLife[1].GetComponent<Life>();
-        //lifeScript[2] = playerLife[2].GetComponent<Life>();
-        //lifeScript[3] = playerLife[3].GetComponent<Life>();
+        resultObject = GameObject.Find("ResultManager");
+        resultScript = resultObject.GetComponent<ResultProcess>();
+
+        gameMode = GameModeScene.Start;
 
         winText.enabled = false;
         loseText.enabled = false;
@@ -54,10 +65,18 @@ public class SurvivalManeger : MonoBehaviour
 
         //Debug.Log("survivalLife" + survivalLife);
 
-
-        if (Input.GetKeyDown(KeyCode.Return))
+        if(resultScript.winFlag)
         {
-            Invoke("ChangeScene", 0.0f);
+            gameMode = GameModeScene.Result;
+        }
+
+
+        if (gameMode == GameModeScene.Result)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Invoke("ChangeScene", 0.0f);
+            }
         }
     }
 

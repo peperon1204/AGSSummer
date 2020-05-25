@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class GetPlayer : MonoBehaviour
 {
+
+    private GameObject getPlayerObject;
+
+    private GetNumber getNumberScript;
+
     public int playerNumber;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerNumber = 4;
+
+        getPlayerObject = GameObject.Find("GetPlayer");
+        getNumberScript = getPlayerObject.GetComponent<GetNumber>();
+        playerNumber = getNumberScript.Number;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            playerNumber++;
-        }
-        else if(Input.GetKeyDown(KeyCode.O))
-        {
-            playerNumber--;
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    playerNumber++;
+        //}
+        //else if(Input.GetKeyDown(KeyCode.O))
+        //{
+        //    playerNumber--;
+        //}
 
         if(playerNumber > 4)
         {

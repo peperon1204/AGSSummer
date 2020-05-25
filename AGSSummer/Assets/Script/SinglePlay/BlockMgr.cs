@@ -8,19 +8,15 @@ public class BlockMgr : MonoBehaviour
 
 
     public BlockFall fall;
-
     public BlockControl ctrl;
 
     private GameObject timerObject;
-
     private SingleTimer timerScript;
 
     private GameObject fallBlock;
-
     private BlockMgr blockMgr;
 
     private GameObject createObject;
-
     private SingleCreateBlock createScript;
 
     private float timerCheck;
@@ -30,6 +26,10 @@ public class BlockMgr : MonoBehaviour
     private bool standBy;
 
     private bool blockWaiver;
+
+    private GameObject countdownObject;
+    private TimerControl countdownScript;
+
 
     //private Transform chilledObject;
 
@@ -46,6 +46,9 @@ public class BlockMgr : MonoBehaviour
         timerObject = GameObject.Find("SingleTimer");
         timerScript = timerObject.GetComponent<SingleTimer>();
 
+
+        countdownObject = GameObject.Find("Countdown");
+        countdownScript = countdownObject.GetComponent<TimerControl>();
 
         createObject = GameObject.Find("SingleCreateBlock");
 
@@ -85,47 +88,54 @@ public class BlockMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (start)
+        if (countdownScript.totalTime > 0)
         {
-            timerCheck -= Time.deltaTime;
-
-            if (timerCheck <= 0)
+            if (start)
             {
-                fall.enabled = true;
-                ctrl.enabled = true;
-                createScript.Create();
-                start = false;
+                timerCheck -= Time.deltaTime;
 
-              
+                if (timerCheck <= 0)
+                {
+                    fall.enabled = true;
+                    ctrl.enabled = true;
+                    createScript.Create();
+                    start = false;
+
+
                     gameObject.name = "FallBlock";
-               
+
+                }
+            }
+
+            if (standBy)
+            {
+                if (blockMgr.blockWaiver)
+                {
+
+                    fall.enabled = true;
+                    ctrl.enabled = true;
+                    createScript.Create();
+                    standBy = false;
+
+
+                    gameObject.name = "FallBlock";
+
+                }
+
+            }
+
+
+            if (blockWaiver)
+            {
+                if (rb2.IsSleeping())
+                {
+                    StartCoroutine("NextFrameBlockBody");
+                }
             }
         }
-
-        if (standBy)
+        else if(this.gameObject.name == "FallBlock")
         {
-            if (blockMgr.blockWaiver)
-            {
-
-                fall.enabled = true;
-                ctrl.enabled = true;
-                createScript.Create();
-                standBy = false;
-
-
-                gameObject.name = "FallBlock";
-
-            }
-
-        }
-
-
-        if (blockWaiver)
-        {
-            if (rb2.IsSleeping())
-            {
-                StartCoroutine("NextFrameBlockBody");
-            }
+            Destroy(this.gameObject);
         }
     }
 

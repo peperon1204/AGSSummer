@@ -31,13 +31,21 @@ public class SurvivalBlockMgr : MonoBehaviour
     private Life lifeScript;
 
     public GameObject root; //一番上の親を取得する
-   
+
+    private GameObject loseProcessObject;
+    private SurvivalResult loseScript;
+
+    private GameObject gameResult;
+    private ResultProcess resultScript;
+
+    private bool fixBlock; //true:ブロックの固定
 
     // Start is called before the first frame update
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
 
+        fixBlock = false;
 
         timerObject = GameObject.Find("SurvivalTime");
         timerScript = timerObject.GetComponent<SurvivalTimer>();
@@ -49,7 +57,8 @@ public class SurvivalBlockMgr : MonoBehaviour
         getPlayerNumber = playerNumber.GetComponent<GetPlayerNumber>();
 
         //playerLife = GameObject.Find("PlayerLife");
-       
+        gameResult = GameObject.Find("ResultManager");
+        resultScript = gameResult.GetComponent<ResultProcess>();
 
 
         root = transform.root.gameObject;
@@ -58,25 +67,32 @@ public class SurvivalBlockMgr : MonoBehaviour
         {
             survivalCreateObject = GameObject.Find("CreateBlock (1)");
             playerLife = GameObject.Find("Life (1)");
+            loseProcessObject = GameObject.Find("Player1");
         }
         else if (root == getPlayerNumber.getNumber[1])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (2)");
             playerLife = GameObject.Find("Life (2)");
+            loseProcessObject = GameObject.Find("Player2");
         }
         else if (root == getPlayerNumber.getNumber[2])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (3)");
             playerLife = GameObject.Find("Life (3)");
+            loseProcessObject = GameObject.Find("Player3");
         }
         else if (root == getPlayerNumber.getNumber[3])
         {
             survivalCreateObject = GameObject.Find("CreateBlock (4)");
             playerLife = GameObject.Find("Life (4)");
+            loseProcessObject = GameObject.Find("Player4");
         }
 
         survivalCreateScript = survivalCreateObject.GetComponent<SurvivalCreateBlock>();
         lifeScript = playerLife.GetComponent<Life>();
+
+
+        loseScript = loseProcessObject.GetComponent<SurvivalResult>();
 
         timerCheck = timerScript.TimerCount;
 
@@ -120,93 +136,122 @@ public class SurvivalBlockMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (start)
+        if (!loseScript.loseFlag && !resultScript.winFlag)
         {
-            timerCheck -= Time.deltaTime;
+            //fixBlock = false;
 
-            if (timerCheck <= 0)
+            if (start)
             {
-                survivalFall.enabled = true;
-                survivalCtrl.enabled = true;
-                survivalCreateScript.Create();
-                start = false;
-                // gameObject.name = "FallBlock";
-                Physics2D.gravity = new Vector3(0, 0, 0);
+                timerCheck -= Time.deltaTime;
+
+                if (timerCheck <= 0)
+                {
+                    survivalFall.enabled = true;
+                    survivalCtrl.enabled = true;
+                    survivalCreateScript.Create();
+                    start = false;
+                    // gameObject.name = "FallBlock";
+                    Physics2D.gravity = new Vector3(0, 0, 0);
+                    if (root == getPlayerNumber.getNumber[0])
+                    {
+                        gameObject.name = "FallBlock1";
+                    }
+                    else if (root == getPlayerNumber.getNumber[1])
+                    {
+                        gameObject.name = "FallBlock2";
+                    }
+                    else if (root == getPlayerNumber.getNumber[2])
+                    {
+                        gameObject.name = "FallBlock3";
+                    }
+                    else if (root == getPlayerNumber.getNumber[3])
+                    {
+                        gameObject.name = "FallBlock4";
+                    }
+
+                }
+            }
+
+            if (standBy)
+            {
+                if (survivalBlockMgr.blockWaiver)
+                {
+                    survivalFall.enabled = true;
+                    survivalCtrl.enabled = true;
+                    survivalCreateScript.Create();
+                    standBy = false;
+                    //gameObject.name = "FallBlock";
+                    Physics2D.gravity = new Vector3(0, 0, 0);
+
+                    if (root == getPlayerNumber.getNumber[0])
+                    {
+                        gameObject.name = "FallBlock1";
+                    }
+                    else if (root == getPlayerNumber.getNumber[1])
+                    {
+                        gameObject.name = "FallBlock2";
+                    }
+                    else if (root == getPlayerNumber.getNumber[2])
+                    {
+                        gameObject.name = "FallBlock3";
+                    }
+                    else if (root == getPlayerNumber.getNumber[3])
+                    {
+                        gameObject.name = "FallBlock4";
+                    }
+                }
+
+                if (blockWaiver)
+                {
+                    if (rb2.IsSleeping())
+                    {
+                        rb2.bodyType = RigidbodyType2D.Kinematic;
+                    }
+                }
+
+                Debug.Log(getPlayerNumber);
+
                 if (root == getPlayerNumber.getNumber[0])
                 {
-                    gameObject.name = "FallBlock1";
+                    survivalCreateObject = GameObject.Find("CreateBlock (1)");
                 }
                 else if (root == getPlayerNumber.getNumber[1])
                 {
-                    gameObject.name = "FallBlock2";
+                    survivalCreateObject = GameObject.Find("CreateBlock (2)");
                 }
                 else if (root == getPlayerNumber.getNumber[2])
                 {
-                    gameObject.name = "FallBlock3";
+                    survivalCreateObject = GameObject.Find("CreateBlock (3)");
                 }
                 else if (root == getPlayerNumber.getNumber[3])
                 {
-                    gameObject.name = "FallBlock4";
+                    survivalCreateObject = GameObject.Find("CreateBlock (4)");
                 }
-
             }
         }
-
-        if (standBy)
+        else
         {
-            if (survivalBlockMgr.blockWaiver)
+            fixBlock = true;
+            if (this.gameObject.name == "FallBlock1")
             {
-                survivalFall.enabled = true;
-                survivalCtrl.enabled = true;
-                survivalCreateScript.Create();
-                standBy = false;
-                //gameObject.name = "FallBlock";
-                Physics2D.gravity = new Vector3(0, 0, 0);
-
-                if (root == getPlayerNumber.getNumber[0])
-                {
-                    gameObject.name = "FallBlock1";
-                }
-                else if (root == getPlayerNumber.getNumber[1])
-                {
-                    gameObject.name = "FallBlock2";
-                }
-                else if (root == getPlayerNumber.getNumber[2])
-                {
-                    gameObject.name = "FallBlock3";
-                }
-                else if (root == getPlayerNumber.getNumber[3])
-                {
-                    gameObject.name = "FallBlock4";
-                }
+                Destroy(this.gameObject);
             }
-
-            if (blockWaiver)
+            else if (this.gameObject.name == "FallBlock2")
             {
-                if (rb2.IsSleeping())
-                {
-                    rb2.bodyType = RigidbodyType2D.Kinematic;
-                }
+                Destroy(this.gameObject);
             }
-
-            Debug.Log(getPlayerNumber);
-
-            if (root == getPlayerNumber.getNumber[0])
+            else if (this.gameObject.name == "FallBlock3")
             {
-                survivalCreateObject = GameObject.Find("CreateBlock (1)");
+                Destroy(this.gameObject);
             }
-            else if (root == getPlayerNumber.getNumber[1])
+            else if (this.gameObject.name == "FallBlock4")
             {
-                survivalCreateObject = GameObject.Find("CreateBlock (2)");
+                Destroy(this.gameObject);
             }
-            else if (root == getPlayerNumber.getNumber[2])
-            {
-                survivalCreateObject = GameObject.Find("CreateBlock (3)");
-            }
-            else if (root == getPlayerNumber.getNumber[3])
-            {
-                survivalCreateObject = GameObject.Find("CreateBlock (4)");
-            }
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            fixBlock = true;
         }
     }
 
@@ -294,6 +339,13 @@ public class SurvivalBlockMgr : MonoBehaviour
         if (rb2.bodyType == RigidbodyType2D.Kinematic)
         {
             StartCoroutine("NextFrameBodyType");
+        }
+
+        if (fixBlock)
+        {
+            fixBlock = false;
+            rb2.bodyType = RigidbodyType2D.Static;
+            
         }
     }
 }

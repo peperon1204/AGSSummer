@@ -12,7 +12,7 @@ public class ScoreMgr : MonoBehaviour
     private int score;
     public Text scoreText;
 
-
+    public int tmpScore;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class ScoreMgr : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score:" + score + "m";
-
+        tmpScore = score;
     }
 
     public void ScoreAdd()

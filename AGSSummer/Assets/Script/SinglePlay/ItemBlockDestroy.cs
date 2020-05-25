@@ -6,10 +6,13 @@ public class ItemBlockDestroy : MonoBehaviour
 {
     public GameObject ItemDestroyBox;
 
+    public bool destroyBox;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        destroyBox = false;
     }
 
     // Update is called once per frame
@@ -35,13 +38,25 @@ public class ItemBlockDestroy : MonoBehaviour
         {
             ItemDestroyBox.transform.Translate(0.0f, -0.1f, 0.0f);
         }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            destroyBox = true;
+        }
+
+        Debug.Log(destroyBox);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BlockWaiver")
+        if (destroyBox)
         {
-            Destroy(collision.gameObject);
+            if (collision.gameObject.tag == "BlockWaiver")
+            {
+                Destroy(collision.gameObject);
+                destroyBox = false;
+            }
         }
     }
 }

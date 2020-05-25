@@ -862,6 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b9793e56719514b91a637fdf9735e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lose: 0
   winText: {fileID: 1879096758}
   loseText: {fileID: 635773908}
   root: {fileID: 0}
@@ -2809,6 +2810,7 @@ MonoBehaviour:
   - {fileID: 2033915694}
   - {fileID: 701061211}
   - {fileID: 463757492}
+  gameMode: 0
 --- !u!114 &772458457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3105,6 +3107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winFlag: 0
+  playerNumber: 0
 --- !u!4 &867299665
 Transform:
   m_ObjectHideFlags: 0
@@ -4274,6 +4277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b9793e56719514b91a637fdf9735e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lose: 0
   winText: {fileID: 1879096758}
   loseText: {fileID: 635773908}
   root: {fileID: 0}
@@ -4324,6 +4328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b9793e56719514b91a637fdf9735e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lose: 0
   winText: {fileID: 1879096758}
   loseText: {fileID: 635773908}
   root: {fileID: 0}
@@ -5103,6 +5108,7 @@ MonoBehaviour:
   - {fileID: 1301943753}
   - {fileID: 1429004993}
   - {fileID: 286075079}
+  playerNumber: 0
 --- !u!4 &1875388875
 Transform:
   m_ObjectHideFlags: 0
@@ -5634,6 +5640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b9793e56719514b91a637fdf9735e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lose: 0
   winText: {fileID: 1879096758}
   loseText: {fileID: 635773908}
   root: {fileID: 0}
