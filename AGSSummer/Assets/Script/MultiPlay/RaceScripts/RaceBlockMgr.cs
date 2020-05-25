@@ -21,6 +21,8 @@ public class RaceBlockMgr : MonoBehaviour
 
     private RaceBlockMgr raceBlockMgr;
 
+    private RaceBlockMgr myBlockMgr;
+
     private GameObject raceCreateObject;
 
     private RaceCreate raceCreateScript;
@@ -42,6 +44,8 @@ public class RaceBlockMgr : MonoBehaviour
     private RacePlayerNumber getPlayerNumber;
 
     public GameObject root;
+
+    private bool fixedBlock;
 
     // Start is called before the first frame update
     void Start()
@@ -120,6 +124,10 @@ public class RaceBlockMgr : MonoBehaviour
         }
 
         blockWaiver = false;
+
+        fixedBlock = false;
+
+        myBlockMgr = gameObject.GetComponent<RaceBlockMgr>();
     }
 
     // Update is called once per frame
@@ -170,6 +178,7 @@ public class RaceBlockMgr : MonoBehaviour
                     {
                         collider[i].enabled = true;
                     }
+
                     raceFall.enabled = true;
                     raceCtrl.enabled = true;
                     raceCreateScript.Create();
@@ -190,6 +199,40 @@ public class RaceBlockMgr : MonoBehaviour
                     else if (root == getPlayerNumber.getNumber[3])
                     {
                         gameObject.name = "FallBlock4";
+                    }
+                }
+            }
+        }
+        else
+        {
+            if(!start)
+            {
+                if (root == getPlayerNumber.getNumber[0])
+                {
+                    if(Input.GetKeyDown(KeyCode.Z))
+                    {
+                        fixedBlock = true;
+                    }
+                }
+                else if (root == getPlayerNumber.getNumber[1])
+                {
+                    if(Input.GetKeyDown(KeyCode.X))
+                    {
+                        fixedBlock = true;
+                    }
+                }
+                else if (root == getPlayerNumber.getNumber[2])
+                {
+                    if(Input.GetKeyDown(KeyCode.C))
+                    {
+                        fixedBlock = true;
+                    }
+                }
+                else if (root == getPlayerNumber.getNumber[3])
+                {
+                    if(Input.GetKeyDown(KeyCode.V))
+                    {
+                        fixedBlock = true;
                     }
                 }
             }
@@ -270,6 +313,13 @@ public class RaceBlockMgr : MonoBehaviour
             {
                 rb2.bodyType = RigidbodyType2D.Dynamic;
             }
+        }
+
+        if(fixedBlock)
+        {
+            fixedBlock = false;
+            rb2.bodyType = RigidbodyType2D.Static;
+            myBlockMgr.enabled = false;
         }
     }
 }

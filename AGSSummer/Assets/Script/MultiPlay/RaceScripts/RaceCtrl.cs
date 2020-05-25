@@ -61,7 +61,7 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    child.Rotate(0.0f, 0.0f, 90.0f);
+                    child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    child.Rotate(0.0f, 0.0f, 90.0f);
+                    child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
         }
@@ -123,7 +123,7 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.T))
                 {
-                    child.Rotate(0.0f, 0.0f, 90.0f);
+                    child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
         }
@@ -154,7 +154,7 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.I))
                 {
-                    child.Rotate(0.0f, 0.0f, 90.0f);
+                    child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
         }
