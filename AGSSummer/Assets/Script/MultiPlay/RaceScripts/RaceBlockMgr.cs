@@ -56,8 +56,17 @@ public class RaceBlockMgr : MonoBehaviour
     {
         rb2 = GetComponent<Rigidbody2D>();
 
+        collider = gameObject.GetComponentsInChildren<BoxCollider2D>();
+
+        for(int i = 0; i < 4; i++)
+        {
+            collider[i].enabled = false;
+        }
+
         timerObject = GameObject.Find("TimeObject");
         timerScript = timerObject.GetComponent<Timer>();
+
+        timerCheck = timerScript.TimerCount;
 
         playerNumber = GameObject.Find("GetPlayerNumber");
         getPlayerNumber = playerNumber.GetComponent<RacePlayerNumber>();
@@ -67,30 +76,31 @@ public class RaceBlockMgr : MonoBehaviour
         if (root == getPlayerNumber.getNumber[0])
         {
             raceCreateObject = GameObject.Find("BlockCreate (1)");
+            FixedObj = GameObject.Find("FixedObj (1)");
         }
         else if (root == getPlayerNumber.getNumber[1])
         {
             raceCreateObject = GameObject.Find("BlockCreate (2)");
+            FixedObj = GameObject.Find("FixedObj (2)");
         }
         else if (root == getPlayerNumber.getNumber[2])
         {
             raceCreateObject = GameObject.Find("BlockCreate (3)");
+            FixedObj = GameObject.Find("FixedObj (3)");
         }
         else if (root == getPlayerNumber.getNumber[3])
         {
             raceCreateObject = GameObject.Find("BlockCreate (4)");
+            FixedObj = GameObject.Find("FixedObj (4)");
         }
 
         raceCreateScript = raceCreateObject.GetComponent<RaceCreate>();
 
-        timerCheck = timerScript.TimerCount;
+        fixedPermit = FixedObj.GetComponent<FixedBlock>();
 
-        collider = gameObject.GetComponentsInChildren<BoxCollider2D>();
+        blockWaiver = false;
 
-        for(int i = 0; i < 4; i++)
-        {
-            collider[i].enabled = false;
-        }
+        fixedBlock = false;
 
         if(timerCheck >= 0)
         {
@@ -121,19 +131,13 @@ public class RaceBlockMgr : MonoBehaviour
 
             raceBlockMgr = fallBlock.GetComponent<RaceBlockMgr>();
 
+            myBlockMgr = gameObject.GetComponent<RaceBlockMgr>();
+
             goalLine =  goalLineObject.GetComponent<GoalLine>();
 
             standBy = true;
             start = false;
         }
-
-        blockWaiver = false;
-
-        fixedBlock = false;
-
-        FixedObj = GameObject.Find("FixedObj");
-
-        fixedPermit = FixedObj.GetComponent<FixedBlock>();
     }
 
     // Update is called once per frame
@@ -211,45 +215,44 @@ public class RaceBlockMgr : MonoBehaviour
         }
         else
         {
-            if(!start)
+            if(!blockWaiver)
             {
-                
-                    if (root == getPlayerNumber.getNumber[0])
+                if(fixedPermit.FixedPermit)
+                {
+                    if(fixedPermit.StartFixed)
                     {
-                        if(Input.GetKeyDown(KeyCode.Z))
+                        if (root == getPlayerNumber.getNumber[0])
                         {
-                            Debug.Log("bbbb");
-                            if(fixedPermit.FixedPermit)
+                            if(Input.GetKeyDown(KeyCode.Z))
                             {
-                                Debug.Log("aaaa");
+                                fixedBlock = true;
+                            }
+                        }
+                        else if (root == getPlayerNumber.getNumber[1])
+                        {
+                            if(Input.GetKeyDown(KeyCode.X))
+                            {
+                                fixedBlock = true;
+                            }
+                        }
+                        else if (root == getPlayerNumber.getNumber[2])
+                        {
+                            if(Input.GetKeyDown(KeyCode.C))
+                            {
+                                fixedBlock = true;
+                            }
+                        }
+                        else if (root == getPlayerNumber.getNumber[3])
+                        {
+                            if(Input.GetKeyDown(KeyCode.V))
+                            {
                                 fixedBlock = true;
                             }
                         }
                     }
-                    else if (root == getPlayerNumber.getNumber[1])
-                    {
-                        if(Input.GetKeyDown(KeyCode.X))
-                        {
-                            fixedBlock = true;
-                        }
-                    }
-                    else if (root == getPlayerNumber.getNumber[2])
-                    {
-                        if(Input.GetKeyDown(KeyCode.C))
-                        {
-                            fixedBlock = true;
-                        }
-                    }
-                    else if (root == getPlayerNumber.getNumber[3])
-                    {
-                        if(Input.GetKeyDown(KeyCode.V))
-                        {
-                            fixedBlock = true;
-                        }
-                    }
-                
+                }
             }
-        }
+        } 
         
         if(blockWaiver)
         {
@@ -330,7 +333,7 @@ public class RaceBlockMgr : MonoBehaviour
 
         if(fixedBlock)
         {
-            fixedBlock = false;
+            Debug.Log("Static");
             rb2.bodyType = RigidbodyType2D.Static;
             myBlockMgr.enabled = false;
         }
