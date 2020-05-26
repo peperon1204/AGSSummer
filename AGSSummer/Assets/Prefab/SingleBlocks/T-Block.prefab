@@ -223,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fall: {fileID: 5266759483357977438}
   ctrl: {fileID: 3641312391540123758}
+  blockEffect: {fileID: 6128221896779418238, guid: d40adf4c7ee4ffa48952f5e724bb591a,
+    type: 3}
 --- !u!114 &3641312391540123758
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -283,6 +283,8 @@ MonoBehaviour:
   survivalFall: {fileID: 4673765617244270115}
   survivalCtrl: {fileID: 9064166960960295305}
   root: {fileID: 0}
+  blockEffect: {fileID: 6128221896779418238, guid: d40adf4c7ee4ffa48952f5e724bb591a,
+    type: 3}
 --- !u!114 &4673765617244270115
 MonoBehaviour:
   m_ObjectHideFlags: 0

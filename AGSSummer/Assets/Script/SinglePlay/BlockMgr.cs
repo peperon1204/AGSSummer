@@ -30,6 +30,7 @@ public class BlockMgr : MonoBehaviour
     private GameObject countdownObject;
     private TimerControl countdownScript;
 
+    public GameObject blockEffect;
 
     //private Transform chilledObject;
 
@@ -154,7 +155,7 @@ public class BlockMgr : MonoBehaviour
             {
                 blockWaiver = true;
             }
-
+            Instantiate(blockEffect, this.transform.position, Quaternion.identity); //エフェクト生成
             Destroy(gameObject);
         }
     }

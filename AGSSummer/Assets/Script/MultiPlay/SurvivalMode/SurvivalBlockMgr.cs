@@ -40,6 +40,9 @@ public class SurvivalBlockMgr : MonoBehaviour
 
     private bool fixBlock; //true:ブロックの固定
 
+    public GameObject blockEffect;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -297,7 +300,7 @@ public class SurvivalBlockMgr : MonoBehaviour
             {
                 blockWaiver = true;
             }
-
+            Instantiate(blockEffect, this.transform.position, Quaternion.identity); //エフェクト生成
             lifeScript.LifeLost();
             Destroy(gameObject);
         }

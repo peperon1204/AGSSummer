@@ -70,6 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   survivalFall: {fileID: 7588903773125338830}
   survivalCtrl: {fileID: 5600605438763981793}
+  root: {fileID: 0}
+  blockEffect: {fileID: 6128221896779418238, guid: d40adf4c7ee4ffa48952f5e724bb591a,
+    type: 3}
 --- !u!114 &7588903773125338830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 0.04
   highSpeed: 0.16
+  root: {fileID: 0}
 --- !u!114 &5600605438763981793
 MonoBehaviour:
   m_ObjectHideFlags: 0
