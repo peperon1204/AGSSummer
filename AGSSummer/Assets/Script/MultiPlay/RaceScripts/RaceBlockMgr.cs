@@ -217,9 +217,9 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(!blockWaiver)
             {
-                if(fixedPermit.FixedPermit)
+                if(!fixedPermit.UsedItem)
                 {
-                    if(fixedPermit.StartFixed)
+                    if(fixedPermit.FixedPermit)
                     {
                         if (root == getPlayerNumber.getNumber[0])
                         {
@@ -258,7 +258,7 @@ public class RaceBlockMgr : MonoBehaviour
         {
             if(rb2.IsSleeping())
             {
-                StartCoroutine("NextFrameBlockBody");
+                //StartCoroutine("NextFrameBlockBody");
             }
         }
     }

@@ -1,45 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FixedBlock : MonoBehaviour
 {
+    private bool getItem;
+
+    private int randomItem;
+
+    private float itemTimer;
+
     private bool fixedPermit;
 
-    private bool fixedBlock;
+    private bool usedItem;
 
-    private float fixedTimer;
+    private bool darumaItem;
 
-    private GameObject playerNumber;
-    
-    private RacePlayerNumber getPlayerNumber;
-
-    public GameObject root;
-
-    private bool startFixed;
+    public Text ItemText;
 
     // Start is called before the first frame update
     void Start()
     {
-        fixedTimer = 0;
+        itemTimer = 0;
+        getItem = false;
+        randomItem = 0;
         fixedPermit = false;
-        startFixed = true;
+        usedItem = true;
+        darumaItem = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(fixedBlock)
+        ItemText.text = (randomItem);
+
+        if(getItem)
         {
-            fixedTimer += Time.deltaTime;
-            if(fixedTimer >= 3)
+            itemTimer += Time.deltaTime;
+            if(itemTimer >= 3)
             {
-                fixedPermit = true;
+                randomItem = Random.Range(1, 3);
+                usedItem = false;
+                getItem = false;
             }
         }
         else
         {
-            fixedTimer = 0;
+            itemTimer = 0;
+        }
+
+        if(randomItem == 1)
+        {
+            fixedPermit = true;
+        }
+        else if(randomItem == 2)
+        {
+            darumaItem = true;
         }
 
         if(fixedPermit)
@@ -53,19 +70,22 @@ public class FixedBlock : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        fixedBlock = true;
+        getItem = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        fixedBlock = false;
+        getItem = false;
+        usedItem = true;
     }
 
     IEnumerator NextFramestartFixed()
     {
         yield return null;
 
-        startFixed = false;
+        randomItem = 0;
+
+        usedItem = true;
     }
 
     public bool FixedPermit
@@ -74,9 +94,15 @@ public class FixedBlock : MonoBehaviour
         private set { fixedPermit = value; }
     }
 
-    public bool StartFixed
+    public bool UsedItem
     {
-        get { return startFixed; }
-        private set { startFixed = value; } 
+        get { return usedItem; }
+        private set { usedItem = value; } 
+    }
+
+    public bool DarumaItem
+    {
+        get { return darumaItem; }
+        private set { darumaItem = value; }
     }
 }
