@@ -30,7 +30,8 @@ public class BlockMgr : MonoBehaviour
     private GameObject countdownObject;
     private TimerControl countdownScript;
 
-    public GameObject blockEffect;
+    public GameObject blockEffect;      //ブロック破壊時のエフェクト
+
 
     //private Transform chilledObject;
 
@@ -98,9 +99,8 @@ public class BlockMgr : MonoBehaviour
                 if (timerCheck <= 0)
                 {
                     fall.enabled = true;
-                    ctrl.enabled = true;
-                    createScript.Create();
                     start = false;
+                    Invoke("CreateScript", 0.8f);
 
 
                     gameObject.name = "FallBlock";
@@ -114,8 +114,8 @@ public class BlockMgr : MonoBehaviour
                 {
 
                     fall.enabled = true;
-                    ctrl.enabled = true;
-                    createScript.Create();
+                    Invoke("CreateScript", 0.8f);
+                    
                     standBy = false;
 
 
@@ -185,5 +185,12 @@ public class BlockMgr : MonoBehaviour
                 rb2.bodyType = RigidbodyType2D.Dynamic;
             }
         }
+    }
+
+    public void CreateScript()
+    {
+        createScript.Create();
+        ctrl.enabled = true;
+
     }
 }

@@ -13,10 +13,14 @@ public class Life : MonoBehaviour
     public GameObject[] playerLife;             //ライフ画像
     public GameObject[] playerLifeLost;         //ライフ減少時画像
 
+    public GameObject heartEffect;
+
+    private bool lostFlag;
 
     // Start is called before the first frame update
     void Start()
     {
+        lostFlag = false;
 
         life = 3;
         lifeMax = life;//プレイヤーライフ取得
@@ -107,6 +111,25 @@ public class Life : MonoBehaviour
 
     public void LifeLost()
     {
+        lostFlag = true;
         life--;
+        if (lostFlag)
+        {
+            if (life <= 2)
+            {
+                Instantiate(heartEffect, playerLife[2].transform.position, Quaternion.identity); //エフェクト生成
+                lostFlag = false;
+            }
+            if (life <= 1)
+            {
+                Instantiate(heartEffect, playerLife[1].transform.position, Quaternion.identity); //エフェクト生成
+                lostFlag = false;
+            }
+            if (life <= 0)
+            {
+                Instantiate(heartEffect, playerLife[0].transform.position, Quaternion.identity); //エフェクト生成
+                lostFlag = false;
+            }
+        }
     }
 }

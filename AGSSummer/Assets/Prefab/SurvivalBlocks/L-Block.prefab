@@ -283,7 +283,7 @@ MonoBehaviour:
   survivalFall: {fileID: 4673765617244270115}
   survivalCtrl: {fileID: 9064166960960295305}
   root: {fileID: 0}
-  blockEffect: {fileID: 6128221896779418238, guid: d40adf4c7ee4ffa48952f5e724bb591a,
+  blockEffect: {fileID: 3459106754105946924, guid: 912a6e4aade66924488e2892e4fdc2cb,
     type: 3}
 --- !u!114 &4673765617244270115
 MonoBehaviour:
@@ -300,6 +300,9 @@ MonoBehaviour:
   normalSpeed: 0.04
   highSpeed: 0.16
   root: {fileID: 0}
+  createEffect: {fileID: 2404627085479544661, guid: 8ea44522ad8680f40a26be65339ebaca,
+    type: 3}
+  effectCntMax: 60
 --- !u!114 &9064166960960295305
 MonoBehaviour:
   m_ObjectHideFlags: 0

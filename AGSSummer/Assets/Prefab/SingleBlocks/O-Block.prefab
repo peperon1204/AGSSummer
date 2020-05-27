@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fall: {fileID: 2264048980469436907}
   ctrl: {fileID: 4692134426584417577}
-  blockEffect: {fileID: 6128221896779418238, guid: d40adf4c7ee4ffa48952f5e724bb591a,
+  blockEffect: {fileID: 5611038594623946592, guid: 1a88aa0902beba04793042621c952d2a,
     type: 3}
 --- !u!114 &4692134426584417577
 MonoBehaviour:
@@ -98,6 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 0.02
   highSpeed: 0.16
+  createEffect: {fileID: 7461995212450559971, guid: d66733c97db379e4981ebb667ca53a49,
+    type: 3}
+  effectCntMax: 60
 --- !u!1 &226873298770501973
 GameObject:
   m_ObjectHideFlags: 0

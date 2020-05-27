@@ -150,9 +150,9 @@ public class SurvivalBlockMgr : MonoBehaviour
                 if (timerCheck <= 0)
                 {
                     survivalFall.enabled = true;
-                    survivalCtrl.enabled = true;
-                    survivalCreateScript.Create();
                     start = false;
+                    Invoke("CreateScript", 0.8f);
+
                     // gameObject.name = "FallBlock";
                     Physics2D.gravity = new Vector3(0, 0, 0);
                     if (root == getPlayerNumber.getNumber[0])
@@ -180,8 +180,6 @@ public class SurvivalBlockMgr : MonoBehaviour
                 if (survivalBlockMgr.blockWaiver)
                 {
                     survivalFall.enabled = true;
-                    survivalCtrl.enabled = true;
-                    survivalCreateScript.Create();
                     standBy = false;
                     //gameObject.name = "FallBlock";
                     Physics2D.gravity = new Vector3(0, 0, 0);
@@ -350,5 +348,11 @@ public class SurvivalBlockMgr : MonoBehaviour
             rb2.bodyType = RigidbodyType2D.Static;
             
         }
+    }
+    public void CreateScript()
+    {
+        survivalCreateScript.Create();
+        survivalCtrl.enabled = true;
+
     }
 }

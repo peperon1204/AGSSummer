@@ -342,7 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fall: {fileID: 6464057787736289333}
   ctrl: {fileID: 4160367034080536435}
-  blockEffect: {fileID: 6128221896779418238, guid: d40adf4c7ee4ffa48952f5e724bb591a,
+  blockEffect: {fileID: 2586107634778597420, guid: 54c0f759b36b3fc4bbede2dade8ebd62,
     type: 3}
 --- !u!114 &6464057787736289333
 MonoBehaviour:
@@ -358,6 +358,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 0.02
   highSpeed: 0.16
+  createEffect: {fileID: 3169286656405687438, guid: b7d00645ab2b81d41817fdaa28154ea0,
+    type: 3}
+  effectCntMax: 60
 --- !u!114 &4160367034080536435
 MonoBehaviour:
   m_ObjectHideFlags: 0
