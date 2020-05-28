@@ -19,9 +19,20 @@ public class FixedBlock : MonoBehaviour
 
     public Text ItemText;
 
+    private GameObject playerNumber;
+    
+    private RacePlayerNumber getPlayerNumber;
+
+    public GameObject root;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerNumber = GameObject.Find("GetPlayerNumber");
+        getPlayerNumber = playerNumber.GetComponent<RacePlayerNumber>();
+
+        root = transform.root.gameObject;
+
         itemTimer = 0;
         getItem = false;
         randomItem = 0;
@@ -33,8 +44,6 @@ public class FixedBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ItemText.text = (randomItem);
-
         if(getItem)
         {
             itemTimer += Time.deltaTime;
@@ -50,7 +59,14 @@ public class FixedBlock : MonoBehaviour
             itemTimer = 0;
         }
 
-        if(randomItem == 1)
+        ItemText.text = randomItem.ToString();
+
+        if(randomItem == 0)
+        {
+            fixedPermit = false;
+            darumaItem = false;
+        }
+        else if(randomItem == 1)
         {
             fixedPermit = true;
         }
@@ -59,24 +75,50 @@ public class FixedBlock : MonoBehaviour
             darumaItem = true;
         }
 
-        if(fixedPermit)
+        if(!usedItem)
         {
-            if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.V))
+            if (root == getPlayerNumber.getNumber[0])
             {
-                StartCoroutine("NextFramestartFixed");
+                if(Input.GetKeyDown(KeyCode.Z))
+                {
+                    StartCoroutine("NextFramestartFixed");
+                }
+            }
+            else if (root == getPlayerNumber.getNumber[1])
+            {
+                if(Input.GetKeyDown(KeyCode.X))
+                {
+                    StartCoroutine("NextFramestartFixed");
+                }
+            }
+            else if (root == getPlayerNumber.getNumber[2])
+            {
+                if(Input.GetKeyDown(KeyCode.C))
+                {
+                    StartCoroutine("NextFramestartFixed");
+                }
+            }
+            else if (root == getPlayerNumber.getNumber[3])
+            {
+                if(Input.GetKeyDown(KeyCode.V))
+                {
+                    StartCoroutine("NextFramestartFixed");
+                }
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        getItem = true;
+        if(usedItem)
+        {   
+            getItem = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         getItem = false;
-        usedItem = true;
     }
 
     IEnumerator NextFramestartFixed()

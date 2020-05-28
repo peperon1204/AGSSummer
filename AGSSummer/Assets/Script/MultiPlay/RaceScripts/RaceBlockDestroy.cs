@@ -83,7 +83,7 @@ public class RaceBlockDestroy : MonoBehaviour
 
         if(destroyMove)
         {
-            transform.Translate(0.2f, 0.0f, 0.0f);
+            transform.Translate(0.5f, 0.0f, 0.0f);
         }
 
         if(transform.position.x >= 35)

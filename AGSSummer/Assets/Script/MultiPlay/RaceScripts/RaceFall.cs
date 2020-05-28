@@ -21,7 +21,7 @@ public class RaceFall : MonoBehaviour
 
         rb2.bodyType = RigidbodyType2D.Dynamic;
 
-        transform.Translate(2.2f, 6.0f, 0.0f);
+        transform.Translate(1.8f, 6.0f, 0.0f);
     }
 
     // Update is called once per frame
