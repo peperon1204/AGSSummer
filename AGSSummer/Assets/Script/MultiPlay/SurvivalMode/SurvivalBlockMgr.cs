@@ -182,6 +182,8 @@ public class SurvivalBlockMgr : MonoBehaviour
                     survivalFall.enabled = true;
                     standBy = false;
                     //gameObject.name = "FallBlock";
+                    Invoke("CreateScript", 0.8f);
+
                     Physics2D.gravity = new Vector3(0, 0, 0);
 
                     if (root == getPlayerNumber.getNumber[0])

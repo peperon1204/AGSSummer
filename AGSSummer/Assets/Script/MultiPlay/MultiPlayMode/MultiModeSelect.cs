@@ -15,31 +15,31 @@ public class MultiModeSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Invoke("ChangeSceneRaceMode", 0.0f);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Invoke("ChangeSceneSurvivalMode", 0.0f);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Invoke("ChangeSceneLimited", 0.0f);
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Invoke("ChangeSceneRaceMode", 0.0f);
+        //}
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    Invoke("ChangeSceneSurvivalMode", 0.0f);
+        //}
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    Invoke("ChangeSceneLimited", 0.0f);
+        //}
     }
 
-    void ChangeSceneRaceMode()
+    public void ChangeSceneRaceMode()
     {
         SceneManager.LoadScene("RaceMode");
     }
 
-    void ChangeSceneSurvivalMode()
+    public void ChangeSceneSurvivalMode()
     {
         SceneManager.LoadScene("SurvivalMode");
     }
 
-    void ChangeSceneLimited()
+    public void ChangeSceneLimited()
     {
         SceneManager.LoadScene("LimitedMode");
     }

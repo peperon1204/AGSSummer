@@ -15,22 +15,22 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Invoke("ChangeSceneSingle", 0.0f);
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Invoke("ChangeSceneMulti", 0.0f);
-        }
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    Invoke("ChangeSceneSingle", 0.0f);
+        //}
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    Invoke("ChangeSceneMulti", 0.0f);
+        //}
     }
 
-    void ChangeSceneSingle()
+    public void ChangeSceneSingle()
     {
         SceneManager.LoadScene("SinglePlay");
     }
 
-    void ChangeSceneMulti()
+    public void ChangeSceneMulti()
     {
         SceneManager.LoadScene("MultiPlay");
     }
