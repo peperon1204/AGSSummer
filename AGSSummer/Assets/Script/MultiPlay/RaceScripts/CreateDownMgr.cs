@@ -22,9 +22,9 @@ public class CreateDownMgr : MonoBehaviour
         Vector3 createPos = blockCreate.transform.position;
         transform.position = new Vector3(createPos.x, createPos.y, 0.0f);
 
-        if(transform.position.y < 2.0f)
+        if(transform.position.y < 0.0f)
         {
-            transform.position = new Vector3(createPos.x, 2.0f, 0.0f);
+            transform.position = new Vector3(createPos.x, 0.0f, 0.0f);
         }
 
         if(objDown)
