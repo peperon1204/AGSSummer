@@ -495,6 +495,8 @@ MonoBehaviour:
   raceFall: {fileID: 2041652663080956528}
   raceCtrl: {fileID: 4251022896636418608}
   root: {fileID: 0}
+  blockEffect: {fileID: 8013807103188600255, guid: 6aa7354bb4fc88e46b66aced286ffff0,
+    type: 3}
 --- !u!114 &2041652663080956528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +512,9 @@ MonoBehaviour:
   speedFall: 0
   normalSpeed: 0.04
   highSpeed: 0.12
+  createEffect: {fileID: 3734745712022351980, guid: 58a06f67509d6574d8d689919d162c9e,
+    type: 3}
+  effectCntMax: 60
 --- !u!114 &4251022896636418608
 MonoBehaviour:
   m_ObjectHideFlags: 0

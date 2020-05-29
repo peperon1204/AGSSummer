@@ -51,6 +51,8 @@ public class RaceBlockMgr : MonoBehaviour
 
     private FixedBlock fixedPermit;
 
+    public GameObject blockEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -301,7 +303,8 @@ public class RaceBlockMgr : MonoBehaviour
             {
                 blockWaiver = true;
             }
-
+            
+            Instantiate(blockEffect, this.transform.position, Quaternion.identity); 
             Destroy(gameObject);
         }
     }
