@@ -497,8 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e798892b52329488c8e79dd56d5151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playGame: 0
-  numberText: {fileID: 0}
+  playGame: 1
+  numberText: {fileID: 2146015930}
 --- !u!4 &685999851
 Transform:
   m_ObjectHideFlags: 0
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 685999850}
         m_MethodName: PlayerMinusCount
         m_Mode: 1
         m_Arguments:
@@ -989,7 +989,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &806530379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 685999850}
         m_MethodName: PlayerPlusCount
         m_Mode: 1
         m_Arguments:
