@@ -32,6 +32,10 @@ public class BlockMgr : MonoBehaviour
 
     public GameObject blockEffect;      //ブロック破壊時のエフェクト
 
+    public AudioClip blockSe1;
+    public AudioClip blockSe2;
+    AudioSource audioSource;
+
 
     //private Transform chilledObject;
 
@@ -40,6 +44,9 @@ public class BlockMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        audioSource = GetComponent<AudioSource>();
+
         rb2 = GetComponent<Rigidbody2D>();
 
         fall.enabled = false;
@@ -102,6 +109,8 @@ public class BlockMgr : MonoBehaviour
                     start = false;
                     Invoke("CreateScript", 0.8f);
 
+                    audioSource.PlayOneShot(blockSe2);
+
 
                     gameObject.name = "FallBlock";
 
@@ -118,6 +127,7 @@ public class BlockMgr : MonoBehaviour
                     
                     standBy = false;
 
+                    audioSource.PlayOneShot(blockSe2);
 
                     gameObject.name = "FallBlock";
 
@@ -155,8 +165,10 @@ public class BlockMgr : MonoBehaviour
             {
                 blockWaiver = true;
             }
-            Instantiate(blockEffect, this.transform.position, Quaternion.identity); //エフェクト生成
             Destroy(gameObject);
+
+
+            Instantiate(blockEffect, this.transform.position, Quaternion.identity); //エフェクト生成
         }
     }
 
@@ -171,6 +183,8 @@ public class BlockMgr : MonoBehaviour
     {
         if (!blockWaiver)
         {
+            audioSource.PlayOneShot(blockSe1);
+
             fall.enabled = false;
             ctrl.enabled = false;
             gameObject.name = "BlockWaiver";
@@ -193,4 +207,6 @@ public class BlockMgr : MonoBehaviour
         ctrl.enabled = true;
 
     }
+
+   
 }

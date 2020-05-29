@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class MultiModeSelect : MonoBehaviour
 {
+    public AudioClip buttonSe;
+    AudioSource audioSource; 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -29,18 +33,31 @@ public class MultiModeSelect : MonoBehaviour
         //}
     }
 
-    public void ChangeSceneRaceMode()
+    void SceneRaceMode()
     {
         SceneManager.LoadScene("RaceMode");
     }
 
-    public void ChangeSceneSurvivalMode()
+    void SceneSurvivalMode()
     {
         SceneManager.LoadScene("SurvivalMode");
     }
 
-    public void ChangeSceneLimited()
+    //public void ChangeSceneLimited()
+    //{
+    //    SceneManager.LoadScene("LimitedMode");
+    //}
+
+    public void ChangeSceneRaceMode()
     {
-        SceneManager.LoadScene("LimitedMode");
+        audioSource.PlayOneShot(buttonSe);
+
+        Invoke("SceneRaceMode", 0.5f);
+    }
+
+    public void ChangeSceneSurvivalMode()
+    {
+        audioSource.PlayOneShot(buttonSe);
+        Invoke("SceneSurvivalMode", 0.5f);
     }
 }

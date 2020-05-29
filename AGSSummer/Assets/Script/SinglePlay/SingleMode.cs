@@ -23,6 +23,9 @@ public class SingleMode : MonoBehaviour
     private GameObject tmpScoreObject;
     private ScoreMgr scoreScript;
 
+    public Text gameScore;
+    public Text gameTime;
+
     public Text resultScore;
     public Text resultText1;
     public Text resultText2;
@@ -45,6 +48,9 @@ public class SingleMode : MonoBehaviour
         resultText1.enabled = false;
         resultText2.enabled = false;
         returnTitle.enabled = false;
+
+        gameScore.enabled = true;
+        gameTime.enabled = true;
     }
 
     // Update is called once per frame
@@ -61,10 +67,11 @@ public class SingleMode : MonoBehaviour
         {
             resultScore.enabled = true;
             resultText1.enabled = true;
-            resultText2.enabled = true;
+            //resultText2.enabled = true;
             returnTitle.enabled = true;
 
-
+            gameScore.enabled = false;
+            gameTime.enabled = false;
 
             if (Input.GetKeyDown(KeyCode.Return))
             {

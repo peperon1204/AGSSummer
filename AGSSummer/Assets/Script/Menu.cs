@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public AudioClip buttonSe;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -25,13 +29,27 @@ public class Menu : MonoBehaviour
         //}
     }
 
-    public void ChangeSceneSingle()
+    void SceneSingle()
     {
         SceneManager.LoadScene("SinglePlay");
     }
 
-    public void ChangeSceneMulti()
+    void SceneMulti()
     {
         SceneManager.LoadScene("MultiPlay");
+    }
+
+    public void ChangeSceneSingle()
+    {
+        audioSource.PlayOneShot(buttonSe);
+
+        Invoke("SceneSingle", 0.5f);
+    }
+
+    public void ChangeSceneMulti()
+    {
+        audioSource.PlayOneShot(buttonSe);
+
+        Invoke("SceneMulti", 0.5f);
     }
 }

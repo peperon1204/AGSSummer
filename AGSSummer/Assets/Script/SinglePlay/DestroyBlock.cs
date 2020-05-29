@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Title : MonoBehaviour
+public class DestroyBlock : MonoBehaviour
 {
-    public AudioClip buttonSe;
+
+    public AudioClip blockSe;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -18,15 +18,17 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            audioSource.PlayOneShot(buttonSe);
-            Invoke("ChangeScene", 0.5f);
-        }
+        
     }
 
-    void ChangeScene()
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene("Menu");
+        if (collision.gameObject.tag == "Block" || collision.gameObject.tag == "BlockWaiver")
+        {
+            audioSource.PlayOneShot(blockSe);
+
+        }
+
     }
 }

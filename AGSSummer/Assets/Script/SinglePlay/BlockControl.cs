@@ -8,9 +8,16 @@ public class BlockControl : MonoBehaviour
 
     private bool ctrlWaiver;
 
+    public AudioClip blockSe;
+    AudioSource audioSource;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+
         //回転する中心軸を取得
         child = transform.Find("RotationCenter");
     }
@@ -41,6 +48,8 @@ public class BlockControl : MonoBehaviour
             //子オブジェクト（中心軸）のRotationを回転させる
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                audioSource.PlayOneShot(blockSe);
+
                 child.Rotate(0.0f, 0.0f, 90.0f);
             }
         }
