@@ -53,12 +53,24 @@ public class RaceBlockMgr : MonoBehaviour
 
     public GameObject blockEffect;
 
+    private Transform child;
+
+    private SpriteRenderer[] spriteRenderer;
+
+    private Color color;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
 
         collider = gameObject.GetComponentsInChildren<BoxCollider2D>();
+
+        spriteRenderer = gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+        color = spriteRenderer[0].material.color;
+
+        color.r = 0/255f; 
 
         for(int i = 0; i < 4; i++)
         {
@@ -158,7 +170,7 @@ public class RaceBlockMgr : MonoBehaviour
                 
                 raceFall.enabled = true;
                 raceCtrl.enabled = true;
-                raceCreateScript.Create();
+                Invoke("BlockInstance", 0.7f);
                 start = false;
                 
                 if (root == getPlayerNumber.getNumber[0])
@@ -193,7 +205,7 @@ public class RaceBlockMgr : MonoBehaviour
 
                     raceFall.enabled = true;
                     raceCtrl.enabled = true;
-                    raceCreateScript.Create();
+                    Invoke("BlockInstance", 0.7f);
                     standBy = false;
                     
                     if (root == getPlayerNumber.getNumber[0])
@@ -314,6 +326,11 @@ public class RaceBlockMgr : MonoBehaviour
         yield return null;
 
         rb2.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    public void BlockInstance()
+    {
+        raceCreateScript.Create();
     }
 
     public void BlockControl()

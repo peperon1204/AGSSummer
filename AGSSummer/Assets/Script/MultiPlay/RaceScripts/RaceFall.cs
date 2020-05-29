@@ -22,13 +22,11 @@ public class RaceFall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Rigidbodyの初期設定
+        //Rigidbodyの初期設定]:;1
         rb2 = GetComponent<Rigidbody2D>();
 
-        Instantiate(createEffect, new Vector3(transform.position.x + 2.0f, 
-        transform.position.y + 0.5f, 0.0f), Quaternion.identity);
-
-        rb2.bodyType = RigidbodyType2D.Dynamic;
+        Instantiate(createEffect, new Vector3(transform.position.x + 1.8f, 
+        transform.position.y + 1.0f, 0.0f), Quaternion.identity);
 
         Invoke("MovePosition", 0.7f);
     }
@@ -58,5 +56,7 @@ public class RaceFall : MonoBehaviour
     public void MovePosition()
     {
         transform.Translate(1.8f, 1.0f, 0.0f);
+
+        rb2.bodyType = RigidbodyType2D.Dynamic;
     }
 }
