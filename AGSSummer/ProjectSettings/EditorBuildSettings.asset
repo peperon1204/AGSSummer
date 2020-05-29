@@ -18,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/Multi/MultiPlay.unity
     guid: b4ff25f81cc07f1428c32c9fdc823da5
   - enabled: 1
-    path: Assets/Scenes/GameMode/RaceMode.unity
+    path: Assets/Scenes/GameScene/GameMode/RaceMode.unity
     guid: 597ad9202c6b24f4ab49776289689443
   - enabled: 1
-    path: Assets/Scenes/GameMode/SurvivalMode.unity
+    path: Assets/Scenes/GameScene/GameMode/SurvivalMode.unity
     guid: 4066ae44289257d4595535408ed69367
   - enabled: 1
-    path: Assets/Scenes/GameMode/LimitedMode.unity
+    path: Assets/Scenes/GameScene/GameMode/LimitedMode.unity
     guid: 76a62a473ceb58540a46254c9ad0f2db
   m_configObjects: {}
