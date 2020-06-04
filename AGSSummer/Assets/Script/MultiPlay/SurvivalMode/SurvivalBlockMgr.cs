@@ -42,10 +42,16 @@ public class SurvivalBlockMgr : MonoBehaviour
 
     public GameObject blockEffect;
 
+    public AudioClip blockSe1;
+    public AudioClip blockSe2;
+    AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         rb2 = GetComponent<Rigidbody2D>();
 
         fixBlock = false;
@@ -152,6 +158,7 @@ public class SurvivalBlockMgr : MonoBehaviour
                     survivalFall.enabled = true;
                     start = false;
                     Invoke("CreateScript", 0.8f);
+                    audioSource.PlayOneShot(blockSe2);
 
                     // gameObject.name = "FallBlock";
                     Physics2D.gravity = new Vector3(0, 0, 0);
@@ -183,6 +190,7 @@ public class SurvivalBlockMgr : MonoBehaviour
                     standBy = false;
                     //gameObject.name = "FallBlock";
                     Invoke("CreateScript", 0.8f);
+                    audioSource.PlayOneShot(blockSe2);
 
                     Physics2D.gravity = new Vector3(0, 0, 0);
 
@@ -333,6 +341,7 @@ public class SurvivalBlockMgr : MonoBehaviour
             gameObject.name = "BlockWaiver";
             gameObject.tag = "BlockWaiver";
             blockWaiver = true;
+            audioSource.PlayOneShot(blockSe1);
 
             StartCoroutine("NextFrameGravity");
         }
