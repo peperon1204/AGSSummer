@@ -39,6 +39,8 @@ public class FixedBlock : MonoBehaviour
         fixedPermit = false;
         usedItem = true;
         darumaItem = false;
+
+        ItemText.enabled = false;
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class FixedBlock : MonoBehaviour
                 randomItem = Random.Range(1, 3);
                 usedItem = false;
                 getItem = false;
+                ItemText.enabled = true;
             }
         }
         else
@@ -128,6 +131,8 @@ public class FixedBlock : MonoBehaviour
         randomItem = 0;
 
         usedItem = true;
+
+        ItemText.enabled = false;
     }
 
     public bool FixedPermit

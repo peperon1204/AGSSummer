@@ -18,6 +18,8 @@ public class RacePlayerNumber : MonoBehaviour
 
     public Camera[] playerCamera;
 
+    public RectTransform[] ItemRectTransform;
+
     void Awake()
     {
         playerNumber = 4;
@@ -49,6 +51,9 @@ public class RacePlayerNumber : MonoBehaviour
 
                 goalRectTransform[0].localPosition = new Vector3(-250.0f, 0.0f, 0.0f);
                 goalRectTransform[1].localPosition = new Vector3(250.0f, 0.0f, 0.0f);
+
+                ItemRectTransform[0].localPosition = new Vector3(-250.0f, 0.0f, 0.0f);
+                ItemRectTransform[1].localPosition = new Vector3(250.0f, 0.0f, 0.0f);
             }
             else if (playerNumber == 3)
             {
@@ -59,6 +64,10 @@ public class RacePlayerNumber : MonoBehaviour
                 goalRectTransform[0].localPosition = new Vector3(-312.5f, 0.0f, 0.0f);
                 goalRectTransform[1].localPosition = new Vector3(0.0f, 0.0f, 0.0f);
                 goalRectTransform[2].localPosition = new Vector3(312.5f, 0.0f, 0.0f);
+
+                ItemRectTransform[0].localPosition = new Vector3(-312.5f, 0.0f, 0.0f);
+                ItemRectTransform[1].localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                ItemRectTransform[2].localPosition = new Vector3(312.5f, 0.0f, 0.0f);
             }
         }
     }
