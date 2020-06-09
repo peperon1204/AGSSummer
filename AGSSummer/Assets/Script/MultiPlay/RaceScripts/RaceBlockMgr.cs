@@ -53,32 +53,41 @@ public class RaceBlockMgr : MonoBehaviour
 
     public GameObject blockEffect;
 
-    private Transform child;
+    //private Transform child;
 
-    private SpriteRenderer[] spriteRenderer;
+    //private GameObject[] GrandchildObj;
 
-    private Color color;
+    //private SpriteRenderer[] spriteRenderer;
+
+    //private Color color;
 
     public AudioClip blockSe1;
 
     public AudioClip blockSe2;
 
-    AudioSource audioSource;
+    private AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        /*GrandchildObj[0] = GameObject.Find("sourceBlock");
+
+        GrandchildObj[1] = GameObject.Find("sourceBlock (1)");
+
+        GrandchildObj[2] = GameObject.Find("sourceBlock (2)");
+
+        GrandchildObj[3] = GameObject.Find("sourceBlock (3)");
+
+        spriteRenderer[0] = GrandchildObj[0].GetComponent<SpriteRenderer>();
+
+        spriteRenderer[0].color = Color.red;*/
+
         audioSource = GetComponent<AudioSource>();
 
         rb2 = GetComponent<Rigidbody2D>();
 
         collider = gameObject.GetComponentsInChildren<BoxCollider2D>();
-
-        spriteRenderer = gameObject.GetComponentsInChildren<SpriteRenderer>();
-
-        color = spriteRenderer[0].material.color;
-
-        color.r = 0/255f; 
 
         for(int i = 0; i < 4; i++)
         {
