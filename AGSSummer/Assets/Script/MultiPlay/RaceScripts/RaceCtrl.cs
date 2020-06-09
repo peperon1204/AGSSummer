@@ -16,15 +16,22 @@ public class RaceCtrl : MonoBehaviour
 
     private RaceFall raceFall;
 
+    public AudioClip blockSe;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         playerNumber = GameObject.Find("GetPlayerNumber");
+
         getPlayerNumber = playerNumber.GetComponent<RacePlayerNumber>();
 
         root = transform.root.gameObject;
 
         raceFall = gameObject.GetComponent<RaceFall>();
+
+        audioSource = GetComponent<AudioSource>();
 
         //回転する中心軸を取得
         child = transform.Find("RotationCenter");
@@ -61,6 +68,8 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    audioSource.PlayOneShot(blockSe);
+                    
                     child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
@@ -92,6 +101,8 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.W))
                 {
+                    audioSource.PlayOneShot(blockSe);
+                    
                     child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
@@ -123,6 +134,8 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.T))
                 {
+                    audioSource.PlayOneShot(blockSe);
+
                     child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }
@@ -154,6 +167,8 @@ public class RaceCtrl : MonoBehaviour
                 //子オブジェクト（中心軸）のRotationを回転させる
                 if (Input.GetKeyDown(KeyCode.I))
                 {
+                    audioSource.PlayOneShot(blockSe);
+
                     child.transform.Rotate(0.0f, 0.0f, 90.0f);
                 }
             }

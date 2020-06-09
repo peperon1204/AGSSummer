@@ -15,14 +15,21 @@ public class RaceBlockDestroy : MonoBehaviour
     private GameObject FixedObj;
 
     private FixedBlock darumaItem;
+
+    public AudioClip blockSe;
+
+    AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
     {
         playerNumber = GameObject.Find("GetPlayerNumber");
+
         getPlayerNumber = playerNumber.GetComponent<RacePlayerNumber>();
 
         root = transform.root.gameObject;
+
+        audioSource = GetComponent<AudioSource>();
 
         if (root == getPlayerNumber.getNumber[0])
         {
@@ -57,28 +64,28 @@ public class RaceBlockDestroy : MonoBehaviour
                 {
                     destroyMove = true;
                 }
-                        }
-                        else if (root == getPlayerNumber.getNumber[1])
-                        {
-                            if(Input.GetKeyDown(KeyCode.X))
-                            {
-                                destroyMove = true;
-                            }
-                        }
-                        else if (root == getPlayerNumber.getNumber[2])
-                        {
-                            if(Input.GetKeyDown(KeyCode.C))
-                            {
-                                destroyMove = true;
-                            }
-                        }
-                        else if (root == getPlayerNumber.getNumber[3])
-                        {
-                            if(Input.GetKeyDown(KeyCode.V))
-                            {
-                                destroyMove = true;
-                            }
-                        }
+            }
+            else if (root == getPlayerNumber.getNumber[1])
+            {
+                if(Input.GetKeyDown(KeyCode.X))
+                {
+                    destroyMove = true;
+                }
+            }
+            else if (root == getPlayerNumber.getNumber[2])
+            {
+                if(Input.GetKeyDown(KeyCode.C))
+                {
+                    destroyMove = true;
+                }
+            }
+            else if (root == getPlayerNumber.getNumber[3])
+            {
+                if(Input.GetKeyDown(KeyCode.V))
+                {
+                    destroyMove = true;
+                }
+            }
         }
 
         if(destroyMove)
@@ -98,6 +105,7 @@ public class RaceBlockDestroy : MonoBehaviour
     {
         if(destroyMove)
         {
+            audioSource.PlayOneShot(blockSe);
             Destroy(collision.gameObject);
         }
     }

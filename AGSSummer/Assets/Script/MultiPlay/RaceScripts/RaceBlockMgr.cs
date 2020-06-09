@@ -59,9 +59,17 @@ public class RaceBlockMgr : MonoBehaviour
 
     private Color color;
 
+    public AudioClip blockSe1;
+
+    public AudioClip blockSe2;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         rb2 = GetComponent<Rigidbody2D>();
 
         collider = gameObject.GetComponentsInChildren<BoxCollider2D>();
@@ -167,6 +175,8 @@ public class RaceBlockMgr : MonoBehaviour
                 {
                     collider[i].enabled = true;
                 }
+
+                audioSource.PlayOneShot(blockSe2);
                 
                 raceFall.enabled = true;
                 raceCtrl.enabled = true;
@@ -202,6 +212,8 @@ public class RaceBlockMgr : MonoBehaviour
                     {
                         collider[i].enabled = true;
                     }
+
+                    audioSource.PlayOneShot(blockSe2);
 
                     raceFall.enabled = true;
                     raceCtrl.enabled = true;
@@ -337,6 +349,7 @@ public class RaceBlockMgr : MonoBehaviour
     {
         if(!blockWaiver)
         {
+            audioSource.PlayOneShot(blockSe1);
             raceFall.enabled = false;
             raceCtrl.enabled = false;
             gameObject.name = "BlockWaiver";
