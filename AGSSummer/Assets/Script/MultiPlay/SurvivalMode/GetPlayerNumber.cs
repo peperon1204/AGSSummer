@@ -21,6 +21,8 @@ public class GetPlayerNumber : MonoBehaviour
         getPlayerObject = GameObject.Find("GetPlayer");
         getNumberScript = getPlayerObject.GetComponent<GetNumber>();
         playerNumber = getNumberScript.Number;
+        Destroy(getPlayerObject);
+
 
         if (playerNumber == 4)
         {

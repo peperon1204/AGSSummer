@@ -80,7 +80,7 @@ public class SurvivalResult : MonoBehaviour
         {
             if (lifeScript.life == 0)
             {
-                loseText.enabled = true;
+                //loseText.enabled = true;
                 loseFlag = true;
                 resultScript.AddLosePlayer();
             }

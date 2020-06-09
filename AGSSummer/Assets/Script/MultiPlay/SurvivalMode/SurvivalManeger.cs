@@ -11,7 +11,7 @@ public class SurvivalManeger : MonoBehaviour
     public bool win;        //本来はprivate
     public bool lose;       //テストのためにpublic
 
-    public Text winText;
+    //public Text winText;
     public Text loseText;
 
     public GameObject[] playerLife;
@@ -34,14 +34,17 @@ public class SurvivalManeger : MonoBehaviour
 
     public GameModeScene gameMode;
 
+
     // Start is called before the first frame update
     void Start()
     {
+
+
         win = false;
         lose = false;
 
 
-        winText = winText.GetComponent<Text>();
+        //winText = winText.GetComponent<Text>();
         loseText = loseText.GetComponent<Text>();
 
 
@@ -54,7 +57,7 @@ public class SurvivalManeger : MonoBehaviour
 
         gameMode = GameModeScene.Start;
 
-        winText.enabled = false;
+        //winText.enabled = false;
         loseText.enabled = false;
     }
 
@@ -65,7 +68,8 @@ public class SurvivalManeger : MonoBehaviour
 
         //Debug.Log("survivalLife" + survivalLife);
 
-        if(resultScript.winFlag)
+
+        if (resultScript.winFlag)
         {
             gameMode = GameModeScene.Result;
         }
@@ -78,6 +82,8 @@ public class SurvivalManeger : MonoBehaviour
                 Invoke("ChangeScene", 0.0f);
             }
         }
+
+        Debug.Log("result"+ resultScript.winFlag);
     }
 
     void ChangeScene()

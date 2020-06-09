@@ -33,6 +33,7 @@ public class ResultProcess : MonoBehaviour
         }
 
         Debug.Log("lose" + losePlayer);
+        Debug.Log("winflag" + winFlag);
     }
 
     public void AddLosePlayer()

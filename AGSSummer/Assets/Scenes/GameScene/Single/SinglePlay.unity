@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 944031862}
-  totalTime: 100
+  totalTime: 300
 --- !u!4 &33253525
 Transform:
   m_ObjectHideFlags: 0
@@ -627,6 +627,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 4563621223332469188, guid: c63876333ff701246b589fef1704ef92,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 4733642743634549748, guid: c63876333ff701246b589fef1704ef92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,6 +685,21 @@ PrefabInstance:
     - target: {fileID: 4733642743634549748, guid: c63876333ff701246b589fef1704ef92,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996835549705459299, guid: c63876333ff701246b589fef1704ef92,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996835549705459299, guid: c63876333ff701246b589fef1704ef92,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996835549705459299, guid: c63876333ff701246b589fef1704ef92,
+        type: 3}
+      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5080201107457760733, guid: c63876333ff701246b589fef1704ef92,
@@ -1098,7 +1118,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Time:100
+  m_Text: Time:300
 --- !u!114 &944031863
 MonoBehaviour:
   m_ObjectHideFlags: 0
