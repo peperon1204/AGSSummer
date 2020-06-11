@@ -53,13 +53,21 @@ public class RaceBlockMgr : MonoBehaviour
 
     public GameObject blockEffect;
 
-    //private Transform child;
+    private GameObject GrandchildObj1;
 
-    //private GameObject[] GrandchildObj;
+    private GameObject GrandchildObj2;
 
-    //private SpriteRenderer[] spriteRenderer;
+    private GameObject GrandchildObj3;
 
-    //private Color color;
+    private GameObject GrandchildObj4;
+
+    private SpriteRenderer spriteRenderer1;
+
+    private SpriteRenderer spriteRenderer2;
+
+    private SpriteRenderer spriteRenderer3;
+
+    private SpriteRenderer spriteRenderer4;
 
     public AudioClip blockSe1;
 
@@ -71,15 +79,28 @@ public class RaceBlockMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*GrandchildObj[0] = GameObject.Find("sourceBlock");
+        GrandchildObj1 = transform.Find("RotationCenter/sourceBlock").gameObject;
+        GrandchildObj2 = transform.Find("RotationCenter/sourceBlock (1)").gameObject;
+        GrandchildObj3 = transform.Find("RotationCenter/sourceBlock (2)").gameObject;
+        GrandchildObj4 = transform.Find("RotationCenter/sourceBlock (3)").gameObject;
 
-        GrandchildObj[1] = GameObject.Find("sourceBlock (1)");
+        spriteRenderer1 = GrandchildObj1.GetComponent<SpriteRenderer>();
+        spriteRenderer2 = GrandchildObj2.GetComponent<SpriteRenderer>();
+        spriteRenderer3 = GrandchildObj3.GetComponent<SpriteRenderer>();
+        spriteRenderer4 = GrandchildObj4.GetComponent<SpriteRenderer>();
 
-        GrandchildObj[2] = GameObject.Find("sourceBlock (2)");
+        spriteRenderer1.color = Color.blue;
+        spriteRenderer2.color = Color.blue;
+        spriteRenderer3.color = Color.blue;
+        spriteRenderer4.color = Color.blue;
 
-        GrandchildObj[3] = GameObject.Find("sourceBlock (3)");
+        /*GrandchildObj[1] = GameObject.FindChild("RotationCenter/sourceBlock (1)");
 
-        spriteRenderer[0] = GrandchildObj[0].GetComponent<SpriteRenderer>();
+        GrandchildObj[2] = GameObject.FindChild("RotationCenter/sourceBlock (2)");
+
+        GrandchildObj[3] = GameObject.FindChild("RotationCenter/sourceBlock (3)");*/
+
+        /*spriteRenderer[0] = GrandchildObj[0].GetComponent<SpriteRenderer>();
 
         spriteRenderer[0].color = Color.red;*/
 

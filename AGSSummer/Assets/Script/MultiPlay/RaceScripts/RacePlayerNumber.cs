@@ -33,11 +33,7 @@ public class RacePlayerNumber : MonoBehaviour
         playerNumber = getNumberScript.Number;
         Debug.Log(playerNumber);
         Destroy(getPlayerObject);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         if(playerNumber < 4)
         {
             getNumber[3].SetActive(false);
@@ -70,5 +66,11 @@ public class RacePlayerNumber : MonoBehaviour
                 ItemRectTransform[2].localPosition = new Vector3(312.5f, 0.0f, 0.0f);
             }
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
