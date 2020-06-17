@@ -21,9 +21,7 @@ public class RaceMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        getPlayerObject = GameObject.Find("GetPlayer");
-        getNumberScript = getPlayerObject.GetComponent<GetNumber>();
-        playerNumber = getNumberScript.Number;
+        
     }
 
     // Update is called once per frame
