@@ -35,7 +35,7 @@ public class SingleScore : MonoBehaviour
         {
             if (collision.gameObject.tag == "BlockWaiver")
             {
-                Instantiate(scoreBox, new Vector3(transform.position.x, transform.position.y + 5.0f, transform.position.z), Quaternion.identity);
+                Instantiate(scoreBox, new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z), Quaternion.identity);
 
                 scoreScript.ScoreAdd();
                 Debug.Log("当たり");
