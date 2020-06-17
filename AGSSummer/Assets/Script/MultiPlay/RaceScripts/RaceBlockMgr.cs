@@ -89,21 +89,6 @@ public class RaceBlockMgr : MonoBehaviour
         spriteRenderer3 = GrandchildObj3.GetComponent<SpriteRenderer>();
         spriteRenderer4 = GrandchildObj4.GetComponent<SpriteRenderer>();
 
-        spriteRenderer1.color = Color.blue;
-        spriteRenderer2.color = Color.blue;
-        spriteRenderer3.color = Color.blue;
-        spriteRenderer4.color = Color.blue;
-
-        /*GrandchildObj[1] = GameObject.FindChild("RotationCenter/sourceBlock (1)");
-
-        GrandchildObj[2] = GameObject.FindChild("RotationCenter/sourceBlock (2)");
-
-        GrandchildObj[3] = GameObject.FindChild("RotationCenter/sourceBlock (3)");*/
-
-        /*spriteRenderer[0] = GrandchildObj[0].GetComponent<SpriteRenderer>();
-
-        spriteRenderer[0].color = Color.red;*/
-
         audioSource = GetComponent<AudioSource>();
 
         rb2 = GetComponent<Rigidbody2D>();
@@ -282,6 +267,10 @@ public class RaceBlockMgr : MonoBehaviour
                             if(Input.GetKeyDown(KeyCode.Z))
                             {
                                 fixedBlock = true;
+                                spriteRenderer1.color = Color.blue;
+                                spriteRenderer2.color = Color.blue;
+                                spriteRenderer3.color = Color.blue;
+                                spriteRenderer4.color = Color.blue;
                             }
                         }
                         else if (root == getPlayerNumber.getNumber[1])
@@ -289,6 +278,10 @@ public class RaceBlockMgr : MonoBehaviour
                             if(Input.GetKeyDown(KeyCode.X))
                             {
                                 fixedBlock = true;
+                                spriteRenderer1.color = Color.blue;
+                                spriteRenderer2.color = Color.blue;
+                                spriteRenderer3.color = Color.blue;
+                                spriteRenderer4.color = Color.blue;
                             }
                         }
                         else if (root == getPlayerNumber.getNumber[2])
@@ -296,6 +289,10 @@ public class RaceBlockMgr : MonoBehaviour
                             if(Input.GetKeyDown(KeyCode.C))
                             {
                                 fixedBlock = true;
+                                spriteRenderer1.color = Color.blue;
+                                spriteRenderer2.color = Color.blue;
+                                spriteRenderer3.color = Color.blue;
+                                spriteRenderer4.color = Color.blue;
                             }
                         }
                         else if (root == getPlayerNumber.getNumber[3])
@@ -303,6 +300,10 @@ public class RaceBlockMgr : MonoBehaviour
                             if(Input.GetKeyDown(KeyCode.V))
                             {
                                 fixedBlock = true;
+                                spriteRenderer1.color = Color.blue;
+                                spriteRenderer2.color = Color.blue;
+                                spriteRenderer3.color = Color.blue;
+                                spriteRenderer4.color = Color.blue;
                             }
                         }
                     }
